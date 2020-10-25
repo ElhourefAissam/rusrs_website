@@ -2072,51 +2072,367 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/navbar.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/navbar.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('navbar Component mounted.');
   }
 });
 
@@ -37712,707 +38028,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("main", { attrs: { role: "main" } }, [
-      _c(
-        "div",
-        {
-          staticClass: "carousel slide",
-          attrs: { id: "myCarousel", "data-ride": "carousel" }
-        },
-        [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "carousel-inner" }, [
-            _c("div", { staticClass: "carousel-item active" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "bd-placeholder-img",
-                  attrs: {
-                    width: "100%",
-                    height: "100%",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    preserveAspectRatio: "xMidYMid slice",
-                    focusable: "false",
-                    role: "img"
-                  }
-                },
-                [
-                  _c("rect", {
-                    attrs: { width: "100%", height: "100%", fill: "#777" }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(2)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "carousel-item" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "bd-placeholder-img",
-                  attrs: {
-                    width: "100%",
-                    height: "100%",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    preserveAspectRatio: "xMidYMid slice",
-                    focusable: "false",
-                    role: "img"
-                  }
-                },
-                [
-                  _c("rect", {
-                    attrs: { width: "100%", height: "100%", fill: "#777" }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(3)
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "carousel-item" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "bd-placeholder-img",
-                  attrs: {
-                    width: "100%",
-                    height: "100%",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    preserveAspectRatio: "xMidYMid slice",
-                    focusable: "false",
-                    role: "img"
-                  }
-                },
-                [
-                  _c("rect", {
-                    attrs: { width: "100%", height: "100%", fill: "#777" }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(4)
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _vm._m(6)
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container marketing" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "bd-placeholder-img rounded-circle",
-                attrs: {
-                  width: "140",
-                  height: "140",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img",
-                  "aria-label": "Placeholder: 140x140"
-                }
-              },
-              [
-                _c("title", [_vm._v("Placeholder")]),
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#777" }
-                }),
-                _c(
-                  "text",
-                  { attrs: { x: "50%", y: "50%", fill: "#777", dy: ".3em" } },
-                  [_vm._v("140x140")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Heading")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna."
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(7)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "bd-placeholder-img rounded-circle",
-                attrs: {
-                  width: "140",
-                  height: "140",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img",
-                  "aria-label": "Placeholder: 140x140"
-                }
-              },
-              [
-                _c("title", [_vm._v("Placeholder")]),
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#777" }
-                }),
-                _c(
-                  "text",
-                  { attrs: { x: "50%", y: "50%", fill: "#777", dy: ".3em" } },
-                  [_vm._v("140x140")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Heading")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh."
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(8)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "bd-placeholder-img rounded-circle",
-                attrs: {
-                  width: "140",
-                  height: "140",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img",
-                  "aria-label": "Placeholder: 140x140"
-                }
-              },
-              [
-                _c("title", [_vm._v("Placeholder")]),
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#777" }
-                }),
-                _c(
-                  "text",
-                  { attrs: { x: "50%", y: "50%", fill: "#777", dy: ".3em" } },
-                  [_vm._v("140x140")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Heading")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus."
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(9)
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr", { staticClass: "featurette-divider" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row featurette" }, [
-          _vm._m(10),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-5" }, [
-            _c(
-              "svg",
-              {
-                staticClass:
-                  "bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto",
-                attrs: {
-                  width: "500",
-                  height: "500",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img",
-                  "aria-label": "Placeholder: 500x500"
-                }
-              },
-              [
-                _c("title", [_vm._v("Placeholder")]),
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#eee" }
-                }),
-                _c(
-                  "text",
-                  { attrs: { x: "50%", y: "50%", fill: "#aaa", dy: ".3em" } },
-                  [_vm._v("500x500")]
-                )
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr", { staticClass: "featurette-divider" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row featurette" }, [
-          _vm._m(11),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-5 order-md-1" }, [
-            _c(
-              "svg",
-              {
-                staticClass:
-                  "bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto",
-                attrs: {
-                  width: "500",
-                  height: "500",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img",
-                  "aria-label": "Placeholder: 500x500"
-                }
-              },
-              [
-                _c("title", [_vm._v("Placeholder")]),
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#eee" }
-                }),
-                _c(
-                  "text",
-                  { attrs: { x: "50%", y: "50%", fill: "#aaa", dy: ".3em" } },
-                  [_vm._v("500x500")]
-                )
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr", { staticClass: "featurette-divider" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "row featurette" }, [
-          _vm._m(12),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-5" }, [
-            _c(
-              "svg",
-              {
-                staticClass:
-                  "bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto",
-                attrs: {
-                  width: "500",
-                  height: "500",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img",
-                  "aria-label": "Placeholder: 500x500"
-                }
-              },
-              [
-                _c("title", [_vm._v("Placeholder")]),
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#eee" }
-                }),
-                _c(
-                  "text",
-                  { attrs: { x: "50%", y: "50%", fill: "#aaa", dy: ".3em" } },
-                  [_vm._v("500x500")]
-                )
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("hr", { staticClass: "featurette-divider" })
-      ]),
-      _vm._v(" "),
-      _vm._m(13)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", [
-      _c(
-        "nav",
-        {
-          staticClass: "navbar navbar-expand-md navbar-dark fixed-top bg-dark"
-        },
-        [
-          _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-            _vm._v("Carousel")
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "navbar-toggler",
-              attrs: {
-                type: "button",
-                "data-toggle": "collapse",
-                "data-target": "#navbarCollapse",
-                "aria-controls": "navbarCollapse",
-                "aria-expanded": "false",
-                "aria-label": "Toggle navigation"
-              }
-            },
-            [_c("span", { staticClass: "navbar-toggler-icon" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "collapse navbar-collapse",
-              attrs: { id: "navbarCollapse" }
-            },
-            [
-              _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-                _c("li", { staticClass: "nav-item active" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Home "),
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("(current)")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _vm._v("Link")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link disabled",
-                      attrs: {
-                        href: "#",
-                        tabindex: "-1",
-                        "aria-disabled": "true"
-                      }
-                    },
-                    [_vm._v("Disabled")]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("form", { staticClass: "form-inline mt-2 mt-md-0" }, [
-                _c("input", {
-                  staticClass: "form-control mr-sm-2",
-                  attrs: {
-                    type: "text",
-                    placeholder: "Search",
-                    "aria-label": "Search"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success my-2 my-sm-0",
-                    attrs: { type: "submit" }
-                  },
-                  [_vm._v("Search")]
-                )
-              ])
-            ]
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ol", { staticClass: "carousel-indicators" }, [
-      _c("li", {
-        staticClass: "active",
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "0" }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "1" }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "2" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "carousel-caption text-left" }, [
-        _c("h1", [_vm._v("Example headline.")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-lg btn-primary",
-              attrs: { href: "#", role: "button" }
-            },
-            [_vm._v("Sign up today")]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "carousel-caption" }, [
-        _c("h1", [_vm._v("Another example headline.")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-lg btn-primary",
-              attrs: { href: "#", role: "button" }
-            },
-            [_vm._v("Learn more")]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "carousel-caption text-right" }, [
-        _c("h1", [_vm._v("One more for good measure.")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-lg btn-primary",
-              attrs: { href: "#", role: "button" }
-            },
-            [_vm._v("Browse gallery")]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-prev",
-        attrs: { href: "#myCarousel", role: "button", "data-slide": "prev" }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-prev-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-next",
-        attrs: { href: "#myCarousel", role: "button", "data-slide": "next" }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-next-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { href: "#", role: "button" }
-        },
-        [_vm._v("View details »")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { href: "#", role: "button" }
-        },
-        [_vm._v("View details »")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { href: "#", role: "button" }
-        },
-        [_vm._v("View details »")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-7" }, [
-      _c("h2", { staticClass: "featurette-heading" }, [
-        _vm._v("First featurette heading. "),
-        _c("span", { staticClass: "text-muted" }, [
-          _vm._v("It’ll blow your mind.")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [
-        _vm._v(
-          "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-7 order-md-2" }, [
-      _c("h2", { staticClass: "featurette-heading" }, [
-        _vm._v("Oh yeah, it’s that good. "),
-        _c("span", { staticClass: "text-muted" }, [_vm._v("See for yourself.")])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [
-        _vm._v(
-          "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-7" }, [
-      _c("h2", { staticClass: "featurette-heading" }, [
-        _vm._v("And lastly, this one. "),
-        _c("span", { staticClass: "text-muted" }, [_vm._v("Checkmate.")])
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "lead" }, [
-        _vm._v(
-          "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo."
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "container" }, [
-      _c("p", { staticClass: "float-right" }, [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Back to top")])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("© 2017-2020 Company, Inc. · "),
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Privacy")]),
-        _vm._v(" · "),
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Terms")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/navbar.vue?vue&type=template&id=11e733ca&":
-/*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/navbar.vue?vue&type=template&id=11e733ca& ***!
-  \*********************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -38420,73 +38035,1520 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" },
-      [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarSupportedContent",
-              "aria-controls": "navbarSupportedContent",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarSupportedContent" }
-          },
-          [
-            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-              _c("li", { staticClass: "nav-item active" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Home "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+    return _c("div", [
+      _c(
+        "nav",
+        {
+          staticClass: "navbar navbar-expand-lg navbar-dark fixed-top",
+          attrs: { id: "mainNav" }
+        },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c(
+              "a",
+              {
+                staticClass: "navbar-brand js-scroll-trigger",
+                attrs: { href: "#page-top" }
+              },
+              [
+                _c("img", {
+                  attrs: { src: "assets/img/navbar-logo.svg", alt: "" }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "navbar-toggler navbar-toggler-right",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "collapse",
+                  "data-target": "#navbarResponsive",
+                  "aria-controls": "navbarResponsive",
+                  "aria-expanded": "false",
+                  "aria-label": "Toggle navigation"
+                }
+              },
+              [
+                _vm._v("\n                    Menu\n                    "),
+                _c("i", { staticClass: "fas fa-bars ml-1" })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "collapse navbar-collapse",
+                attrs: { id: "navbarResponsive" }
+              },
+              [
+                _c("ul", { staticClass: "navbar-nav text-uppercase ml-auto" }, [
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link js-scroll-trigger",
+                        attrs: { href: "#services" }
+                      },
+                      [_vm._v("Services")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link js-scroll-trigger",
+                        attrs: { href: "#portfolio" }
+                      },
+                      [_vm._v("Portfolio")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link js-scroll-trigger",
+                        attrs: { href: "#about" }
+                      },
+                      [_vm._v("About")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link js-scroll-trigger",
+                        attrs: { href: "#team" }
+                      },
+                      [_vm._v("Team")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link js-scroll-trigger",
+                        attrs: { href: "#contact" }
+                      },
+                      [_vm._v("Contact")]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("header", { staticClass: "masthead" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "masthead-subheading" }, [
+            _vm._v("Welcome To Our Studio!")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "masthead-heading text-uppercase" }, [
+            _vm._v("It's Nice To Meet You")
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn btn-primary btn-xl text-uppercase js-scroll-trigger",
+              attrs: { href: "#services" }
+            },
+            [_vm._v("Tell Me More")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "page-section", attrs: { id: "services" } },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "text-center" }, [
+              _c("h2", { staticClass: "section-heading text-uppercase" }, [
+                _vm._v("Services")
+              ]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "section-subheading text-muted" }, [
+                _vm._v("Lorem ipsum dolor sit amet consectetur.")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row text-center" }, [
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("span", { staticClass: "fa-stack fa-4x" }, [
+                  _c("i", {
+                    staticClass: "fas fa-circle fa-stack-2x text-primary"
+                  }),
+                  _vm._v(" "),
+                  _c("i", {
+                    staticClass: "fas fa-shopping-cart fa-stack-1x fa-inverse"
+                  })
+                ]),
+                _vm._v(" "),
+                _c("h4", { staticClass: "my-3" }, [_vm._v("E-Commerce")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-muted" }, [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+                  )
                 ])
               ]),
               _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("Link")
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("span", { staticClass: "fa-stack fa-4x" }, [
+                  _c("i", {
+                    staticClass: "fas fa-circle fa-stack-2x text-primary"
+                  }),
+                  _vm._v(" "),
+                  _c("i", {
+                    staticClass: "fas fa-laptop fa-stack-1x fa-inverse"
+                  })
+                ]),
+                _vm._v(" "),
+                _c("h4", { staticClass: "my-3" }, [
+                  _vm._v("Responsive Design")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-muted" }, [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
+                _c("span", { staticClass: "fa-stack fa-4x" }, [
+                  _c("i", {
+                    staticClass: "fas fa-circle fa-stack-2x text-primary"
+                  }),
+                  _vm._v(" "),
+                  _c("i", { staticClass: "fas fa-lock fa-stack-1x fa-inverse" })
+                ]),
+                _vm._v(" "),
+                _c("h4", { staticClass: "my-3" }, [_vm._v("Web Security")]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-muted" }, [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "page-section bg-light", attrs: { id: "portfolio" } },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "text-center" }, [
+              _c("h2", { staticClass: "section-heading text-uppercase" }, [
+                _vm._v("Portfolio")
+              ]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "section-subheading text-muted" }, [
+                _vm._v("Lorem ipsum dolor sit amet consectetur.")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4" }, [
+                _c("div", { staticClass: "portfolio-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "portfolio-link",
+                      attrs: {
+                        "data-toggle": "modal",
+                        href: "#portfolioModal1"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "portfolio-hover" }, [
+                        _c("div", { staticClass: "portfolio-hover-content" }, [
+                          _c("i", { staticClass: "fas fa-plus fa-3x" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src: "assets/img/portfolio/01-thumbnail.jpg",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "portfolio-caption" }, [
+                    _c("div", { staticClass: "portfolio-caption-heading" }, [
+                      _vm._v("Threads")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "portfolio-caption-subheading text-muted"
+                      },
+                      [_vm._v("Illustration")]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4" }, [
+                _c("div", { staticClass: "portfolio-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "portfolio-link",
+                      attrs: {
+                        "data-toggle": "modal",
+                        href: "#portfolioModal2"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "portfolio-hover" }, [
+                        _c("div", { staticClass: "portfolio-hover-content" }, [
+                          _c("i", { staticClass: "fas fa-plus fa-3x" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src: "assets/img/portfolio/02-thumbnail.jpg",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "portfolio-caption" }, [
+                    _c("div", { staticClass: "portfolio-caption-heading" }, [
+                      _vm._v("Explore")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "portfolio-caption-subheading text-muted"
+                      },
+                      [_vm._v("Graphic Design")]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4" }, [
+                _c("div", { staticClass: "portfolio-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "portfolio-link",
+                      attrs: {
+                        "data-toggle": "modal",
+                        href: "#portfolioModal3"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "portfolio-hover" }, [
+                        _c("div", { staticClass: "portfolio-hover-content" }, [
+                          _c("i", { staticClass: "fas fa-plus fa-3x" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src: "assets/img/portfolio/03-thumbnail.jpg",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "portfolio-caption" }, [
+                    _c("div", { staticClass: "portfolio-caption-heading" }, [
+                      _vm._v("Finish")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "portfolio-caption-subheading text-muted"
+                      },
+                      [_vm._v("Identity")]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4 mb-lg-0" }, [
+                _c("div", { staticClass: "portfolio-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "portfolio-link",
+                      attrs: {
+                        "data-toggle": "modal",
+                        href: "#portfolioModal4"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "portfolio-hover" }, [
+                        _c("div", { staticClass: "portfolio-hover-content" }, [
+                          _c("i", { staticClass: "fas fa-plus fa-3x" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src: "assets/img/portfolio/04-thumbnail.jpg",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "portfolio-caption" }, [
+                    _c("div", { staticClass: "portfolio-caption-heading" }, [
+                      _vm._v("Lines")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "portfolio-caption-subheading text-muted"
+                      },
+                      [_vm._v("Branding")]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4 mb-sm-0" }, [
+                _c("div", { staticClass: "portfolio-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "portfolio-link",
+                      attrs: {
+                        "data-toggle": "modal",
+                        href: "#portfolioModal5"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "portfolio-hover" }, [
+                        _c("div", { staticClass: "portfolio-hover-content" }, [
+                          _c("i", { staticClass: "fas fa-plus fa-3x" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src: "assets/img/portfolio/05-thumbnail.jpg",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "portfolio-caption" }, [
+                    _c("div", { staticClass: "portfolio-caption-heading" }, [
+                      _vm._v("Southwest")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "portfolio-caption-subheading text-muted"
+                      },
+                      [_vm._v("Website Design")]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-sm-6" }, [
+                _c("div", { staticClass: "portfolio-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "portfolio-link",
+                      attrs: {
+                        "data-toggle": "modal",
+                        href: "#portfolioModal6"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "portfolio-hover" }, [
+                        _c("div", { staticClass: "portfolio-hover-content" }, [
+                          _c("i", { staticClass: "fas fa-plus fa-3x" })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src: "assets/img/portfolio/06-thumbnail.jpg",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "portfolio-caption" }, [
+                    _c("div", { staticClass: "portfolio-caption-heading" }, [
+                      _vm._v("Window")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "portfolio-caption-subheading text-muted"
+                      },
+                      [_vm._v("Photography")]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("section", { staticClass: "page-section", attrs: { id: "about" } }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "text-center" }, [
+            _c("h2", { staticClass: "section-heading text-uppercase" }, [
+              _vm._v("About")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "section-subheading text-muted" }, [
+              _vm._v("Lorem ipsum dolor sit amet consectetur.")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "timeline" }, [
+            _c("li", [
+              _c("div", { staticClass: "timeline-image" }, [
+                _c("img", {
+                  staticClass: "rounded-circle img-fluid",
+                  attrs: { src: "assets/img/about/1.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "timeline-panel" }, [
+                _c("div", { staticClass: "timeline-heading" }, [
+                  _c("h4", [_vm._v("2009-2011")]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "subheading" }, [
+                    _vm._v("Our Humble Beginnings")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "timeline-body" }, [
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v(
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+                    )
+                  ])
                 ])
               ])
             ]),
             _vm._v(" "),
-            _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
-              _c("input", {
-                staticClass: "form-control mr-sm-2",
-                attrs: {
-                  type: "search",
-                  placeholder: "Search",
-                  "aria-label": "Search"
-                }
-              }),
+            _c("li", { staticClass: "timeline-inverted" }, [
+              _c("div", { staticClass: "timeline-image" }, [
+                _c("img", {
+                  staticClass: "rounded-circle img-fluid",
+                  attrs: { src: "assets/img/about/2.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "timeline-panel" }, [
+                _c("div", { staticClass: "timeline-heading" }, [
+                  _c("h4", [_vm._v("March 2011")]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "subheading" }, [
+                    _vm._v("An Agency is Born")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "timeline-body" }, [
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v(
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("div", { staticClass: "timeline-image" }, [
+                _c("img", {
+                  staticClass: "rounded-circle img-fluid",
+                  attrs: { src: "assets/img/about/3.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "timeline-panel" }, [
+                _c("div", { staticClass: "timeline-heading" }, [
+                  _c("h4", [_vm._v("December 2012")]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "subheading" }, [
+                    _vm._v("Transition to Full Service")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "timeline-body" }, [
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v(
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "timeline-inverted" }, [
+              _c("div", { staticClass: "timeline-image" }, [
+                _c("img", {
+                  staticClass: "rounded-circle img-fluid",
+                  attrs: { src: "assets/img/about/4.jpg", alt: "" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "timeline-panel" }, [
+                _c("div", { staticClass: "timeline-heading" }, [
+                  _c("h4", [_vm._v("July 2014")]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "subheading" }, [
+                    _vm._v("Phase Two Expansion")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "timeline-body" }, [
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v(
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "timeline-inverted" }, [
+              _c("div", { staticClass: "timeline-image" }, [
+                _c("h4", [
+                  _vm._v(
+                    "\n                                Be Part\n                                "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n                                Of Our\n                                "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    "\n                                Story!\n                            "
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "page-section bg-light", attrs: { id: "team" } },
+        [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "text-center" }, [
+              _c("h2", { staticClass: "section-heading text-uppercase" }, [
+                _vm._v("Our Amazing Team")
+              ]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "section-subheading text-muted" }, [
+                _vm._v("Lorem ipsum dolor sit amet consectetur.")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("div", { staticClass: "team-member" }, [
+                  _c("img", {
+                    staticClass: "mx-auto rounded-circle",
+                    attrs: { src: "assets/img/team/1.jpg", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("h4", [_vm._v("Kay Garland")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v("Lead Designer")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-twitter" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-facebook-f" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-linkedin-in" })]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("div", { staticClass: "team-member" }, [
+                  _c("img", {
+                    staticClass: "mx-auto rounded-circle",
+                    attrs: { src: "assets/img/team/2.jpg", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("h4", [_vm._v("Larry Parker")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v("Lead Marketer")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-twitter" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-facebook-f" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-linkedin-in" })]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("div", { staticClass: "team-member" }, [
+                  _c("img", {
+                    staticClass: "mx-auto rounded-circle",
+                    attrs: { src: "assets/img/team/3.jpg", alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("h4", [_vm._v("Diana Petersen")]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v("Lead Developer")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-twitter" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-facebook-f" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-dark btn-social mx-2",
+                      attrs: { href: "#!" }
+                    },
+                    [_c("i", { staticClass: "fab fa-linkedin-in" })]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-8 mx-auto text-center" }, [
+                _c("p", { staticClass: "large text-muted" }, [
+                  _vm._v(
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde."
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "py-5" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-3 col-sm-6 my-3" }, [
+              _c("a", { attrs: { href: "#!" } }, [
+                _c("img", {
+                  staticClass: "img-fluid d-block mx-auto",
+                  attrs: { src: "assets/img/logos/envato.jpg", alt: "" }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3 col-sm-6 my-3" }, [
+              _c("a", { attrs: { href: "#!" } }, [
+                _c("img", {
+                  staticClass: "img-fluid d-block mx-auto",
+                  attrs: { src: "assets/img/logos/designmodo.jpg", alt: "" }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3 col-sm-6 my-3" }, [
+              _c("a", { attrs: { href: "#!" } }, [
+                _c("img", {
+                  staticClass: "img-fluid d-block mx-auto",
+                  attrs: { src: "assets/img/logos/themeforest.jpg", alt: "" }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-3 col-sm-6 my-3" }, [
+              _c("a", { attrs: { href: "#!" } }, [
+                _c("img", {
+                  staticClass: "img-fluid d-block mx-auto",
+                  attrs: {
+                    src: "assets/img/logos/creative-market.jpg",
+                    alt: ""
+                  }
+                })
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "page-section", attrs: { id: "contact" } }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "text-center" }, [
+            _c("h2", { staticClass: "section-heading text-uppercase" }, [
+              _vm._v("Contact Us")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "section-subheading text-muted" }, [
+              _vm._v("Lorem ipsum dolor sit amet consectetur.")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              attrs: {
+                id: "contactForm",
+                name: "sentMessage",
+                novalidate: "novalidate"
+              }
+            },
+            [
+              _c("div", { staticClass: "row align-items-stretch mb-5" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "name",
+                        type: "text",
+                        placeholder: "Your Name *",
+                        required: "required",
+                        "data-validation-required-message":
+                          "Please enter your name."
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "help-block text-danger" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "email",
+                        type: "email",
+                        placeholder: "Your Email *",
+                        required: "required",
+                        "data-validation-required-message":
+                          "Please enter your email address."
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "help-block text-danger" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group mb-md-0" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "phone",
+                        type: "tel",
+                        placeholder: "Your Phone *",
+                        required: "required",
+                        "data-validation-required-message":
+                          "Please enter your phone number."
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "help-block text-danger" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group form-group-textarea mb-md-0" },
+                    [
+                      _c("textarea", {
+                        staticClass: "form-control",
+                        attrs: {
+                          id: "message",
+                          placeholder: "Your Message *",
+                          required: "required",
+                          "data-validation-required-message":
+                            "Please enter a message."
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "help-block text-danger" })
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-center" }, [
+                _c("div", { attrs: { id: "success" } }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary btn-xl text-uppercase",
+                    attrs: { id: "sendMessageButton", type: "submit" }
+                  },
+                  [_vm._v("Send Message")]
+                )
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "footer py-4" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row align-items-center" }, [
+            _c("div", { staticClass: "col-lg-4 text-lg-left" }, [
+              _vm._v("Copyright © Your Website 2020")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 my-3 my-lg-0" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-dark btn-social mx-2",
+                  attrs: { href: "#!" }
+                },
+                [_c("i", { staticClass: "fab fa-twitter" })]
+              ),
               _vm._v(" "),
               _c(
-                "button",
+                "a",
                 {
-                  staticClass: "btn btn-outline-success my-2 my-sm-0",
-                  attrs: { type: "submit" }
+                  staticClass: "btn btn-dark btn-social mx-2",
+                  attrs: { href: "#!" }
                 },
-                [_vm._v("Search")]
+                [_c("i", { staticClass: "fab fa-facebook-f" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-dark btn-social mx-2",
+                  attrs: { href: "#!" }
+                },
+                [_c("i", { staticClass: "fab fa-linkedin-in" })]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 text-lg-right" }, [
+              _c("a", { staticClass: "mr-3", attrs: { href: "#!" } }, [
+                _vm._v("Privacy Policy")
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "#!" } }, [_vm._v("Terms of Use")])
             ])
-          ]
-        )
-      ]
-    )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "portfolio-modal modal fade",
+          attrs: {
+            id: "portfolioModal1",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "close-modal",
+                  attrs: { "data-dismiss": "modal" }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "assets/img/close-icon.svg",
+                      alt: "Close modal"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("h2", { staticClass: "text-uppercase" }, [
+                        _vm._v("Project Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "item-intro text-muted" }, [
+                        _vm._v("Lorem ipsum dolor sit amet consectetur.")
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid d-block mx-auto",
+                        attrs: {
+                          src: "assets/img/portfolio/01-full.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "list-inline" }, [
+                        _c("li", [_vm._v("Date: January 2020")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Client: Threads")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Category: Illustration")])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { "data-dismiss": "modal", type: "button" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-times mr-1" }),
+                          _vm._v(
+                            "\n                                        Close Project\n                                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "portfolio-modal modal fade",
+          attrs: {
+            id: "portfolioModal2",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "close-modal",
+                  attrs: { "data-dismiss": "modal" }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "assets/img/close-icon.svg",
+                      alt: "Close modal"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("h2", { staticClass: "text-uppercase" }, [
+                        _vm._v("Project Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "item-intro text-muted" }, [
+                        _vm._v("Lorem ipsum dolor sit amet consectetur.")
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid d-block mx-auto",
+                        attrs: {
+                          src: "assets/img/portfolio/02-full.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "list-inline" }, [
+                        _c("li", [_vm._v("Date: January 2020")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Client: Explore")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Category: Graphic Design")])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { "data-dismiss": "modal", type: "button" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-times mr-1" }),
+                          _vm._v(
+                            "\n                                        Close Project\n                                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "portfolio-modal modal fade",
+          attrs: {
+            id: "portfolioModal3",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "close-modal",
+                  attrs: { "data-dismiss": "modal" }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "assets/img/close-icon.svg",
+                      alt: "Close modal"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("h2", { staticClass: "text-uppercase" }, [
+                        _vm._v("Project Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "item-intro text-muted" }, [
+                        _vm._v("Lorem ipsum dolor sit amet consectetur.")
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid d-block mx-auto",
+                        attrs: {
+                          src: "assets/img/portfolio/03-full.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "list-inline" }, [
+                        _c("li", [_vm._v("Date: January 2020")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Client: Finish")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Category: Identity")])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { "data-dismiss": "modal", type: "button" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-times mr-1" }),
+                          _vm._v(
+                            "\n                                        Close Project\n                                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "portfolio-modal modal fade",
+          attrs: {
+            id: "portfolioModal4",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "close-modal",
+                  attrs: { "data-dismiss": "modal" }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "assets/img/close-icon.svg",
+                      alt: "Close modal"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("h2", { staticClass: "text-uppercase" }, [
+                        _vm._v("Project Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "item-intro text-muted" }, [
+                        _vm._v("Lorem ipsum dolor sit amet consectetur.")
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid d-block mx-auto",
+                        attrs: {
+                          src: "assets/img/portfolio/04-full.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "list-inline" }, [
+                        _c("li", [_vm._v("Date: January 2020")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Client: Lines")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Category: Branding")])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { "data-dismiss": "modal", type: "button" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-times mr-1" }),
+                          _vm._v(
+                            "\n                                        Close Project\n                                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "portfolio-modal modal fade",
+          attrs: {
+            id: "portfolioModal5",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "close-modal",
+                  attrs: { "data-dismiss": "modal" }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "assets/img/close-icon.svg",
+                      alt: "Close modal"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("h2", { staticClass: "text-uppercase" }, [
+                        _vm._v("Project Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "item-intro text-muted" }, [
+                        _vm._v("Lorem ipsum dolor sit amet consectetur.")
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid d-block mx-auto",
+                        attrs: {
+                          src: "assets/img/portfolio/05-full.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "list-inline" }, [
+                        _c("li", [_vm._v("Date: January 2020")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Client: Southwest")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Category: Website Design")])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { "data-dismiss": "modal", type: "button" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-times mr-1" }),
+                          _vm._v(
+                            "\n                                        Close Project\n                                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "portfolio-modal modal fade",
+          attrs: {
+            id: "portfolioModal6",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "close-modal",
+                  attrs: { "data-dismiss": "modal" }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "assets/img/close-icon.svg",
+                      alt: "Close modal"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row justify-content-center" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("h2", { staticClass: "text-uppercase" }, [
+                        _vm._v("Project Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "item-intro text-muted" }, [
+                        _vm._v("Lorem ipsum dolor sit amet consectetur.")
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "img-fluid d-block mx-auto",
+                        attrs: {
+                          src: "assets/img/portfolio/06-full.jpg",
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("ul", { staticClass: "list-inline" }, [
+                        _c("li", [_vm._v("Date: January 2020")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Client: Window")]),
+                        _vm._v(" "),
+                        _c("li", [_vm._v("Category: Photography")])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { "data-dismiss": "modal", type: "button" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-times mr-1" }),
+                          _vm._v(
+                            "\n                                        Close Project\n                                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -50694,7 +51756,6 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('front-page', __webpack_require__(/*! ./components/front.vue */ "./resources/js/components/front.vue")["default"]);
-Vue.component('navbar-element', __webpack_require__(/*! ./components/navbar.vue */ "./resources/js/components/navbar.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50818,75 +51879,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_front_vue_vue_type_template_id_6281fa6e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_front_vue_vue_type_template_id_6281fa6e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/navbar.vue":
-/*!********************************************!*\
-  !*** ./resources/js/components/navbar.vue ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _navbar_vue_vue_type_template_id_11e733ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./navbar.vue?vue&type=template&id=11e733ca& */ "./resources/js/components/navbar.vue?vue&type=template&id=11e733ca&");
-/* harmony import */ var _navbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar.vue?vue&type=script&lang=js& */ "./resources/js/components/navbar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _navbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _navbar_vue_vue_type_template_id_11e733ca___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _navbar_vue_vue_type_template_id_11e733ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/navbar.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/navbar.vue?vue&type=script&lang=js&":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/navbar.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_navbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./navbar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/navbar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_navbar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/navbar.vue?vue&type=template&id=11e733ca&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/navbar.vue?vue&type=template&id=11e733ca& ***!
-  \***************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_navbar_vue_vue_type_template_id_11e733ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./navbar.vue?vue&type=template&id=11e733ca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/navbar.vue?vue&type=template&id=11e733ca&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_navbar_vue_vue_type_template_id_11e733ca___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_navbar_vue_vue_type_template_id_11e733ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
