@@ -38857,7 +38857,7 @@ var staticRenderFns = [
                       staticClass: "nav-link js-scroll-trigger",
                       attrs: { href: "#portfolio" }
                     },
-                    [_vm._v("Portfolio")]
+                    [_vm._v("المعرض")]
                   )
                 ]),
                 _vm._v(" "),
@@ -38936,7 +38936,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "text-center" }, [
             _c("h2", { staticClass: "section-heading text-uppercase" }, [
-              _vm._v("Portfolio")
+              _vm._v("المعرض")
             ]),
             _vm._v(" "),
             _c("h3", { staticClass: "section-subheading text-muted" }, [

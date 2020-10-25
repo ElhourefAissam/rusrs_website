@@ -30,7 +30,7 @@ class ArticaleController extends Controller
 
     public function show($id)
     {
-        return Article::finnOrFail($id);
+        return Article::findOrFail($id);
     }
 
     public function update(Request $request, $id)
@@ -41,10 +41,12 @@ class ArticaleController extends Controller
             'author' => 'required',
         ]);
 
-        $event = Article::findOrFail($id);
+        $event = Article::findOrFail($request->$id);
         $event->title = $request->title;
         $event->artical_body = $request->artical_body;
         $event->author = $request->author;
+
+        return $request->method();
     }
 
     public function destroy($id)
