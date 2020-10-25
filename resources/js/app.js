@@ -8,25 +8,21 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('front-page', require('./components/front.vue').default);
+Vue.component('front-page'    , require('./components/main-components/Front.vue').default);
+Vue.component('navbar-element', require('./components/main-components/Navbar.vue').default);
+Vue.component('section-about', require('./components/main-components/About.vue').default);
+Vue.component('section-contact', require('./components/main-components/Contact.vue').default);
+Vue.component('section-footer', require('./components/main-components/Footer.vue').default);
+Vue.component('section-masthead', require('./components/main-components/Masthead.vue').default);
+Vue.component('section-modal', require('./components/main-components/Modal.vue').default);
+Vue.component('section-portfolio-grid', require('./components/main-components/Portfolio-grid.vue').default);
+Vue.component('section-services', require('./components/main-components/Services.vue').default);
+Vue.component('section-team'    , require('./components/main-components/Team.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+
 
 const app = new Vue({
-    el: '#app',
+    el: '#app'
 });
