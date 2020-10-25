@@ -18,6 +18,7 @@
     </head>
     <body id="page-top">
 
+         {{-- our main layout --}}
         <div id="app">
             <front-page/>
         </div>
