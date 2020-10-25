@@ -40795,7 +40795,7 @@ var staticRenderFns = [
                       staticClass: "nav-link js-scroll-trigger",
                       attrs: { href: "#portfolio" }
                     },
-                    [_vm._v("Portfolio")]
+                    [_vm._v("المعرض")]
                   )
                 ]),
                 _vm._v(" "),
@@ -40946,9 +40946,257 @@ var staticRenderFns = [
         attrs: { "data-toggle": "modal", href: "#portfolioModal1" }
       },
       [
+<<<<<<< HEAD
         _c("div", { staticClass: "portfolio-hover" }, [
           _c("div", { staticClass: "portfolio-hover-content" }, [
             _c("i", { staticClass: "fas fa-plus fa-3x" })
+=======
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "text-center" }, [
+            _c("h2", { staticClass: "section-heading text-uppercase" }, [
+              _vm._v("المعرض")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "section-subheading text-muted" }, [
+              _vm._v("Lorem ipsum dolor sit amet consectetur.")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4" }, [
+              _c("div", { staticClass: "portfolio-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "portfolio-link",
+                    attrs: { "data-toggle": "modal", href: "#portfolioModal1" }
+                  },
+                  [
+                    _c("div", { staticClass: "portfolio-hover" }, [
+                      _c("div", { staticClass: "portfolio-hover-content" }, [
+                        _c("i", { staticClass: "fas fa-plus fa-3x" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "assets/img/portfolio/01-thumbnail.jpg",
+                        alt: ""
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "portfolio-caption" }, [
+                  _c("div", { staticClass: "portfolio-caption-heading" }, [
+                    _vm._v("Threads")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "portfolio-caption-subheading text-muted" },
+                    [_vm._v("Illustration")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4" }, [
+              _c("div", { staticClass: "portfolio-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "portfolio-link",
+                    attrs: { "data-toggle": "modal", href: "#portfolioModal2" }
+                  },
+                  [
+                    _c("div", { staticClass: "portfolio-hover" }, [
+                      _c("div", { staticClass: "portfolio-hover-content" }, [
+                        _c("i", { staticClass: "fas fa-plus fa-3x" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "assets/img/portfolio/02-thumbnail.jpg",
+                        alt: ""
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "portfolio-caption" }, [
+                  _c("div", { staticClass: "portfolio-caption-heading" }, [
+                    _vm._v("Explore")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "portfolio-caption-subheading text-muted" },
+                    [_vm._v("Graphic Design")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4" }, [
+              _c("div", { staticClass: "portfolio-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "portfolio-link",
+                    attrs: { "data-toggle": "modal", href: "#portfolioModal3" }
+                  },
+                  [
+                    _c("div", { staticClass: "portfolio-hover" }, [
+                      _c("div", { staticClass: "portfolio-hover-content" }, [
+                        _c("i", { staticClass: "fas fa-plus fa-3x" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "assets/img/portfolio/03-thumbnail.jpg",
+                        alt: ""
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "portfolio-caption" }, [
+                  _c("div", { staticClass: "portfolio-caption-heading" }, [
+                    _vm._v("Finish")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "portfolio-caption-subheading text-muted" },
+                    [_vm._v("Identity")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4 mb-lg-0" }, [
+              _c("div", { staticClass: "portfolio-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "portfolio-link",
+                    attrs: { "data-toggle": "modal", href: "#portfolioModal4" }
+                  },
+                  [
+                    _c("div", { staticClass: "portfolio-hover" }, [
+                      _c("div", { staticClass: "portfolio-hover-content" }, [
+                        _c("i", { staticClass: "fas fa-plus fa-3x" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "assets/img/portfolio/04-thumbnail.jpg",
+                        alt: ""
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "portfolio-caption" }, [
+                  _c("div", { staticClass: "portfolio-caption-heading" }, [
+                    _vm._v("Lines")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "portfolio-caption-subheading text-muted" },
+                    [_vm._v("Branding")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 col-sm-6 mb-4 mb-sm-0" }, [
+              _c("div", { staticClass: "portfolio-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "portfolio-link",
+                    attrs: { "data-toggle": "modal", href: "#portfolioModal5" }
+                  },
+                  [
+                    _c("div", { staticClass: "portfolio-hover" }, [
+                      _c("div", { staticClass: "portfolio-hover-content" }, [
+                        _c("i", { staticClass: "fas fa-plus fa-3x" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "assets/img/portfolio/05-thumbnail.jpg",
+                        alt: ""
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "portfolio-caption" }, [
+                  _c("div", { staticClass: "portfolio-caption-heading" }, [
+                    _vm._v("Southwest")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "portfolio-caption-subheading text-muted" },
+                    [_vm._v("Website Design")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 col-sm-6" }, [
+              _c("div", { staticClass: "portfolio-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "portfolio-link",
+                    attrs: { "data-toggle": "modal", href: "#portfolioModal6" }
+                  },
+                  [
+                    _c("div", { staticClass: "portfolio-hover" }, [
+                      _c("div", { staticClass: "portfolio-hover-content" }, [
+                        _c("i", { staticClass: "fas fa-plus fa-3x" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "assets/img/portfolio/06-thumbnail.jpg",
+                        alt: ""
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "portfolio-caption" }, [
+                  _c("div", { staticClass: "portfolio-caption-heading" }, [
+                    _vm._v("Window")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "portfolio-caption-subheading text-muted" },
+                    [_vm._v("Photography")]
+                  )
+                ])
+              ])
+            ])
+>>>>>>> d33e299f018e45373343bd37f9f375a03fcfc245
           ])
         ]),
         _vm._v(" "),

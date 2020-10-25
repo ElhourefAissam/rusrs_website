@@ -45,11 +45,20 @@ class ArticaleController extends Controller
             'author' => 'required',
         ]);
 
+<<<<<<< HEAD
         $event = Article::find($request->id);
         $event->title = $request->title;
         $event->artical_body = $request->artical_body;
         $event->author = $request->author;
         $event->save();
+=======
+        $event = Article::findOrFail($request->$id);
+        $event->title = $request->title;
+        $event->artical_body = $request->artical_body;
+        $event->author = $request->author;
+
+        return $request->method();
+>>>>>>> d33e299f018e45373343bd37f9f375a03fcfc245
     }
 
     public function destroy($id)

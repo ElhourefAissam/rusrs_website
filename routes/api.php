@@ -11,6 +11,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('Article', ArticaleController::class);
 Route::apiResource('Event', EventController::class);
+<<<<<<< HEAD
 
+=======
+>>>>>>> d33e299f018e45373343bd37f9f375a03fcfc245
 
 
