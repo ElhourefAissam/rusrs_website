@@ -37,7 +37,7 @@ class ArticaleController extends Controller
         return Article::findOrFail($id);
     }
 
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
         $request->validate([
             'title' => 'required',
@@ -45,20 +45,12 @@ class ArticaleController extends Controller
             'author' => 'required',
         ]);
 
-<<<<<<< HEAD
-        $event = Article::find($request->id);
-        $event->title = $request->title;
-        $event->artical_body = $request->artical_body;
-        $event->author = $request->author;
-        $event->save();
-=======
-        $event = Article::findOrFail($request->$id);
+        $event = Article::findOrFail($id);
         $event->title = $request->title;
         $event->artical_body = $request->artical_body;
         $event->author = $request->author;
 
         return $request->method();
->>>>>>> d33e299f018e45373343bd37f9f375a03fcfc245
     }
 
     public function destroy($id)
