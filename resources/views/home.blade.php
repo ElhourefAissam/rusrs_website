@@ -20,7 +20,8 @@
 
          {{-- our main layout --}}
         <div id="app">
-            <front-page/>
+            {{-- <front-page/> --}}
+            <App></App>
         </div>
 
         <script src="{!! asset('js/app.js') !!}"></script>

@@ -45,8 +45,6 @@
 </div>
 </template>
 
->
-
 <script>
 export default {
     data: function () {
@@ -71,6 +69,7 @@ export default {
                     this.$emit('ArticleAdded', response)
                 })
                 .catch(error => console.log(error));
+            alert()
         }
     }
 }

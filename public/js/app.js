@@ -1,6 +1,50 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"/js/app": 0
+/******/ 	};
+/******/
+/******/
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js"
+/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +70,67 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 							error.name = 'ChunkLoadError';
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -78,6 +183,16 @@
 /******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -1899,6 +2014,150 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminComponents/App.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdminComponents/App.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticleComponents/AddArticle.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArticleComponents/AddArticle.vue?vue&type=script&lang=js& ***!
@@ -1908,8 +2167,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -1982,6 +2239,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error);
       });
+      alert();
     }
   }
 });
@@ -2720,6 +2978,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -39068,6 +39330,494 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminComponents/App.vue?vue&type=template&id=f5a829c8&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdminComponents/App.vue?vue&type=template&id=f5a829c8& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "nav",
+      {
+        staticClass:
+          "col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show",
+        attrs: { id: "sidebarMenu" }
+      },
+      [
+        _c("div", { staticClass: "sidebar-sticky pt-3" }, [
+          _c("ul", { staticClass: "nav flex-column" }, [
+            _c("li", { staticClass: "nav-item" }, [
+              _c(
+                "a",
+                { staticClass: "nav-link active", attrs: { href: "#" } },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-home",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("polyline", {
+                        attrs: { points: "9 22 9 12 15 12 15 22" }
+                      })
+                    ]
+                  ),
+                  _vm._v("\r\n                        Dashboard "),
+                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-file",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "13 2 13 9 20 9" } })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Orders\r\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-shopping-cart",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("circle", { attrs: { cx: "9", cy: "21", r: "1" } }),
+                    _vm._v(" "),
+                    _c("circle", { attrs: { cx: "20", cy: "21", r: "1" } }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Products\r\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-users",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: { d: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" }
+                    }),
+                    _vm._v(" "),
+                    _c("circle", { attrs: { cx: "9", cy: "7", r: "4" } }),
+                    _vm._v(" "),
+                    _c("path", { attrs: { d: "M23 21v-2a4 4 0 0 0-3-3.87" } }),
+                    _vm._v(" "),
+                    _c("path", { attrs: { d: "M16 3.13a4 4 0 0 1 0 7.75" } })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Customers\r\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-bar-chart-2",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("line", {
+                      attrs: { x1: "18", y1: "20", x2: "18", y2: "10" }
+                    }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "12", y1: "20", x2: "12", y2: "4" }
+                    }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "6", y1: "20", x2: "6", y2: "14" }
+                    })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Reports\r\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-layers",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("polygon", {
+                      attrs: { points: "12 2 2 7 12 12 22 7 12 2" }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "2 17 12 22 22 17" } }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "2 12 12 17 22 12" } })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Integrations\r\n                    "
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "h6",
+            {
+              staticClass:
+                "sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+            },
+            [
+              _c("span", [_vm._v("Saved reports")]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "d-flex align-items-center text-muted",
+                  attrs: { href: "#", "aria-label": "Add a new report" }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-plus-circle",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("circle", { attrs: { cx: "12", cy: "12", r: "10" } }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "12", y1: "8", x2: "12", y2: "16" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "8", y1: "12", x2: "16", y2: "12" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("ul", { staticClass: "nav flex-column mb-2" }, [
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-file-text",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
+                    }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Current month\r\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-file-text",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
+                    }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Last quarter\r\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-file-text",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
+                    }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Social engagement\r\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item" }, [
+              _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "feather feather-file-text",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "24",
+                      height: "24",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
+                    }),
+                    _vm._v(" "),
+                    _c("line", {
+                      attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
+                    }),
+                    _vm._v(" "),
+                    _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
+                  ]
+                ),
+                _vm._v(
+                  "\r\n                        Year-end sale\r\n                    "
+                )
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArticleComponents/AddArticle.vue?vue&type=template&id=00867063&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArticleComponents/AddArticle.vue?vue&type=template&id=00867063& ***!
@@ -40864,62 +41614,94 @@ var render = function() {
     "section",
     { staticClass: "page-section bg-light", attrs: { id: "portfolio" } },
     [
-      _c("Add-Article", {
-        staticClass: " m-3",
-        on: { ArticleAdded: _vm.getResults }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row" },
-          [
-            _vm._l(_vm.Articles.data, function(article) {
-              return _c(
-                "div",
-                { key: article.id, staticClass: "col-lg-4 col-sm-6 mb-4" },
-                [
-                  _c("div", { staticClass: "portfolio-item" }, [
-                    _vm._m(1, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "portfolio-caption" }, [
-                      _c("div", { staticClass: "portfolio-caption-heading" }, [
-                        _vm._v(_vm._s(article.title))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "portfolio-caption-subheading text-muted"
-                        },
-                        [_vm._v(_vm._s(article.author))]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {},
-              [
-                _c("pagination", {
-                  staticClass: "mt-5",
-                  attrs: { data: _vm.Articles },
-                  on: { "pagination-change-page": _vm.getResults }
-                })
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("Add-Article", {
+            staticClass: " m-3",
+            on: { ArticleAdded: _vm.getResults }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "container-small mb-3" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.q,
+                  expression: "q"
+                }
               ],
-              1
-            )
-          ],
-          2
-        )
-      ])
-    ],
-    1
+              staticClass: "form-control text-center",
+              attrs: { type: "text", placeholder: "Recherche" },
+              domProps: { value: _vm.q },
+              on: {
+                keyup: _vm.FindArticle,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.q = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row" },
+            [
+              _vm._l(_vm.Articles.data, function(article) {
+                return _c(
+                  "div",
+                  { key: article.id, staticClass: "col-lg-4 col-sm-6 mb-4" },
+                  [
+                    _c("div", { staticClass: "portfolio-item" }, [
+                      _vm._m(1, true),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "portfolio-caption" }, [
+                        _c(
+                          "div",
+                          { staticClass: "portfolio-caption-heading" },
+                          [_vm._v(_vm._s(article.title))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "portfolio-caption-subheading text-muted"
+                          },
+                          [_vm._v(_vm._s(article.author))]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {},
+                [
+                  _c("pagination", {
+                    staticClass: "mt-5",
+                    attrs: { data: _vm.Articles },
+                    on: { "pagination-change-page": _vm.getResults }
+                  })
+                ],
+                1
+              )
+            ],
+            2
+          )
+        ],
+        1
+      )
+    ]
   )
 }
 var staticRenderFns = [
@@ -53435,37 +54217,45 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.component('front-page', __webpack_require__(/*! ./components/main-components/Front.vue */ "./resources/js/components/main-components/Front.vue")["default"]);
-Vue.component('navbar-element', __webpack_require__(/*! ./components/main-components/Navbar.vue */ "./resources/js/components/main-components/Navbar.vue")["default"]);
-Vue.component('section-about', __webpack_require__(/*! ./components/main-components/About.vue */ "./resources/js/components/main-components/About.vue")["default"]);
-Vue.component('section-contact', __webpack_require__(/*! ./components/main-components/Contact.vue */ "./resources/js/components/main-components/Contact.vue")["default"]);
-Vue.component('section-footer', __webpack_require__(/*! ./components/main-components/Footer.vue */ "./resources/js/components/main-components/Footer.vue")["default"]);
-Vue.component('section-masthead', __webpack_require__(/*! ./components/main-components/Masthead.vue */ "./resources/js/components/main-components/Masthead.vue")["default"]);
-Vue.component('section-modal', __webpack_require__(/*! ./components/main-components/Modal.vue */ "./resources/js/components/main-components/Modal.vue")["default"]);
-Vue.component('section-portfolio-grid', __webpack_require__(/*! ./components/main-components/Portfolio-grid.vue */ "./resources/js/components/main-components/Portfolio-grid.vue")["default"]);
-Vue.component('section-services', __webpack_require__(/*! ./components/main-components/Services.vue */ "./resources/js/components/main-components/Services.vue")["default"]);
-Vue.component('section-team', __webpack_require__(/*! ./components/main-components/Team.vue */ "./resources/js/components/main-components/Team.vue")["default"]); // Article
+ // vuejs version
 
-Vue.component('Article', __webpack_require__(/*! ./components/ArticleComponents/Article.vue */ "./resources/js/components/ArticleComponents/Article.vue")["default"]);
-Vue.component('Add-Article', __webpack_require__(/*! ./components/ArticleComponents/AddArticle.vue */ "./resources/js/components/ArticleComponents/AddArticle.vue")["default"]);
-Vue.component('Edit-Article', __webpack_require__(/*! ./components/ArticleComponents/EditArticle.vue */ "./resources/js/components/ArticleComponents/EditArticle.vue")["default"]);
-Vue.component('Delete-Article', __webpack_require__(/*! ./components/ArticleComponents/DeleteArticle.vue */ "./resources/js/components/ArticleComponents/DeleteArticle.vue")["default"]);
-Vue.component('Show-Article', __webpack_require__(/*! ./components/ArticleComponents/ShowArticle.vue */ "./resources/js/components/ArticleComponents/ShowArticle.vue")["default"]); //Don't touch it.. its for pagination
+console.log('Version : ' + vue__WEBPACK_IMPORTED_MODULE_0___default.a.version); // Admin Components
 
-Vue.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
-var app = new Vue({
-  el: '#app'
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('App', __webpack_require__(/*! ./components/AdminComponents/App.vue */ "./resources/js/components/AdminComponents/App.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('Article', __webpack_require__(/*! ./components/AdminComponents/Article.vue */ "./resources/js/components/AdminComponents/Article.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('front-page', __webpack_require__(/*! ./components/main-components/Front.vue */ "./resources/js/components/main-components/Front.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('navbar-element', __webpack_require__(/*! ./components/main-components/Navbar.vue */ "./resources/js/components/main-components/Navbar.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-about', __webpack_require__(/*! ./components/main-components/About.vue */ "./resources/js/components/main-components/About.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-contact', __webpack_require__(/*! ./components/main-components/Contact.vue */ "./resources/js/components/main-components/Contact.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-footer', __webpack_require__(/*! ./components/main-components/Footer.vue */ "./resources/js/components/main-components/Footer.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-masthead', __webpack_require__(/*! ./components/main-components/Masthead.vue */ "./resources/js/components/main-components/Masthead.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-modal', __webpack_require__(/*! ./components/main-components/Modal.vue */ "./resources/js/components/main-components/Modal.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-portfolio-grid', __webpack_require__(/*! ./components/main-components/Portfolio-grid.vue */ "./resources/js/components/main-components/Portfolio-grid.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-services', __webpack_require__(/*! ./components/main-components/Services.vue */ "./resources/js/components/main-components/Services.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('section-team', __webpack_require__(/*! ./components/main-components/Team.vue */ "./resources/js/components/main-components/Team.vue")["default"]); // Article
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('Article', __webpack_require__(/*! ./components/ArticleComponents/Article.vue */ "./resources/js/components/ArticleComponents/Article.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('Add-Article', __webpack_require__(/*! ./components/ArticleComponents/AddArticle.vue */ "./resources/js/components/ArticleComponents/AddArticle.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('Edit-Article', __webpack_require__(/*! ./components/ArticleComponents/EditArticle.vue */ "./resources/js/components/ArticleComponents/EditArticle.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('Delete-Article', __webpack_require__(/*! ./components/ArticleComponents/DeleteArticle.vue */ "./resources/js/components/ArticleComponents/DeleteArticle.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('Show-Article', __webpack_require__(/*! ./components/ArticleComponents/ShowArticle.vue */ "./resources/js/components/ArticleComponents/ShowArticle.vue")["default"]); //Don't touch it.. its for pagination
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#app',
+  router: _router__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 
 /***/ }),
@@ -53514,6 +54304,107 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/AdminComponents/App.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/AdminComponents/App.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _App_vue_vue_type_template_id_f5a829c8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f5a829c8& */ "./resources/js/components/AdminComponents/App.vue?vue&type=template&id=f5a829c8&");
+/* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/components/AdminComponents/App.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _App_vue_vue_type_template_id_f5a829c8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _App_vue_vue_type_template_id_f5a829c8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AdminComponents/App.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AdminComponents/App.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/AdminComponents/App.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminComponents/App.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AdminComponents/App.vue?vue&type=template&id=f5a829c8&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/AdminComponents/App.vue?vue&type=template&id=f5a829c8& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f5a829c8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./App.vue?vue&type=template&id=f5a829c8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdminComponents/App.vue?vue&type=template&id=f5a829c8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f5a829c8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f5a829c8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AdminComponents/Article.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/AdminComponents/Article.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/AdminComponents/Article.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -54549,6 +55440,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Team_vue_vue_type_template_id_14a7dce6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/router.js":
+/*!********************************!*\
+  !*** ./resources/js/router.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-router'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(!(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-router'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var routes = [//Admin
+{
+  path: 'http://rusrs-website.test/Article',
+  name: 'Article',
+  component: function component() {
+    return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./components/AdminComponents/Article */ "./resources/js/components/AdminComponents/Article.vue"));
+  }
+}, {
+  path: 'http://rusrs-website.test/Event',
+  name: 'Event',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/AdminComponents/Event */ "./resources/js/components/AdminComponents/Event.vue"));
+  }
+} //projects routes....
+];
+/* harmony default export */ __webpack_exports__["default"] = (new !(function webpackMissingModule() { var e = new Error("Cannot find module 'vue-router'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+  mode: 'history',
+  routes: routes
+}));
+new vue__WEBPACK_IMPORTED_MODULE_1___default.a(vue__WEBPACK_IMPORTED_MODULE_1___default.a.util.extend({
+  routes: routes
+}));
 
 /***/ }),
 
