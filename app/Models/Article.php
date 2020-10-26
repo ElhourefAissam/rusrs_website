@@ -12,6 +12,4 @@ class Article extends Model
     protected $table="Article";
 
     protected $fillable=["title","artical_body","author"];
-
-
 }
