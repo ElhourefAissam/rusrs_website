@@ -12,7 +12,7 @@ window.Vue = require('vue');
 
 Vue.component('front-page'      , require('./components/main-components/Front.vue').default);
 Vue.component('navbar-element'  , require('./components/main-components/Navbar.vue').default);
-Vue.component('section-about'   , require('./components/main-components/About.vue').default);
+Vue.component('section-articles'   , require('./components/main-components/Articles.vue').default);
 Vue.component('section-contact' , require('./components/main-components/Contact.vue').default);
 Vue.component('section-footer'  , require('./components/main-components/Footer.vue').default);
 Vue.component('section-masthead', require('./components/main-components/Masthead.vue').default);

@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
+        <link href="{{ asset('css/slider.css')}}" rel="stylesheet" />
     </head>
     <body id="page-top">
 
@@ -23,7 +24,9 @@
             <front-page/>
         </div>
 
-        <script src="{!! asset('js/app.js') !!}"></script>
+
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/slider.js')}}"></script>
 
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -31,8 +34,8 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
+        <script src="{{ asset('assets/mail/jqBootstrapValidation.js') }} "></script>
+        <script src="{{ asset('assets/mail/contact_me.js') }}"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('js/scripts.js') }}"></script>
 

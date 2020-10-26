@@ -2,8 +2,8 @@
     <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">الاعضاء</h2>
+                    <h3 class="section-subheading text-muted"> أعضاء شبكة وحدة للسلامة الطرقية بالصحراء  </h3>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">

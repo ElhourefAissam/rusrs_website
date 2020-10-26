@@ -9,7 +9,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $table="Article";
+    protected $table="Articles";
 
     protected $fillable=["title","artical_body","author"];
 

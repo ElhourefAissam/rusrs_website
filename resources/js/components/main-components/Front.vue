@@ -12,9 +12,9 @@
            <section-portfolio-grid/>
         <!-- Portfolio Grid-->
 
-        <!-- About-->
-        <section-about/>
-         <!-- About-->
+        <!-- articles-->
+        <section-articles/>
+         <!-- articles-->
 
         <!-- Team-->
         <section-team/>
