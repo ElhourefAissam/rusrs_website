@@ -57,19 +57,16 @@ export default {
     },
     methods: {
         AddArticle() {
-            let data = new FormData();
-            data.append('title', this.title);
-            data.append('artical_body', this.artical_body);
-            data.append('author', this.author);
-            // if (document.getElementById('Image').files[0]) {
-            //     data.append('Image', document.getElementById('Image').files[0]);
-            // };
-            axios.post('http://rusrs-website.test/api/Article/', data)
+            axios.post('http://rusrs-website.test/api/Article', {
+                    title: this.title,
+                    artical_body: this.artical_body,
+                    author: this.author,
+                })
                 .then((response) => {
                     this.$emit('ArticleAdded', response)
+                    alert('article added')
                 })
                 .catch(error => console.log(error));
-            alert()
         }
     }
 }
