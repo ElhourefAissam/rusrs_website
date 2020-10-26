@@ -21,9 +21,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="">
-            <pagination :data="Articles" @pagination-change-page="getResults" class="mt-5"></pagination>
+            <div class="">
+                <pagination :data="Articles" @pagination-change-page="getResults" class="mt-5"></pagination>
+            </div>
         </div>
     </div>
 </section>

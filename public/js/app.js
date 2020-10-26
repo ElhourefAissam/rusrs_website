@@ -40875,45 +40875,47 @@ var render = function() {
         _c(
           "div",
           { staticClass: "row" },
-          _vm._l(_vm.Articles.data, function(article) {
-            return _c(
-              "div",
-              { key: article.id, staticClass: "col-lg-4 col-sm-6 mb-4" },
-              [
-                _c("div", { staticClass: "portfolio-item" }, [
-                  _vm._m(1, true),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "portfolio-caption" }, [
-                    _c("div", { staticClass: "portfolio-caption-heading" }, [
-                      _vm._v(_vm._s(article.title))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "portfolio-caption-subheading text-muted"
-                      },
-                      [_vm._v(_vm._s(article.author))]
-                    )
-                  ])
-                ])
-              ]
-            )
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {},
           [
-            _c("pagination", {
-              staticClass: "mt-5",
-              attrs: { data: _vm.Articles },
-              on: { "pagination-change-page": _vm.getResults }
-            })
+            _vm._l(_vm.Articles.data, function(article) {
+              return _c(
+                "div",
+                { key: article.id, staticClass: "col-lg-4 col-sm-6 mb-4" },
+                [
+                  _c("div", { staticClass: "portfolio-item" }, [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "portfolio-caption" }, [
+                      _c("div", { staticClass: "portfolio-caption-heading" }, [
+                        _vm._v(_vm._s(article.title))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "portfolio-caption-subheading text-muted"
+                        },
+                        [_vm._v(_vm._s(article.author))]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {},
+              [
+                _c("pagination", {
+                  staticClass: "mt-5",
+                  attrs: { data: _vm.Articles },
+                  on: { "pagination-change-page": _vm.getResults }
+                })
+              ],
+              1
+            )
           ],
-          1
+          2
         )
       ])
     ],
