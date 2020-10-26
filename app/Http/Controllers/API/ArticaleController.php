@@ -52,7 +52,12 @@ class ArticaleController extends Controller
         $event->artical_body = $request->artical_body;
         $event->author = $request->author;
 
-        return $request->method();
+        $result=$event->save();
+        if($result){
+            return ["result" => "Updated "];
+        }else{
+            return ["result"=>"not updated"];
+        }
     }
 
     public function destroy($id)
