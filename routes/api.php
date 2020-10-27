@@ -14,8 +14,6 @@ Route::get('/Article/{q?}', [ArticaleController::class,'index']);
 Route::get('/Event/{q?}', [ArticaleController::class,'index']);
 
 
-
-
 Route::resource('Article', ArticaleController::class);
 Route::resource('Event', EventController::class);
 
