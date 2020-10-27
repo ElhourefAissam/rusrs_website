@@ -2091,15 +2091,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // we have the main root in EnvPath work using this in every file please
 
 var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
@@ -41086,10 +41077,10 @@ var render = function() {
       "div",
       { staticClass: "card-body" },
       [
-        _vm._m(0),
+        _c("div", { staticClass: "dropdown float-right position-relative" }),
         _vm._v(" "),
-        _c("h4", { staticClass: "card-title d-inline-block" }, [
-          _vm._v("All Projects")
+        _c("h4", { staticClass: "card-title d-block alert alert-info my-2" }, [
+          _vm._v("List of all articles")
         ]),
         _vm._v(" "),
         _c("Add-Article", {
@@ -41127,7 +41118,7 @@ var render = function() {
             "table",
             { staticClass: "table table-borderless table-hover mb-0" },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -41250,57 +41241,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dropdown float-right position-relative" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle h4 text-muted",
-            attrs: {
-              href: "#",
-              "data-toggle": "dropdown",
-              "aria-expanded": "false"
-            }
-          },
-          [_c("i", { staticClass: "mdi mdi-dots-vertical" })]
-        ),
-        _vm._v(" "),
-        _c("ul", { staticClass: "dropdown-menu dropdown-menu-right" }, [
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Another action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Something else here")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "dropdown-divider" }),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Separated link")
-            ])
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
