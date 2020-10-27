@@ -1,13 +1,11 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
-
+import Vue from 'vue';
 window.Vue = require('vue');
 
+import router from './router'
+
+// vuejs version
+console.log('Version : ' + Vue.version);
 
 // this is the main page
 Vue.component('main-page'      , require('./components/main-components/Main.vue').default);
@@ -46,10 +44,22 @@ Vue.component('Show-Article', require('./components/ArticleComponents/ShowArticl
     // write code
 
 
+<<<<<<< HEAD
 
 //pagination
+=======
+//Don't touch it.. its for pagination
+>>>>>>> c0db554d56e65466b7255fd8bd0bf04b529e07f8
 Vue.component('pagination', require('laravel-vue-pagination'));
 
+
+
 const app = new Vue({
+<<<<<<< HEAD
     el: '#app'
 });
+=======
+    el: '#app',
+    router
+});
+>>>>>>> c0db554d56e65466b7255fd8bd0bf04b529e07f8

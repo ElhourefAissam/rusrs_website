@@ -19,6 +19,7 @@ class ArticaleController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $request->validate([
             'title' => 'required',
             'artical_body' => 'required',

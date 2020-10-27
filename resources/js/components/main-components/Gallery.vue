@@ -1,10 +1,14 @@
 <template>
 <section class="page-section bg-light" id="portfolio">
-    <Add-Article class=" m-3" @ArticleAdded="getResults"></Add-Article>
+
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Portfolio</h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <Add-Article class=" m-3" @ArticleAdded="getResults"></Add-Article>
+        <div class="container-small mb-3">
+            <input type="text" class="form-control text-center" @keyup="FindArticle" v-model="q" placeholder="Recherche">
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6 mb-4" v-for="article in Articles.data" :key="article.id">
