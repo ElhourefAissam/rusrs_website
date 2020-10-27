@@ -9,7 +9,7 @@ const routes = [
         path: '/Article',
         name: 'Article',
         component: () =>
-            import ("./components/AdminComponents/Article")
+            import ("./components/ArticleComponents/Article")
     },
     {
         path: '/Event',
