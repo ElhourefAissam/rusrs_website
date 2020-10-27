@@ -1999,6 +1999,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2058,10 +2065,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+// we have the main root in EnvPath work using this in every file please
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      Articles: {},
+      Articles: {
+        originalData: {},
+        filteredData: {}
+      },
       article: {},
       q: ''
     };
@@ -2074,25 +2091,26 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page).then(function (response) {
-        _this.Article = response.data;
-        console.log(response.data.data);
+      var param = this.q ? '/' + this.q : '';
+      axios.get(_EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + 'Article' + param + '?page=' + page).then(function (response) {
+        _this.Articles.originalData = _objectSpread({}, response.data);
+        _this.Articles.filteredData = _objectSpread({}, response.data);
       });
     },
     getArticle: function getArticle(article) {
-      this.article = article;
+      this.article = _objectSpread({}, article);
     },
     refresh: function refresh(Articles) {
-      this.Articles = Articles.data;
-    },
-    FindArticle: function FindArticle() {
-      var _this2 = this;
-
-      if (this.q.length > 0) {
-        axios.get('http://rusrs-website.test/api/Article/' + this.q).then(function (response) {
-          _this2.Articles = response.data;
+      this.Articles = _objectSpread({}, Articles.filteredData);
+    }
+  },
+  watch: {
+    q: function q(value) {
+      if (value.length > 0) {
+        this.Articles.filteredData.data = this.Articles.originalData.data.filter(function (article) {
+          return article.title.toLowerCase().includes(value.toLowerCase());
         });
-      } else this.getResults();
+      } else this.Articles.filteredData = _objectSpread({}, this.Articles.originalData);
     }
   }
 });
@@ -2108,6 +2126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
 //
 //
 //
@@ -2154,7 +2173,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+// we have the main root in EnvPath work using this in every file please
+
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2168,7 +2189,7 @@ __webpack_require__.r(__webpack_exports__);
     AddArticle: function AddArticle() {
       var _this = this;
 
-      axios.post('http://rusrs-website.test/api/Article', {
+      axios.post(url, {
         title: this.title,
         artical_body: this.artical_body,
         author: this.author
@@ -2194,6 +2215,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
 //
 //
 //
@@ -2231,6 +2253,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2247,7 +2271,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page).then(function (response) {
+      axios.get(url + this.q + '?page=' + page).then(function (response) {
         _this.Article = response.data;
       });
     },
@@ -2261,7 +2285,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.q.length > 0) {
-        axios.get('http://rusrs-website.test/api/Article/' + this.q).then(function (response) {
+        axios.get(url + this.q).then(function (response) {
           _this2.Articles = response.data;
         });
       } else this.getResults();
@@ -2280,6 +2304,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
 //
 //
 //
@@ -2305,6 +2330,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['article'],
   data: function data() {
@@ -2314,7 +2341,8 @@ __webpack_require__.r(__webpack_exports__);
     DeleteArticle: function DeleteArticle() {
       var _this = this;
 
-      axios["delete"]('http://rusrs-website.test/api/Article/' + this.article.id).then(function (response) {
+      var param = this.article.id ? '/' + this.article.id : '';
+      axios["delete"](url + param).then(function (response) {
         _this.$emit('ArticleDeleted', response);
       })["catch"](function (error) {
         return console.log(error);
@@ -2334,6 +2362,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
 //
 //
 //
@@ -2388,6 +2417,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['article'],
   data: function data() {
@@ -2400,7 +2431,7 @@ __webpack_require__.r(__webpack_exports__);
       // if (document.getElementById('Image').files[0]) {
       //     data.append('Image', document.getElementById('Image').files[0]);
       // }
-      axios.put('http://rusrs-website.test/api/Article/' + this.article.id, {
+      axios.put(url + this.article.id, {
         title: this.article.title,
         artical_body: this.article.artical_body,
         author: this.article.author
@@ -2424,6 +2455,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
 //
 //
 //
@@ -2432,6 +2464,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['article'],
   data: function data() {
@@ -40359,10 +40424,9 @@ var render = function() {
               }
             ],
             staticClass: "form-control text-center",
-            attrs: { type: "text", placeholder: "Recherche" },
+            attrs: { type: "text", placeholder: "Search" },
             domProps: { value: _vm.q },
             on: {
-              keyup: _vm.FindArticle,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -40382,7 +40446,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.Articles.data, function(article) {
+                _vm._l(_vm.Articles.filteredData.data, function(article) {
                   return _c("tr", { key: article.id }, [
                     _c("th", [_vm._v(_vm._s(article.id))]),
                     _vm._v(" "),
@@ -40390,9 +40454,29 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(article.created_at))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v("afficher")]),
-                    _vm._v(" "),
                     _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-info",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#DetailsModal"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.getArticle(article)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Details\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v("|\n                           "),
                       _c(
                         "button",
                         {
@@ -40410,13 +40494,11 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\r\n                                Modifie\r\n                            "
+                            "\n                                Modify\n                            "
                           )
                         ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-warning" }, [
+                      ),
+                      _vm._v("|\n                            "),
                       _c(
                         "button",
                         {
@@ -40434,7 +40516,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\r\n                                Supprimer\r\n                            "
+                            "\n                                delete\n                            "
                           )
                         ]
                       )
@@ -40457,7 +40539,9 @@ var render = function() {
               _c("Delete-Article", {
                 attrs: { article: _vm.article },
                 on: { ArticleDeleted: _vm.getResults }
-              })
+              }),
+              _vm._v(" "),
+              _c("Show-Article", { attrs: { article: _vm.article } })
             ],
             1
           ),
@@ -40468,7 +40552,7 @@ var render = function() {
             [
               _c("pagination", {
                 staticClass: "mt-5",
-                attrs: { data: _vm.Articles },
+                attrs: { data: _vm.Articles.filteredData },
                 on: { "pagination-change-page": _vm.getResults }
               })
             ],
@@ -40544,11 +40628,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Date publier")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Afficher")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Modifie")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Supprimer")])
+        _c("th")
       ])
     ])
   }
@@ -40585,7 +40665,7 @@ var render = function() {
           "data-target": "#exampleModal"
         }
       },
-      [_vm._v("\r\n        Ajouter un Article\r\n    ")]
+      [_vm._v("\n       Add Article\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -40714,7 +40794,7 @@ var render = function() {
                 staticClass: "btn btn-primary",
                 attrs: {
                   type: "submit",
-                  value: "Ajouter",
+                  value: "add",
                   "data-dismiss": "modal"
                 },
                 on: { click: _vm.AddArticle }
@@ -40735,7 +40815,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Ajouter un Article")]
+        [_vm._v("Add Article")]
       ),
       _vm._v(" "),
       _c(
@@ -40855,11 +40935,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\r\n                    Modifie\r\n                "
-                    )
-                  ]
+                  [_vm._v("\n                    Modifie\n                ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -40877,11 +40953,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\r\n                    Supprimer\r\n                "
-                    )
-                  ]
+                  [_vm._v("\n                    Supprimer\n                ")]
                 )
               ],
               1
@@ -41288,9 +41360,90 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("div", [
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "DetailsModal",
+            tabindex: "-1",
+            "aria-labelledby": "DetailsModalLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "modal-dialog" }, [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _c("div", { staticClass: "modal-header" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("h1", [_vm._v(_vm._s(_vm.article.title))]),
+                      _vm._v(" "),
+                      _c("h1", [_vm._v(_vm._s(_vm.article.artical_body))]),
+                      _vm._v(" "),
+                      _c("h1", [_vm._v(_vm._s(_vm.article.author))])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ])
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "DetailsModalLabel" } },
+        [_vm._v("Modifie information d'article")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -58143,6 +58296,21 @@ module.exports = "/images/03-full.jpg?3b263f0ffc3870f7fc6cefee9a86d50b";
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/js/EnvPath.js":
+/*!*********************************!*\
+  !*** ./resources/js/EnvPath.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  baseUrl:  false ? undefined : "http://localhost/api/"
+});
 
 /***/ }),
 

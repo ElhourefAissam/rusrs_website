@@ -16,7 +16,8 @@
         <h4 class="card-title d-inline-block">All Projects</h4>
         <Add-Article class=" m-3" @ArticleAdded="getResults"></Add-Article>
         <div class="container-small mb-3">
-            <input type="text" class="form-control text-center" @keyup="FindArticle" v-model="q" placeholder="Recherche">
+            <!-- <input type="text" class="form-control text-center" @keyup="FindArticle" v-model="q" placeholder="Search"> -->
+            <input type="text" class="form-control text-center"  v-model="q" placeholder="Search">
         </div>
         <div class="table-responsive">
             <table class="table table-borderless table-hover mb-0">
@@ -25,32 +26,36 @@
                         <th>No</th>
                         <th>Title</th>
                         <th>Date publier</th>
-                        <th>Afficher</th>
-                        <th>Modifie</th>
-                        <th>Supprimer</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="article in Articles.data" :key="article.id">
+                    <tr v-for="article in Articles.filteredData.data" :key="article.id">
                         <th>{{ article.id }}</th>
                         <td>{{ article.title }}</td>
                         <td>{{ article.created_at }}</td>
-                        <td>afficher</td>
-                        <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
-                                Modifie
-                            </button></td>
-                        <td class="text-warning"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
-                                Supprimer
-                            </button></td>
+                        <td>
+
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getArticle(article)">
+                                Details
+                            </button>|
+                           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
+                                Modify
+                            </button>|
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
+                                delete
+                            </button>
+                       </td>
                     </tr>
                 </tbody>
             </table>
             <div>
                 <Edit-Article :article="article" @ArticleUpdated="getResults"></Edit-Article>
                 <Delete-Article :article="article" @ArticleDeleted="getResults"></Delete-Article>
+                <Show-Article :article="article" ></Show-Article>
             </div>
             <div class="">
-                <pagination :data="Articles" @pagination-change-page="getResults" class="mt-5"></pagination>
+                <pagination :data="Articles.filteredData" @pagination-change-page="getResults" class="mt-5"></pagination>
             </div>
         </div>
     </div>
@@ -58,40 +63,57 @@
 </template>
 
 <script>
+// we have the main root in EnvPath work using this in every file please
+import Path from "../../EnvPath";
+
 export default {
+
     data: function () {
         return {
-            Articles: {},
+            Articles: {
+                originalData:{},
+                filteredData:{},
+            },
             article: {},
             q: ''
         }
     },
+
     mounted() {
         this.getResults();
     },
+
     methods: {
         getResults(page = 1) {
-            axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page)
+            const param = this.q ? '/' + this.q : '';
+
+            axios.get(Path.baseUrl + 'Article' + param + '?page=' + page)
                 .then(response => {
-                    this.Article = response.data;
-                    console.log(response.data.data)
+                    this.Articles.originalData = {...response.data}
+                    this.Articles.filteredData  = {...response.data}
                 });
         },
+
         getArticle(article) {
-            this.article = article;
+            this.article = {...article};
         },
+
         refresh(Articles) {
-            this.Articles = Articles.data;
+            this.Articles = {...Articles.filteredData};
         },
-        FindArticle() {
-            if (this.q.length > 0) {
-                axios.get('http://rusrs-website.test/api/Article/' + this.q)
-                    .then(response => {
-                        this.Articles = response.data;
-                    });
-            } else
-                this.getResults();
-        }
+
+    },
+    watch:{
+        q:function(value){
+                    if (value.length > 0) {
+                    this.Articles.filteredData.data = this.Articles.originalData.data.filter((article)=>{
+
+                            return article.title.toLowerCase().includes(value.toLowerCase())
+                    })
+                    }
+                    else
+                        this.Articles.filteredData = {...this.Articles.originalData}
+        },
     }
 }
 </script>

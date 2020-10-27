@@ -24,6 +24,10 @@
 </template>
 
 <script>
+import Path from "../../EnvPath";
+
+const url=Path.baseUrl+"Article";
+
 export default {
     props: ['article'],
     data: function () {
@@ -33,7 +37,10 @@ export default {
     },
     methods: {
         DeleteArticle: function () {
-            axios.delete('http://rusrs-website.test/api/Article/' + this.article.id)
+
+            const param = this.article.id ? '/' + this.article.id : '';
+
+            axios.delete(url + param)
                 .then((response) => {
                     this.$emit('ArticleDeleted', response)
                 })

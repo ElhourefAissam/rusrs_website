@@ -36,6 +36,11 @@
 </template>
 
 <script>
+import Path from "../../EnvPath";
+
+const url=Path.baseUrl+"Article";
+
+
 export default {
     data: function () {
         return {
@@ -49,7 +54,7 @@ export default {
     },
     methods: {
         getResults(page = 1) {
-            axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page)
+            axios.get( url + this.q + '?page=' + page)
                 .then(response => {
                     this.Article = response.data;
                 });
@@ -62,7 +67,7 @@ export default {
         },
         FindArticle() {
             if (this.q.length > 0) {
-                axios.get('http://rusrs-website.test/api/Article/' + this.q)
+                axios.get(url + this.q)
                     .then(response => {
                         this.Articles = response.data;
                     });
