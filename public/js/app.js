@@ -1929,63 +1929,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2006,15 +1949,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2870,15 +2804,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Event";
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3230,15 +3155,6 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -8507,7 +8423,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.route-enter-to[data-v-f5a829c8],\r\n.route-leave[data-v-f5a829c8] {\r\n    opacity: 0;\r\n    transform: translateY(-30px);\n}\n.route-enter[data-v-f5a829c8],\r\n.route-leave-to[data-v-f5a829c8] {\r\n    opacity: 1;\r\n    transform: translateY(30px);\n}\n.route-enter-active[data-v-f5a829c8],\r\n.route-leave-active[data-v-f5a829c8] {\r\n    transition: all 0.5s ease;\n}\r\n", ""]);
+exports.push([module.i, "\n.route-enter-to[data-v-f5a829c8],\n.route-leave[data-v-f5a829c8] {\n    opacity: 0;\n    transform: translateY(-30px);\n}\n.route-enter[data-v-f5a829c8],\n.route-leave-to[data-v-f5a829c8] {\n    opacity: 1;\n    transform: translateY(30px);\n}\n.route-enter-active[data-v-f5a829c8],\n.route-leave-active[data-v-f5a829c8] {\n    transition: all 0.5s ease;\n}\n", ""]);
 
 // exports
 
@@ -41006,242 +40922,7 @@ var render = function() {
           _c(
             "div",
             { staticClass: "sidebar-sticky pt-3" },
-            [
-              _c("Nav"),
-              _vm._v(" "),
-              _c(
-                "h6",
-                {
-                  staticClass:
-                    "sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
-                },
-                [
-                  _c("span", [_vm._v("Saved reports")]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "d-flex align-items-center text-muted",
-                      attrs: { href: "#", "aria-label": "Add a new report" }
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "feather feather-plus-circle",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            width: "24",
-                            height: "24",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
-                          }
-                        },
-                        [
-                          _c("circle", {
-                            attrs: { cx: "12", cy: "12", r: "10" }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "12", y1: "8", x2: "12", y2: "16" }
-                          }),
-                          _vm._v(" "),
-                          _c("line", {
-                            attrs: { x1: "8", y1: "12", x2: "16", y2: "12" }
-                          })
-                        ]
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("ul", { staticClass: "nav flex-column mb-2" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "feather feather-file-text",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
-                        }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
-                      ]
-                    ),
-                    _vm._v(
-                      "\r\n                            Current month\r\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "feather feather-file-text",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
-                        }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
-                      ]
-                    ),
-                    _vm._v(
-                      "\r\n                            Last quarter\r\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "feather feather-file-text",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
-                        }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
-                      ]
-                    ),
-                    _vm._v(
-                      "\r\n                            Social engagement\r\n                        "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "feather feather-file-text",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "24",
-                          height: "24",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round"
-                        }
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "14 2 14 8 20 8" } }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "13", x2: "8", y2: "13" }
-                        }),
-                        _vm._v(" "),
-                        _c("line", {
-                          attrs: { x1: "16", y1: "17", x2: "8", y2: "17" }
-                        }),
-                        _vm._v(" "),
-                        _c("polyline", { attrs: { points: "10 9 9 9 8 9" } })
-                      ]
-                    ),
-                    _vm._v(
-                      "\r\n                            Year-end sale\r\n                        "
-                    )
-                  ])
-                ])
-              ])
-            ],
+            [_c("Nav"), _vm._v(" "), _c("ul")],
             1
           )
         ]
@@ -41290,10 +40971,10 @@ var render = function() {
       "div",
       { staticClass: "card-body" },
       [
-        _vm._m(0),
+        _c("div", { staticClass: "dropdown float-right position-relative" }),
         _vm._v(" "),
-        _c("h4", { staticClass: "card-title d-inline-block" }, [
-          _vm._v("All Projects")
+        _c("h4", { staticClass: "card-title d-block alert alert-info my-2" }, [
+          _vm._v("List of articles")
         ]),
         _vm._v(" "),
         _c("Add-Article", {
@@ -41331,7 +41012,7 @@ var render = function() {
             "table",
             { staticClass: "table table-borderless table-hover mb-0" },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -41454,57 +41135,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dropdown float-right position-relative" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle h4 text-muted",
-            attrs: {
-              href: "#",
-              "data-toggle": "dropdown",
-              "aria-expanded": "false"
-            }
-          },
-          [_c("i", { staticClass: "mdi mdi-dots-vertical" })]
-        ),
-        _vm._v(" "),
-        _c("ul", { staticClass: "dropdown-menu dropdown-menu-right" }, [
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Another action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Something else here")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "dropdown-divider" }),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Separated link")
-            ])
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -41707,7 +41337,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "exampleModalLabel" }
+        },
         [_vm._v("Add Article")]
       ),
       _vm._v(" "),
@@ -41828,11 +41461,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\r\n                    Modifie\r\n                "
-                    )
-                  ]
+                  [_vm._v("\n                    Modify\n                ")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41850,11 +41479,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\r\n                    Supprimer\r\n                "
-                    )
-                  ]
+                  [_vm._v("\n                    Delete\n                ")]
                 )
               ],
               1
@@ -41983,7 +41608,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "DeleteModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "DeleteModalLabel" }
+        },
         [_vm._v("Supprimer un Article")]
       ),
       _vm._v(" "),
@@ -42196,7 +41824,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "EditModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "EditModalLabel" }
+        },
         [_vm._v("Modifie information d'article")]
       ),
       _vm._v(" "),
@@ -42313,7 +41944,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "DetailsModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "DetailsModalLabel" }
+        },
         [_vm._v("Modifie information d'article")]
       ),
       _vm._v(" "),
@@ -42677,7 +42311,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        {
+          staticClass: "d-block alert alert-info w-100",
+          attrs: { id: "exampleModalLabel" }
+        },
         [_vm._v("Add Event")]
       ),
       _vm._v(" "),
@@ -42776,7 +42413,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "DeleteModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "DeleteModalLabel" }
+        },
         [_vm._v("Delete Event")]
       ),
       _vm._v(" "),
@@ -43097,7 +42737,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "EditModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "EditModalLabel" }
+        },
         [_vm._v("Modify Event")]
       ),
       _vm._v(" "),
@@ -43167,10 +42810,10 @@ var render = function() {
       "div",
       { staticClass: "card-body" },
       [
-        _vm._m(0),
+        _c("div", { staticClass: "dropdown float-right position-relative" }),
         _vm._v(" "),
-        _c("h4", { staticClass: "card-title d-inline-block" }, [
-          _vm._v("All Projects")
+        _c("h4", { staticClass: "card-title d-block alert alert-info my-2" }, [
+          _vm._v("List of Association events")
         ]),
         _vm._v(" "),
         _c("Add-Event", {
@@ -43208,7 +42851,7 @@ var render = function() {
             "table",
             { staticClass: "table table-borderless table-hover mb-0" },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -43242,7 +42885,7 @@ var render = function() {
                           )
                         ]
                       ),
-                      _vm._v("|\n                           "),
+                      _vm._v(" "),
                       _c(
                         "button",
                         {
@@ -43264,7 +42907,7 @@ var render = function() {
                           )
                         ]
                       ),
-                      _vm._v("|\n                            "),
+                      _vm._v(" "),
                       _c(
                         "button",
                         {
@@ -43331,57 +42974,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dropdown float-right position-relative" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle h4 text-muted",
-            attrs: {
-              href: "#",
-              "data-toggle": "dropdown",
-              "aria-expanded": "false"
-            }
-          },
-          [_c("i", { staticClass: "mdi mdi-dots-vertical" })]
-        ),
-        _vm._v(" "),
-        _c("ul", { staticClass: "dropdown-menu dropdown-menu-right" }, [
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Another action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Something else here")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "dropdown-divider" }),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Separated link")
-            ])
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -43484,7 +43076,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "DetailsModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "DetailsModalLabel" }
+        },
         [_vm._v("Event Details")]
       ),
       _vm._v(" "),
@@ -43671,7 +43266,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "exampleModalLabel" }
+        },
         [_vm._v("Add Member information")]
       ),
       _vm._v(" "),
@@ -43771,7 +43369,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "DeleteModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "DeleteModalLabel" }
+        },
         [_vm._v("Supprimer un Member")]
       ),
       _vm._v(" "),
@@ -43948,7 +43549,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "EditModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "EditModalLabel" }
+        },
         [_vm._v("Modify Member")]
       ),
       _vm._v(" "),
@@ -44018,10 +43622,10 @@ var render = function() {
       "div",
       { staticClass: "card-body" },
       [
-        _vm._m(0),
+        _c("div", { staticClass: "dropdown float-right position-relative" }),
         _vm._v(" "),
-        _c("h4", { staticClass: "card-title d-inline-block" }, [
-          _vm._v("All Projects")
+        _c("h4", { staticClass: "card-title d-block alert alert-info my-2" }, [
+          _vm._v("Members of the association")
         ]),
         _vm._v(" "),
         _c("Add-Member", {
@@ -44059,7 +43663,7 @@ var render = function() {
             "table",
             { staticClass: "table table-borderless table-hover mb-0" },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -44093,7 +43697,7 @@ var render = function() {
                           )
                         ]
                       ),
-                      _vm._v("|\n                            "),
+                      _vm._v(" "),
                       _c(
                         "button",
                         {
@@ -44115,7 +43719,7 @@ var render = function() {
                           )
                         ]
                       ),
-                      _vm._v("|\n                            "),
+                      _vm._v(" "),
                       _c(
                         "button",
                         {
@@ -44182,57 +43786,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "dropdown float-right position-relative" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-toggle h4 text-muted",
-            attrs: {
-              href: "#",
-              "data-toggle": "dropdown",
-              "aria-expanded": "false"
-            }
-          },
-          [_c("i", { staticClass: "mdi mdi-dots-vertical" })]
-        ),
-        _vm._v(" "),
-        _c("ul", { staticClass: "dropdown-menu dropdown-menu-right" }, [
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Another action")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Something else here")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "dropdown-divider" }),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("Separated link")
-            ])
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44319,7 +43872,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "DetailsModalLabel" } },
+        {
+          staticClass: "modal-title alert alert-info w-100",
+          attrs: { id: "DetailsModalLabel" }
+        },
         [_vm._v("Member Details")]
       ),
       _vm._v(" "),

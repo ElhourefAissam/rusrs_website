@@ -14,10 +14,10 @@
             <div class="inline text-md-center mt-5">
                 <router-link :to="{name :'ShowArticle', params:{id:article.id}}" class="btn btn-primary">Detail</router-link>
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
-                    Modifie
+                    Modify
                 </button>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
-                    Supprimer
+                    Delete
                 </button>
             </div>
         </div>

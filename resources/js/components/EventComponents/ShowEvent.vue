@@ -6,7 +6,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="DetailsModalLabel">Event Details</h5>
+                    <h5 class="modal-title alert alert-info w-100" id="DetailsModalLabel">Event Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
