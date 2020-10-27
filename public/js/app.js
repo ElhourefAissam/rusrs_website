@@ -2058,12 +2058,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       Articles: {},
       article: {},
-      q: ''
+      q: ""
     };
   },
   mounted: function mounted() {
@@ -2075,8 +2094,8 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page).then(function (response) {
-        _this.Article = response.data;
-        console.log(response.data.data);
+        console.log(response.data);
+        _this.Articles = response.data;
       });
     },
     getArticle: function getArticle(article) {
@@ -2089,7 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.q.length > 0) {
-        axios.get('http://rusrs-website.test/api/Article/' + this.q).then(function (response) {
+        axios.get("http://rusrs-website.test/api/Article/" + this.q).then(function (response) {
           _this2.Articles = response.data;
         });
       } else this.getResults();
@@ -2236,7 +2255,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       Articles: {},
       article: {},
-      q: ''
+      q: '/'
     };
   },
   mounted: function mounted() {
@@ -2247,7 +2266,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page).then(function (response) {
+      axios.get('http://rusrs-website.test/api/Article' + this.q + '?page=' + page).then(function (response) {
         _this.Article = response.data;
       });
     },
@@ -2432,8 +2451,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['article'],
+  props: ["article"],
   data: function data() {
     return {};
   },
@@ -7573,7 +7626,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nsection[data-v-0ebf8c49]{\n    border:1px green solid\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-0ebf8c49]{\r\n    border:1px green solid\n}\r\n", ""]);
 
 // exports
 
@@ -7592,7 +7645,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nsection[data-v-679135f8]{\n    border:1px blue solid\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-679135f8]{\r\n    border:1px blue solid\n}\r\n", ""]);
 
 // exports
 
@@ -40344,7 +40397,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("Add-Article", {
-          staticClass: " m-3",
+          staticClass: "m-3",
           on: { ArticleAdded: _vm.getResults }
         }),
         _vm._v(" "),
@@ -40390,7 +40443,52 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(article.created_at))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v("afficher")]),
+                    _c("td", [
+                      _c("div", { staticClass: "portfolio-item" }, [
+                        _c("button", {
+                          staticClass: "portfolio-link",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#ShowModal"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.getArticle(article)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "portfolio-caption" }, [
+                          _c(
+                            "div",
+                            { staticClass: "portfolio-caption-heading" },
+                            [
+                              _vm._v(
+                                "\r\n                                        " +
+                                  _vm._s(article.title) +
+                                  "\r\n                                    "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "portfolio-caption-subheading text-muted"
+                            },
+                            [
+                              _vm._v(
+                                "\r\n                                        " +
+                                  _vm._s(article.author) +
+                                  "\r\n                                    "
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]),
                     _vm._v(" "),
                     _c("td", [
                       _c(
@@ -40449,6 +40547,11 @@ var render = function() {
           _c(
             "div",
             [
+              _c("Show-Article", {
+                attrs: { article: _vm.article },
+                on: { ArticleUpdated: _vm.getResults }
+              }),
+              _vm._v(" "),
               _c("Edit-Article", {
                 attrs: { article: _vm.article },
                 on: { ArticleUpdated: _vm.getResults }
@@ -41288,9 +41391,103 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "ShowModal",
+          tabindex: "-1",
+          "aria-labelledby": "ShowModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Close\r\n                    "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "btn btn-primary",
+                attrs: {
+                  type: "submit",
+                  value: "Modifie",
+                  "data-dismiss": "modal"
+                },
+                on: { click: _vm.UpdateArticle }
+              })
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "ShowModalLabel" } },
+        [
+          _vm._v(
+            "\r\n                        Modifie information d'article\r\n                    "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "portfolio-hover" }, [
+        _c("div", { staticClass: "portfolio-hover-content" }, [
+          _c("i", { staticClass: "fas fa-plus fa-3x" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "img-fluid",
+        attrs: { src: "assets/img/portfolio/01-thumbnail.jpg", alt: "" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -42157,7 +42354,7 @@ var staticRenderFns = [
                       [
                         _c("i", { staticClass: "fas fa-times mr-1" }),
                         _vm._v(
-                          "\n                                        Close Project\n                                    "
+                          "\r\n                                        Close Project\r\n                                    "
                         )
                       ]
                     )
@@ -42433,7 +42630,7 @@ var staticRenderFns = [
               }
             },
             [
-              _vm._v("\n                Menu\n                "),
+              _vm._v("\r\n                Menu\r\n                "),
               _c("i", { staticClass: "fas fa-bars ml-1" })
             ]
           ),
@@ -59772,8 +59969,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a(vue__WEBPACK_IMPORTED_MODULE_0___
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\WebsiteRUSRS\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\WebsiteRUSRS\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\laragon\www\RUSRS-WEBSITE\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\RUSRS-WEBSITE\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })

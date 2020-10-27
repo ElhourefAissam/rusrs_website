@@ -22,8 +22,7 @@
          {{-- our main layout --}}
         <div id="app">
             <App></App>
-                {{--
-                <main-page/> --}}
+                {{-- <main-page/> --}}
         </div>
 
 

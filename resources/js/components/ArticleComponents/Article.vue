@@ -41,7 +41,7 @@ export default {
         return {
             Articles: {},
             article: {},
-            q: ''
+            q: '/'
         }
     },
     mounted() {
@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         getResults(page = 1) {
-            axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page)
+            axios.get('http://rusrs-website.test/api/Article' + this.q + '?page=' + page)
                 .then(response => {
                     this.Article = response.data;
                 });

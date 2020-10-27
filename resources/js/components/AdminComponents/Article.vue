@@ -14,9 +14,9 @@
             </ul>
         </div>
         <h4 class="card-title d-inline-block">All Projects</h4>
-        <Add-Article class=" m-3" @ArticleAdded="getResults"></Add-Article>
+        <Add-Article class="m-3" @ArticleAdded="getResults"></Add-Article>
         <div class="container-small mb-3">
-            <input type="text" class="form-control text-center" @keyup="FindArticle" v-model="q" placeholder="Recherche">
+            <input type="text" class="form-control text-center" @keyup="FindArticle" v-model="q" placeholder="Recherche" />
         </div>
         <div class="table-responsive">
             <table class="table table-borderless table-hover mb-0">
@@ -35,17 +35,36 @@
                         <th>{{ article.id }}</th>
                         <td>{{ article.title }}</td>
                         <td>{{ article.created_at }}</td>
-                        <td>afficher</td>
-                        <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
+                        <td>
+                            <div class="portfolio-item">
+                                <button type="button" class="portfolio-link" data-toggle="modal" data-target="#ShowModal" @click="getArticle(article)">
+
+                                </button>
+                                <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">
+                                        {{ article.title }}
+                                    </div>
+                                    <div class="portfolio-caption-subheading text-muted">
+                                        {{ article.author }}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
                                 Modifie
-                            </button></td>
-                        <td class="text-warning"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
+                            </button>
+                        </td>
+                        <td class="text-warning">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
                                 Supprimer
-                            </button></td>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <div>
+                <Show-Article :article="article" @ArticleUpdated="getResults"></Show-Article>
                 <Edit-Article :article="article" @ArticleUpdated="getResults"></Edit-Article>
                 <Delete-Article :article="article" @ArticleDeleted="getResults"></Delete-Article>
             </div>
@@ -63,8 +82,8 @@ export default {
         return {
             Articles: {},
             article: {},
-            q: ''
-        }
+            q: "",
+        };
     },
     mounted() {
         this.getResults();
@@ -73,8 +92,8 @@ export default {
         getResults(page = 1) {
             axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page)
                 .then(response => {
-                    this.Article = response.data;
-                    console.log(response.data.data)
+                    console.log(response.data);
+                    this.Articles = response.data;
                 });
         },
         getArticle(article) {
@@ -85,17 +104,16 @@ export default {
         },
         FindArticle() {
             if (this.q.length > 0) {
-                axios.get('http://rusrs-website.test/api/Article/' + this.q)
-                    .then(response => {
+                axios
+                    .get("http://rusrs-website.test/api/Article/" + this.q)
+                    .then((response) => {
                         this.Articles = response.data;
                     });
-            } else
-                this.getResults();
-        }
-    }
-}
+            } else this.getResults();
+        },
+    },
+};
 </script>
 
 <style>
-
 </style>
