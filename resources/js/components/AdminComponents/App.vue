@@ -43,5 +43,7 @@ export default {
     display: flex !important;
     justify-content: center;
     align-items: center;
+    height: 120vh !important;
 }
+
 </style>

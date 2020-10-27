@@ -2117,9 +2117,6 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
     getArticle: function getArticle(article) {
       this.article = _objectSpread({}, article);
     },
-    refresh: function refresh(Articles) {
-      this.Articles = _objectSpread({}, Articles.filteredData);
-    },
     FindArticle: function FindArticle() {
       var _this2 = this;
 
@@ -8329,7 +8326,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.route-enter-to[data-v-f5a829c8],\n.route-leave[data-v-f5a829c8] {\n    opacity: 0;\n    transform: translateY(-30px);\n}\n.route-enter[data-v-f5a829c8],\n.route-leave-to[data-v-f5a829c8] {\n    opacity: 1;\n    transform: translateY(30px);\n}\n.route-enter-active[data-v-f5a829c8],\n.route-leave-active[data-v-f5a829c8] {\n    transition: all 0.5s ease;\n}\n.sidebar-navigation[data-v-f5a829c8]{\n    display: flex !important;\n    justify-content: center;\n    align-items: center;\n}\n", ""]);
+exports.push([module.i, "\n.route-enter-to[data-v-f5a829c8],\n.route-leave[data-v-f5a829c8] {\n    opacity: 0;\n    transform: translateY(-30px);\n}\n.route-enter[data-v-f5a829c8],\n.route-leave-to[data-v-f5a829c8] {\n    opacity: 1;\n    transform: translateY(30px);\n}\n.route-enter-active[data-v-f5a829c8],\n.route-leave-active[data-v-f5a829c8] {\n    transition: all 0.5s ease;\n}\n.sidebar-navigation[data-v-f5a829c8]{\n    display: flex !important;\n    justify-content: center;\n    align-items: center;\n    height: 120vh !important;\n}\n\n", ""]);
 
 // exports
 
@@ -43669,7 +43666,10 @@ var render = function() {
         [
           _c(
             "router-link",
-            { staticClass: "nav-link", attrs: { to: { name: "Article" } } },
+            {
+              staticClass: "nav-link",
+              attrs: { to: { name: "Article" }, "active-class": "active" }
+            },
             [
               _c(
                 "svg",
@@ -43711,7 +43711,10 @@ var render = function() {
         [
           _c(
             "router-link",
-            { staticClass: "nav-link", attrs: { to: { name: "Event" } } },
+            {
+              staticClass: "nav-link",
+              attrs: { to: { name: "Event" }, "active-class": "active" }
+            },
             [
               _c(
                 "svg",
@@ -43753,7 +43756,10 @@ var render = function() {
         [
           _c(
             "router-link",
-            { staticClass: "nav-link", attrs: { to: { name: "Member" } } },
+            {
+              staticClass: "nav-link",
+              attrs: { to: { name: "Member" }, "active-class": "active" }
+            },
             [
               _c(
                 "svg",
