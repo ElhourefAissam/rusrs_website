@@ -67,7 +67,7 @@
                 </ul>
             </div>
         </nav>
-        <div id="app" class="ml-1 col-md-3 col-lg-9 ">
+        <div id="app" class="col-md-9">
             <transition name="route" mode="out-in">
                 <router-view :key="$route.path"></router-view>
             </transition>

@@ -2089,7 +2089,6 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get(url + this.q + '?page=' + page).then(function (response) {
-        console.log(response.data);
         _this.Articles = response.data;
       });
     },
@@ -2104,7 +2103,6 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
 
       if (this.q.length > 0) {
         axios.get(url + this.q).then(function (response) {
-          console.log(response.data);
           _this2.Articles = response.data;
         });
       } else this.getResults();
@@ -2213,6 +2211,7 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
+//
 //
 //
 //
@@ -2453,6 +2452,25 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../EnvPath */ "./resources/js/EnvPath.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2926,6 +2944,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -40358,7 +40377,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "ml-1 col-md-3 col-lg-9 ", attrs: { id: "app" } },
+        { staticClass: "col-md-9", attrs: { id: "app" } },
         [
           _c(
             "transition",
@@ -41385,27 +41404,29 @@ var render = function() {
           }
         },
         [
-          _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-dialog modal-xl" }, [
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _c("div", { staticClass: "modal-dialog" }, [
+                _c("div", { staticClass: "modal-dialog modal-xl" }, [
                   _c("div", { staticClass: "modal-content" }, [
-                    _c("div", { staticClass: "modal-header" }),
+                    _c("div", { staticClass: "modal-header" }, [
+                      _c("h3", [_vm._v(_vm._s(_vm.article.title))])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c("div", { staticClass: "modal-body" }, [
-                      _c("h1", [_vm._v(_vm._s(_vm.article.title))]),
-                      _vm._v(" "),
-                      _c("h1", [_vm._v(_vm._s(_vm.article.artical_body))]),
-                      _vm._v(" "),
-                      _c("h1", [_vm._v(_vm._s(_vm.article.author))])
+                      _c("p", [_vm._v(_vm._s(_vm.article.artical_body))])
                     ])
                   ])
-                ])
+                ]),
+                _vm._v(" "),
+                _c("h6", [_vm._v(_vm._s(_vm.article.author))])
               ]),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(2)
             ])
           ])
         ]
@@ -41437,6 +41458,59 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "slideshow-container" }, [
+      _c("div", { staticClass: "mySlides fade-slider" }, [
+        _c("div", { staticClass: "numbertext" }, [_vm._v("1 / 3")]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "silder-image",
+          attrs: {
+            src: __webpack_require__(/*! ../../../../public/assets/img/portfolio/02-full.jpg */ "./public/assets/img/portfolio/02-full.jpg")
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "text" }, [_vm._v("London, Ebgland")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mySlides fade-slider" }, [
+        _c("div", { staticClass: "numbertext" }, [_vm._v("2 / 3")]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "silder-image",
+          attrs: {
+            src: __webpack_require__(/*! ../../../../public/assets/img/portfolio/01-full.jpg */ "./public/assets/img/portfolio/01-full.jpg")
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "text" }, [_vm._v("Sunset in Romania")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mySlides fade-slider" }, [
+        _c("div", { staticClass: "numbertext" }, [_vm._v("3 / 3")]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "silder-image",
+          attrs: {
+            src: __webpack_require__(/*! ../../../../public/assets/img/portfolio/03-full.jpg */ "./public/assets/img/portfolio/03-full.jpg")
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "text" }, [_vm._v("New York, USA")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "prev", attrs: { onclick: "plusSlides(-1)" } }, [
+        _vm._v("❮")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "next", attrs: { onclick: "plusSlides(1)" } }, [
+        _vm._v("❯")
+      ])
     ])
   },
   function() {

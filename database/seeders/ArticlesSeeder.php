@@ -17,7 +17,7 @@ class ArticlesSeeder extends Seeder
     {
         DB::table('articles')->insert([
             'title' => Str::random(20),
-            'artical_body' => Str::random(200),
+            'artical_body' => 'Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!',
             'author' => Str::random(10),
         ]);
     }
