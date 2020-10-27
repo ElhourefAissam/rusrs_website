@@ -25,7 +25,7 @@
                     <tr>
                         <th>No</th>
                         <th>Title</th>
-                        <th>Date publier</th>
+                        <th>Date</th>
                         <th></th>
                     </tr>
                 </thead>

@@ -30,7 +30,6 @@ Vue.component('section-program', require('./components/main-components/Program.v
 // Admin Components
 Vue.component('App', require('./components/AdminComponents/App.vue').default);
 Vue.component('Article', require('./components/AdminComponents/Article.vue').default);
-Vue.component('Event', require('./components/AdminComponents/Event.vue').default);
 
 // Nav Components
 Vue.component('Nav', require('./components/NavComponents/Nav.vue').default);
@@ -44,7 +43,11 @@ Vue.component('Delete-Article', require('./components/ArticleComponents/DeleteAr
 Vue.component('Show-Article', require('./components/ArticleComponents/ShowArticle.vue').default);
 
 // Events componenets for CRUD operations
- // write code
+Vue.component('Event', require('./components/EventComponents/EventList.vue').default);
+Vue.component('Add-Event', require('./components/ArticleComponents/AddArticle.vue').default);
+Vue.component('Edit-Event', require('./components/ArticleComponents/EditArticle.vue').default);
+Vue.component('Delete-Event', require('./components/ArticleComponents/DeleteArticle.vue').default);
+Vue.component('Show-Event', require('./components/ArticleComponents/ShowArticle.vue').default);
 
 // Program FID WA ASTAFID componenets for CRUD operations
     // write code
@@ -61,7 +64,6 @@ Vue.component('Show-Article', require('./components/ArticleComponents/ShowArticl
 
 //pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
-
 
 
 const app = new Vue({
