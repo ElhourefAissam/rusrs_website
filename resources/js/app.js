@@ -43,24 +43,22 @@ Vue.component('Delete-Article', require('./components/ArticleComponents/DeleteAr
 Vue.component('Show-Article', require('./components/ArticleComponents/ShowArticle.vue').default);
 
 // Events componenets for CRUD operations
-Vue.component('Event', require('./components/EventComponents/EventList.vue').default);
-Vue.component('Add-Event', require('./components/ArticleComponents/AddArticle.vue').default);
-Vue.component('Edit-Event', require('./components/ArticleComponents/EditArticle.vue').default);
-Vue.component('Delete-Event', require('./components/ArticleComponents/DeleteArticle.vue').default);
-Vue.component('Show-Event', require('./components/ArticleComponents/ShowArticle.vue').default);
+Vue.component('Event-list', require('./components/EventComponents/EventList.vue').default);
+Vue.component('Add-Event', require('./components/EventComponents/AddEvent.vue').default);
+Vue.component('Edit-Event', require('./components/EventComponents/EditEvent.vue').default);
+Vue.component('Delete-Event', require('./components/EventComponents/DeleteEvent.vue').default);
+Vue.component('Show-Event', require('./components/EventComponents/ShowEvent.vue').default);
 
-// Program FID WA ASTAFID componenets for CRUD operations
-    // write code
 
 // Members componenets for CRUD operations
-    // write code
+Vue.component('Member-list', require('./components/MemberComponents/MemberList.vue').default);
+Vue.component('Add-Member', require('./components/MemberComponents/AddMember.vue').default);
+Vue.component('Edit-Member', require('./components/MemberComponents/EditMember.vue').default);
+Vue.component('Delete-Member', require('./components/MemberComponents/DeleteMember.vue').default);
+Vue.component('Show-Member', require('./components/MemberComponents/ShowMember.vue').default);
 
 // Program FID WA ASTAFID componenets for CRUD operations
 // write code
-
-// Members componenets for CRUD operations
-// write code
-
 
 //pagination
 Vue.component('pagination', require('laravel-vue-pagination'));

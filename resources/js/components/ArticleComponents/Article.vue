@@ -38,8 +38,7 @@
 <script>
 import Path from "../../EnvPath";
 
-const url=Path.baseUrl+"Article";
-
+const url = Path.baseUrl + "Article/";
 
 export default {
     data: function () {
@@ -54,7 +53,7 @@ export default {
     },
     methods: {
         getResults(page = 1) {
-            axios.get( url + this.q + '?page=' + page)
+            axios.get(url + this.q + '?page=' + page)
                 .then(response => {
                     this.Article = response.data;
                 });

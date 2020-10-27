@@ -2,7 +2,7 @@
 <div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-       Add Article
+       Add Member
     </button>
 
     <!-- Modal -->
@@ -10,30 +10,28 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Article</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Member information</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body" >
                     <form>
+                        <!-- display an image here -->
+
                         <div class=" form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" v-model="title" class="form-control" placeholder="title">
+                            <label for="full_name">Full Name</label>
+                            <input type="text" name="full_name" v-model="full_name" class="form-control" placeholder="full name">
                         </div>
                         <div class=" form-group">
-                            <label for="artical_body">Artical_body</label>
-                            <textarea rows="2" name="artical_body" v-model="artical_body" class="form-control" placeholder="Artical_body"></textarea>
-                        </div>
-                        <div class=" form-group">
-                            <label for="author">author</label>
-                            <input type="text" name="author" v-model="author" class="form-control" placeholder="author">
+                            <label for="position">Position</label>
+                            <textarea rows="2" name="position" v-model="position" class="form-control" placeholder="position"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" @click="AddArticle" value="add" data-dismiss="modal">
+                    <input type="submit" class="btn btn-primary" @click="AddMember" value="add" data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -48,28 +46,23 @@
 
 // we have the main root in EnvPath work using this in every file please
 import Path from "../../EnvPath";
+import {Member} from "../../Models/Models"
 
-const url=Path.baseUrl+"Article";
+const url=Path.baseUrl+"Member";
 
 export default {
     data: function () {
         return {
-            Articles: {},
-            title: '',
-            artical_body: '',
-            author: '',
+            Members: {},
+            Member
         }
     },
     methods: {
-        AddArticle() {
-            axios.post( url, {
-                    title: this.title,
-                    artical_body: this.artical_body,
-                    author: this.author,
-                })
+        AddMember() {
+            axios.post( url, {...this.Member})
                 .then((response) => {
-                    this.$emit('ArticleAdded', response)
-                    alert('article added')
+                    this.$emit('MemberAdded', response)
+                    alert('Member added')
                 })
                 .catch(error => console.log(error));
         }

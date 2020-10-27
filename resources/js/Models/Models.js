@@ -12,10 +12,15 @@ let Event={
 let Article={
     id:"",
     title:"",
-    artical_body,
+    artical_body:"",
     author:"",
 }
 
 let Member={
-
+    id:"",
+    full_name:"",
+    position:""
 }
+
+
+export {Event,Article,Member};

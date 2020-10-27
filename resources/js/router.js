@@ -15,7 +15,13 @@ const routes = [
         path: '/Event',
         name: 'Event',
         component: () =>
-            import ("./components/AdminComponents/Event")
+            import ("./components/EventComponents/EventList.vue")
+    },
+    {
+        path: '/Member',
+        name: 'Member',
+        component: () =>
+            import ("./components/MemberComponents/MemberList.vue")
     },
 
     //projects routes....

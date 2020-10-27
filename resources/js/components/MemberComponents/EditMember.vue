@@ -5,7 +5,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="EditModalLabel">Modifie information d'article</h5>
+                    <h5 class="modal-title" id="EditModalLabel">Modify Member</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -16,7 +16,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un Article</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Modify a member</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -25,16 +25,12 @@
                                     <form>
                                         <!-- {{Form::token()}} -->
                                         <div class=" form-group">
-                                            <label for="title">Title</label>
-                                            <input type="text" name="title" v-model="article.title" class="form-control" placeholder="title">
+                                            <label for="full_name">Full name</label>
+                                            <input type="text" name="full_name" v-model="Member.full_name" class="form-control" placeholder="full name">
                                         </div>
                                         <div class=" form-group">
-                                            <label for="artical_body">Artical_body</label>
-                                            <textarea rows="2" name="artical_body" v-model="article.artical_body" class="form-control" placeholder="Artical_body"></textarea>
-                                        </div>
-                                        <div class=" form-group">
-                                            <label for="author">author</label>
-                                            <input type="text" name="author" v-model="article.author" class="form-control" placeholder="author">
+                                            <label for="position">Position</label>
+                                            <textarea rows="2" name="position" v-model="Member.position" class="form-control" placeholder="position"></textarea>
                                         </div>
                                     </form>
                                 </div>
@@ -44,7 +40,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Modifie" @click="UpdateArticle" data-dismiss="modal">
+                    <input type="submit" class="btn btn-primary" value="Modifie" @click="UpdateMember" data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -55,28 +51,24 @@
 <script>
 import Path from "../../EnvPath";
 
-const url=Path.baseUrl+"Article/";
+const url=Path.baseUrl+"Member/";
 
 
 export default {
-    props: ['article'],
+    props: ['Member'],
     data: function () {
         return {
 
         }
     },
     methods: {
-        UpdateArticle: function () {
+        UpdateMember: function () {
             // if (document.getElementById('Image').files[0]) {
             //     data.append('Image', document.getElementById('Image').files[0]);
             // }
-            axios.put(url + this.article.id, {
-                    title: this.article.title,
-                    artical_body: this.article.artical_body,
-                    author: this.article.author,
-                })
+            axios.put(url + this.Member.id, {...this.Member})
                 .then((response) => {
-                    this.$emit('ArticleUpdated', response)
+                    this.$emit('MemberUpdated', response)
                 })
                 .catch(error => console.log(error));
         }

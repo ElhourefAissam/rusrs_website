@@ -16,8 +16,7 @@
         <h4 class="card-title d-inline-block">All Projects</h4>
         <Add-Event class=" m-3" @EventAdded="getResults"></Add-Event>
         <div class="container-small mb-3">
-            <!-- <input type="text" class="form-control text-center" @keyup="FindEvent" v-model="q" placeholder="Search"> -->
-            <input type="text" class="form-control text-center"  v-model="q" placeholder="Search">
+            <input type="text" class="form-control text-center" @keyup="FindEvent" v-model="q" placeholder="Search">
         </div>
         <div class="table-responsive">
             <table class="table table-borderless table-hover mb-0">
@@ -34,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="Event in Events.filteredData.data" :key="Event.id">
+                    <tr v-for="Event in Events.data" :key="Event.id">
                         <th>{{ Event.id }}</th>
                         <td>{{ Event.title }}</td>
                         <td>{{ Event.created_at }}</td>
@@ -59,7 +58,7 @@
                 <Show-Event :Event="Event" ></Show-Event>
             </div>
             <div class="">
-                <pagination :data="Events.filteredData" @pagination-change-page="getResults" class="mt-5"></pagination>
+                <pagination :data="Events" @pagination-change-page="getResults" class="mt-5"></pagination>
             </div>
         </div>
     </div>
@@ -76,9 +75,6 @@ export default {
     data: function () {
         return {
             Events: {},
-            Event: {
-
-            },
             q: ''
         }
     },
@@ -86,27 +82,36 @@ export default {
         this.getResults();
     },
     methods: {
+
         getResults(page = 1) {
-            axios.get( url + this.q + '?page=' + page)
+            axios.get(url + this.q + '?page=' + page)
                 .then(response => {
-                    this.Event = response.data;
-            });
+
+                    this.Events = response.data;
+                });
         },
+
         getEvent(Event) {
-            this.Event = Event;
+            this.Event = {
+                ...Event
+            };
         },
+
         refresh(Events) {
-            this.Events = Events.data;
+            this.Events = {
+                ...Events.filteredData
+            };
         },
         FindEvent() {
             if (this.q.length > 0) {
                 axios.get(url + this.q)
                     .then(response => {
+
                         this.Events = response.data;
                     });
-            } else
-                this.getResults();
-        }
+            } else this.getResults();
+        },
+
     }
 }
 </script>

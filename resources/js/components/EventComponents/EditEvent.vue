@@ -5,7 +5,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="EditModalLabel">Modifie information d'article</h5>
+                    <h5 class="modal-title" id="EditModalLabel">Modify Event</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -16,7 +16,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un Article</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Modify Event</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -26,15 +26,27 @@
                                         <!-- {{Form::token()}} -->
                                         <div class=" form-group">
                                             <label for="title">Title</label>
-                                            <input type="text" name="title" v-model="article.title" class="form-control" placeholder="title">
+                                            <input type="text" name="title" v-model="Event.title" class="form-control" placeholder="title">
                                         </div>
                                         <div class=" form-group">
-                                            <label for="artical_body">Artical_body</label>
-                                            <textarea rows="2" name="artical_body" v-model="article.artical_body" class="form-control" placeholder="Artical_body"></textarea>
+                                            <label for="description">Description</label>
+                                            <textarea rows="2" name="description" v-model="Event.description" class="form-control" placeholder="description"></textarea>
                                         </div>
                                         <div class=" form-group">
-                                            <label for="author">author</label>
-                                            <input type="text" name="author" v-model="article.author" class="form-control" placeholder="author">
+                                            <label for="place">Place</label>
+                                            <input type="text" name="place" v-model="Event.place" class="form-control" placeholder="place">
+                                        </div>
+                                        <div class=" form-group">
+                                            <label for="address">Address</label>
+                                            <input type="text" name="address" v-model="Event.adress" class="form-control" placeholder="address">
+                                        </div>
+                                        <div class=" form-group">
+                                            <label for="start_date">Start Date</label>
+                                            <input type="date" name="start_date" v-model="Event.start_date" class="form-control" placeholder="start_date">
+                                        </div>
+                                        <div class=" form-group">
+                                            <label for="end_date">End Date</label>
+                                            <input type="date" name="end_date" v-model="Event.end_date" class="form-control" placeholder="end_date">
                                         </div>
                                     </form>
                                 </div>
@@ -44,7 +56,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Modifie" @click="UpdateArticle" data-dismiss="modal">
+                    <input type="submit" class="btn btn-primary" value="Modifie" @click="UpdateEvent" data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -55,28 +67,24 @@
 <script>
 import Path from "../../EnvPath";
 
-const url=Path.baseUrl+"Article/";
+const url=Path.baseUrl+"Event/";
 
 
 export default {
-    props: ['article'],
+    props: ['Event'],
     data: function () {
         return {
 
         }
     },
     methods: {
-        UpdateArticle: function () {
+        UpdateEvent: function () {
             // if (document.getElementById('Image').files[0]) {
             //     data.append('Image', document.getElementById('Image').files[0]);
             // }
-            axios.put(url + this.article.id, {
-                    title: this.article.title,
-                    artical_body: this.article.artical_body,
-                    author: this.article.author,
-                })
+            axios.put(url + this.Event.id, {...this.Event})
                 .then((response) => {
-                    this.$emit('ArticleUpdated', response)
+                    this.$emit('EventUpdated', response)
                 })
                 .catch(error => console.log(error));
         }

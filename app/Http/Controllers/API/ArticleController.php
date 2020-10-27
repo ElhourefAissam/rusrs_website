@@ -11,9 +11,9 @@ class ArticleController extends Controller
     public function index()
     {
         if(request('q') != null){
-            return Article::where('title','like','%'.request('q').'%')->orderBy('created_at','asc')->paginate(6);
+            return Article::where('title','like','%'.request('q').'%')->orderBy('created_at','desc')->paginate(6);
         }
-        return Article::orderBy('created_at','asc')->paginate(6);
+        return Article::orderBy('created_at','desc')->paginate(6);
     }
 
     public function store(Request $request)

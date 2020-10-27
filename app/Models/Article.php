@@ -10,4 +10,8 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable=["title","artical_body","author"];
+
+    public function Images(){
+        return $this->morphMany('Image','Imagetable');
+    }
 }

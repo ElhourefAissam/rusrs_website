@@ -5,17 +5,17 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="DeleteModalLabel">Supprimer un Article</h5>
+                    <h5 class="modal-title" id="DeleteModalLabel">Supprimer un Member</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h4>Est que vous voulez Supprimer cette Article : {{article.title}}</h4>
+                    <h4>Do you want to remove Member : {{Member.full_name}}</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-danger" value="Suprrimer" @click="DeleteArticle" data-dismiss="modal">
+                    <input type="submit" class="btn btn-danger" value="Suprrimer" @click="DeleteMember" data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -26,23 +26,21 @@
 <script>
 import Path from "../../EnvPath";
 
-const url=Path.baseUrl+"Article";
+const url=Path.baseUrl+"Member/";
 
 export default {
-    props: ['article'],
+    props: ['Member'],
     data: function () {
         return {
 
         }
     },
     methods: {
-        DeleteArticle: function () {
+        DeleteMember: function () {
 
-            const param = this.article.id ? '/' + this.article.id : '';
-
-            axios.delete(url + param)
+            axios.delete(url + this.Member.id)
                 .then((response) => {
-                    this.$emit('ArticleDeleted', response)
+                    this.$emit('MemberDeleted', response)
                 })
                 .catch(error => console.log(error));
         }

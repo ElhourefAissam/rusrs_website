@@ -6,7 +6,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="DetailsModalLabel">Modifie information d'article</h5>
+                    <h5 class="modal-title" id="DetailsModalLabel">Member Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -18,9 +18,8 @@
 
                             </div>
                             <div class="modal-body">
-                                    <h1>{{article.title}}</h1>
-                                    <h1>{{article.artical_body}}</h1>
-                                    <h1>{{article.author}}</h1>
+                                    <h1>{{Member.full_name}}</h1>
+                                    <h1>{{Member.position}}</h1>
                             </div>
                         </div>
                     </div>
@@ -40,10 +39,10 @@
 <script>
 import Path from "../../EnvPath";
 
-const url=Path.baseUrl+"Article";
+const url = Path.baseUrl + "Member";
 
 export default {
-    props: ['article'],
+    props: ['Member'],
     data: function () {
         return {
 

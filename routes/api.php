@@ -9,7 +9,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/Article/{q}',[ArticleController::class,'index']);
+Route::get('/Event/{q}',[EventController::class,'index']);
 
 Route::resource('Article', 'API\ArticleController');
 Route::resource('Event', 'API\EventController');
-
+Route::resource('Memebr', 'API\MemberController');

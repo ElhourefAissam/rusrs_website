@@ -55,6 +55,7 @@
 <script>
 import Path from "../../EnvPath";
 
+
 const url=Path.baseUrl+"Article/";
 
 
@@ -70,11 +71,7 @@ export default {
             // if (document.getElementById('Image').files[0]) {
             //     data.append('Image', document.getElementById('Image').files[0]);
             // }
-            axios.put(url + this.article.id, {
-                    title: this.article.title,
-                    artical_body: this.article.artical_body,
-                    author: this.article.author,
-                })
+            axios.put(url + this.article.id, {...this.article})
                 .then((response) => {
                     this.$emit('ArticleUpdated', response)
                 })

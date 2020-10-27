@@ -17,6 +17,7 @@
                 </div>
                 <div class="modal-body" >
                     <form>
+                        <!-- {{Form::token()}} -->
                         <div class=" form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" v-model="Event.title" class="form-control" placeholder="title">
@@ -30,15 +31,15 @@
                             <input type="text" name="place" v-model="Event.place" class="form-control" placeholder="place">
                         </div>
                         <div class=" form-group">
-                            <label for="address">address</label>
-                            <input type="text" name="address" v-model="Event.adress" class="form-control" addressholder="address">
+                            <label for="address">Address</label>
+                            <input type="text" name="address" v-model="Event.adress" class="form-control" placeholder="address">
                         </div>
                         <div class=" form-group">
-                            <label for="start_date">Starting at</label>
+                            <label for="start_date">Start Date</label>
                             <input type="date" name="start_date" v-model="Event.start_date" class="form-control" placeholder="start_date">
                         </div>
-                         <div class=" form-group">
-                            <label for="end_date">Ending at</label>
+                        <div class=" form-group">
+                            <label for="end_date">End Date</label>
                             <input type="date" name="end_date" v-model="Event.end_date" class="form-control" placeholder="end_date">
                         </div>
                     </form>
@@ -60,6 +61,7 @@
 
 // we have the main root in EnvPath work using this in every file please
 import Path from "../../EnvPath";
+import {Event} from "../../Models/Models";
 
 const url=Path.baseUrl+"Event";
 
@@ -67,9 +69,7 @@ export default {
     data: function () {
         return {
             Events: {},
-            Event:{
-
-            }
+            Event
         }
     },
     methods: {
