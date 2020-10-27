@@ -38,15 +38,14 @@
 <script>
 import Path from "../../EnvPath";
 
-const url=Path.baseUrl+"Article";
-
+const url = Path.baseUrl + "Article/";
 
 export default {
     data: function () {
         return {
             Articles: {},
             article: {},
-            q: '/'
+            q: ''
         }
     },
     mounted() {
@@ -54,11 +53,7 @@ export default {
     },
     methods: {
         getResults(page = 1) {
-<<<<<<< HEAD
-            axios.get('http://rusrs-website.test/api/Article' + this.q + '?page=' + page)
-=======
-            axios.get( url + this.q + '?page=' + page)
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
+            axios.get(url + this.q + '?page=' + page)
                 .then(response => {
                     this.Article = response.data;
                 });

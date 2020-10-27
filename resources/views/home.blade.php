@@ -21,13 +21,8 @@
 
          {{-- our main layout --}}
         <div id="app">
-<<<<<<< HEAD
-            <App></App>
-                {{-- <main-page/> --}}
-=======
             {{-- <main-page/> --}}
             <App/>
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
         </div>
 
 

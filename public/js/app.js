@@ -2069,36 +2069,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-<<<<<<< HEAD
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-=======
 // we have the main root in EnvPath work using this in every file please
 
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      Articles: {
-        originalData: {},
-        filteredData: {}
-      },
+      Articles: {},
       article: {},
       q: ""
     };
@@ -2111,43 +2088,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-<<<<<<< HEAD
-      axios.get('http://rusrs-website.test/api/Article/' + this.q + '?page=' + page).then(function (response) {
+      axios.get(url + this.q + '?page=' + page).then(function (response) {
         console.log(response.data);
         _this.Articles = response.data;
-=======
-      var param = this.q ? '/' + this.q : '';
-      axios.get(_EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + 'Article' + param + '?page=' + page).then(function (response) {
-        _this.Articles.originalData = _objectSpread({}, response.data);
-        _this.Articles.filteredData = _objectSpread({}, response.data);
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
       });
     },
     getArticle: function getArticle(article) {
       this.article = _objectSpread({}, article);
     },
     refresh: function refresh(Articles) {
-<<<<<<< HEAD
-      this.Articles = Articles.data;
+      this.Articles = _objectSpread({}, Articles.filteredData);
     },
     FindArticle: function FindArticle() {
       var _this2 = this;
 
       if (this.q.length > 0) {
-        axios.get("http://rusrs-website.test/api/Article/" + this.q).then(function (response) {
+        axios.get(url + this.q).then(function (response) {
+          console.log(response.data);
           _this2.Articles = response.data;
-=======
-      this.Articles = _objectSpread({}, Articles.filteredData);
-    }
-  },
-  watch: {
-    q: function q(value) {
-      if (value.length > 0) {
-        this.Articles.filteredData.data = this.Articles.originalData.data.filter(function (article) {
-          return article.title.toLowerCase().includes(value.toLowerCase());
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
         });
-      } else this.Articles.filteredData = _objectSpread({}, this.Articles.originalData);
+      } else this.getResults();
     }
   }
 });
@@ -2291,13 +2251,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       Articles: {},
       article: {},
-      q: '/'
+      q: ''
     };
   },
   mounted: function mounted() {
@@ -2308,11 +2268,7 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-<<<<<<< HEAD
-      axios.get('http://rusrs-website.test/api/Article' + this.q + '?page=' + page).then(function (response) {
-=======
       axios.get(url + this.q + '?page=' + page).then(function (response) {
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
         _this.Article = response.data;
       });
     },
@@ -2536,26 +2492,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-=======
 
 var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["article"],
   data: function data() {
@@ -40486,6 +40424,7 @@ var render = function() {
             attrs: { type: "text", placeholder: "Search" },
             domProps: { value: _vm.q },
             on: {
+              keyup: _vm.FindArticle,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -40505,7 +40444,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.Articles.filteredData.data, function(article) {
+                _vm._l(_vm.Articles.data, function(article) {
                   return _c("tr", { key: article.id }, [
                     _c("th", [_vm._v(_vm._s(article.id))]),
                     _vm._v(" "),
@@ -40513,56 +40452,6 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(article.created_at))]),
                     _vm._v(" "),
-<<<<<<< HEAD
-                    _c("td", [
-                      _c("div", { staticClass: "portfolio-item" }, [
-                        _c("button", {
-                          staticClass: "portfolio-link",
-                          attrs: {
-                            type: "button",
-                            "data-toggle": "modal",
-                            "data-target": "#ShowModal"
-                          },
-                          on: {
-                            click: function($event) {
-                              return _vm.getArticle(article)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "portfolio-caption" }, [
-                          _c(
-                            "div",
-                            { staticClass: "portfolio-caption-heading" },
-                            [
-                              _vm._v(
-                                "\r\n                                        " +
-                                  _vm._s(article.title) +
-                                  "\r\n                                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "portfolio-caption-subheading text-muted"
-                            },
-                            [
-                              _vm._v(
-                                "\r\n                                        " +
-                                  _vm._s(article.author) +
-                                  "\r\n                                    "
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-=======
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
                     _c("td", [
                       _c(
                         "button",
@@ -40581,11 +40470,11 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Details\n                            "
+                            "\r\n                                Details\r\n                            "
                           )
                         ]
                       ),
-                      _vm._v("|\n                           "),
+                      _vm._v("|\r\n                            "),
                       _c(
                         "button",
                         {
@@ -40603,11 +40492,11 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Modify\n                            "
+                            "\r\n                                Modify\r\n                            "
                           )
                         ]
                       ),
-                      _vm._v("|\n                            "),
+                      _vm._v("|\r\n                            "),
                       _c(
                         "button",
                         {
@@ -40625,7 +40514,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                delete\n                            "
+                            "\r\n                                delete\r\n                            "
                           )
                         ]
                       )
@@ -40666,7 +40555,7 @@ var render = function() {
             [
               _c("pagination", {
                 staticClass: "mt-5",
-                attrs: { data: _vm.Articles.filteredData },
+                attrs: { data: _vm.Articles },
                 on: { "pagination-change-page": _vm.getResults }
               })
             ],
@@ -40779,7 +40668,7 @@ var render = function() {
           "data-target": "#exampleModal"
         }
       },
-      [_vm._v("\n       Add Article\n    ")]
+      [_vm._v("\r\n       Add Article\r\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -41049,7 +40938,11 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n                    Modifie\n                ")]
+                  [
+                    _vm._v(
+                      "\r\n                    Modifie\r\n                "
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -41067,7 +40960,11 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n                    Supprimer\n                ")]
+                  [
+                    _vm._v(
+                      "\r\n                    Supprimer\r\n                "
+                    )
+                  ]
                 )
               ],
               1
@@ -41475,54 +41372,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-<<<<<<< HEAD
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "ShowModal",
-          tabindex: "-1",
-          "aria-labelledby": "ShowModalLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "button", "data-dismiss": "modal" }
-                },
-                [
-                  _vm._v(
-                    "\r\n                        Close\r\n                    "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "btn btn-primary",
-                attrs: {
-                  type: "submit",
-                  value: "Modifie",
-                  "data-dismiss": "modal"
-                },
-                on: { click: _vm.UpdateArticle }
-              })
-            ])
-          ])
-        ])
-      ]
-    )
-=======
     _c("div", [
       _c(
         "div",
@@ -41562,7 +41411,6 @@ var render = function() {
         ]
       )
     ])
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
   ])
 }
 var staticRenderFns = [
@@ -41573,17 +41421,8 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-<<<<<<< HEAD
-        { staticClass: "modal-title", attrs: { id: "ShowModalLabel" } },
-        [
-          _vm._v(
-            "\r\n                        Modifie information d'article\r\n                    "
-          )
-        ]
-=======
         { staticClass: "modal-title", attrs: { id: "DetailsModalLabel" } },
         [_vm._v("Modifie information d'article")]
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
       ),
       _vm._v(" "),
       _c(
@@ -41604,19 +41443,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("div", { staticClass: "portfolio-hover" }, [
-        _c("div", { staticClass: "portfolio-hover-content" }, [
-          _c("i", { staticClass: "fas fa-plus fa-3x" })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "assets/img/portfolio/01-thumbnail.jpg", alt: "" }
-      })
-=======
     return _c("div", { staticClass: "modal-footer" }, [
       _c(
         "button",
@@ -41626,7 +41452,6 @@ var staticRenderFns = [
         },
         [_vm._v("Close")]
       )
->>>>>>> 5013c63de498960a60b66668da10dcbc7c0e9dab
     ])
   }
 ]
@@ -58495,7 +58320,7 @@ module.exports = "/images/03-full.jpg?3b263f0ffc3870f7fc6cefee9a86d50b";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  baseUrl:  false ? undefined : "http://localhost/api/"
+  baseUrl:  false ? undefined : "http://rusrs-website.test/api/"
 });
 
 /***/ }),
