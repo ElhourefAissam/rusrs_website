@@ -32,6 +32,7 @@
     <div v-if="!this.Articles" class=" alert-danger">
         <h3>No Articles load!!</h3>
     </div>
+
 </div>
 </template>
 

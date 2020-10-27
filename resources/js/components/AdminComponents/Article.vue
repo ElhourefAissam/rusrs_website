@@ -85,7 +85,6 @@ export default {
         getResults(page = 1) {
             axios.get(url + this.q + '?page=' + page)
                 .then(response => {
-
                     this.Articles = response.data;
                 });
         },
@@ -105,7 +104,6 @@ export default {
             if (this.q.length > 0) {
                 axios.get(url + this.q)
                     .then(response => {
-
                         this.Articles = response.data;
                     });
             } else this.getResults();

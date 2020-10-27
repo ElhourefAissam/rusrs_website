@@ -12,7 +12,7 @@ class EventsSeeder extends Seeder
     {
         DB::table('events')->insert([
             'title' => Str::random(20),
-            'description' => Str::random(50),
+            'description' => 'Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!',
             'place' => Str::random(30),
             'adress' => Str::random(30),
             'start_date' => Str::random(30),
