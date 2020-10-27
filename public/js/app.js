@@ -1925,10 +1925,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -8342,7 +8338,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.route-enter-to[data-v-f5a829c8],\n.route-leave[data-v-f5a829c8] {\n    opacity: 0;\n    transform: translateY(-30px);\n}\n.route-enter[data-v-f5a829c8],\n.route-leave-to[data-v-f5a829c8] {\n    opacity: 1;\n    transform: translateY(30px);\n}\n.route-enter-active[data-v-f5a829c8],\n.route-leave-active[data-v-f5a829c8] {\n    transition: all 0.5s ease;\n}\n", ""]);
+exports.push([module.i, "\n.route-enter-to[data-v-f5a829c8],\n.route-leave[data-v-f5a829c8] {\n    opacity: 0;\n    transform: translateY(-30px);\n}\n.route-enter[data-v-f5a829c8],\n.route-leave-to[data-v-f5a829c8] {\n    opacity: 1;\n    transform: translateY(30px);\n}\n.route-enter-active[data-v-f5a829c8],\n.route-leave-active[data-v-f5a829c8] {\n    transition: all 0.5s ease;\n}\n.sidebar-navigation[data-v-f5a829c8]{\n    display: flex !important;\n    justify-content: center;\n    align-items: center;\n}\n", ""]);
 
 // exports
 
@@ -40834,17 +40830,10 @@ var render = function() {
         "nav",
         {
           staticClass:
-            "col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show",
+            "col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show sidebar-navigation",
           attrs: { id: "sidebarMenu" }
         },
-        [
-          _c(
-            "div",
-            { staticClass: "sidebar-sticky pt-3" },
-            [_c("Nav"), _vm._v(" "), _c("ul")],
-            1
-          )
-        ]
+        [_c("div", { staticClass: "sidebar-sticky pt-3" }, [_c("Nav")], 1)]
       ),
       _vm._v(" "),
       _c(

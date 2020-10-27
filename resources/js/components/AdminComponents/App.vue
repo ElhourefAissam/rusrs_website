@@ -1,13 +1,9 @@
 <template>
 <div class="">
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show" style="">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show sidebar-navigation" style="">
             <div class="sidebar-sticky pt-3">
                 <Nav></Nav>
-
-                <ul>
-                </ul>
-
             </div>
         </nav>
         <div id="app" class="col-md-9">
@@ -41,5 +37,11 @@ export default {
 .route-enter-active,
 .route-leave-active {
     transition: all 0.5s ease;
+}
+
+.sidebar-navigation{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 </style>
