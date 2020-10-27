@@ -2,38 +2,38 @@
 <div>
         <!-- Navbar -->
         <navbar-element/>
+
         <!-- Masthead-->
             <section-masthead/>
+
         <!-- Services-->
-            <section-services/>
-         <!-- Services-->
+            <section-events/>
+
+        <!-- articles-->
+        <section-articles/>
+
+        <!-- program FID WA ASTAFID -->
+        <section-program/>
 
         <!-- Portfolio Grid-->
-           <section-portfolio-grid/>
-        <!-- Portfolio Grid-->
+           <section-gallery/>
 
-        <!-- About-->
-        <section-about/>
-         <!-- About-->
 
         <!-- Team-->
         <section-team/>
-        <!-- Team-->
 
         <!-- Contact-->
             <section-contact/>
-        <!-- Contact-->
 
         <!-- Footer-->
             <section-footer/>
-        <!-- Footer-->
 
 
         <!-- Portfolio Modals-->
         <!-- Modal -->
              <!-- add modal dynamiccaly -->
             <section-modal/>
-        <!-- Modal -->
+
         <!-- Modal 2-->
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">

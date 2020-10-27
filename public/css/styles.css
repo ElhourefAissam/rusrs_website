@@ -10515,3 +10515,6 @@ section#contact form#contactForm :-ms-input-placeholder {
     border:0.5px solid #000200;
     /* box-shadow: none none 1px 1px rgba(0,0,0,0.2) */
 }
+.navbar-black{
+    background-color: #2c3136 !important;
+}

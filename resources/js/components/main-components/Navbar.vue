@@ -11,8 +11,10 @@
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">خدمات</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">المعرض</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">من نحن</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">الفريق</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#articles">المقالات</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#events">الاحداث</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#programs">البرامج</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">الاعضاء</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">تواصل معنا</a></li>
                 </ul>
             </div>
