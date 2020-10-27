@@ -6,13 +6,13 @@ Vue.use(Router)
 const routes = [
     //Admin
     {
-        path: 'http://rusrs-website.test/Article',
+        path: '/Article',
         name: 'Article',
         component: () =>
             import ("./components/AdminComponents/Article")
     },
     {
-        path: 'http://rusrs-website.test/Event',
+        path: '/Event',
         name: 'Event',
         component: () =>
             import ("./components/AdminComponents/Event")

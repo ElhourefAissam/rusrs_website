@@ -14,9 +14,7 @@ Route::get('/Article/{q?}', [ArticaleController::class,'index']);
 Route::get('/Event/{q?}', [ArticaleController::class,'index']);
 
 
-
-
-Route::apiResource('Article', ArticaleController::class);
-Route::apiResource('Event', EventController::class);
+Route::resource('Article', ArticaleController::class);
+Route::resource('Event', EventController::class);
 
 

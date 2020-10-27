@@ -27,6 +27,15 @@ Vue.component('section-program', require('./components/main-components/Program.v
 // the main layout for mini program of CRUD operations -> containes articles,events,members,program componenets ...
     // write code
 
+// Admin Components
+Vue.component('App', require('./components/AdminComponents/App.vue').default);
+Vue.component('Article', require('./components/AdminComponents/Article.vue').default);
+Vue.component('Event', require('./components/AdminComponents/Event.vue').default);
+
+// Nav Components
+Vue.component('Nav', require('./components/NavComponents/Nav.vue').default);
+
+
 // Article componenets for CRUD operations
 Vue.component('Article', require('./components/ArticleComponents/Article.vue').default);
 Vue.component('Add-Article', require('./components/ArticleComponents/AddArticle.vue').default);
@@ -35,7 +44,7 @@ Vue.component('Delete-Article', require('./components/ArticleComponents/DeleteAr
 Vue.component('Show-Article', require('./components/ArticleComponents/ShowArticle.vue').default);
 
 // Events componenets for CRUD operations
-    // write code
+ // write code
 
 // Program FID WA ASTAFID componenets for CRUD operations
     // write code
@@ -43,23 +52,19 @@ Vue.component('Show-Article', require('./components/ArticleComponents/ShowArticl
 // Members componenets for CRUD operations
     // write code
 
+// Program FID WA ASTAFID componenets for CRUD operations
+// write code
 
-<<<<<<< HEAD
+// Members componenets for CRUD operations
+// write code
+
 
 //pagination
-=======
-//Don't touch it.. its for pagination
->>>>>>> c0db554d56e65466b7255fd8bd0bf04b529e07f8
 Vue.component('pagination', require('laravel-vue-pagination'));
 
 
 
 const app = new Vue({
-<<<<<<< HEAD
-    el: '#app'
-});
-=======
     el: '#app',
     router
 });
->>>>>>> c0db554d56e65466b7255fd8bd0bf04b529e07f8

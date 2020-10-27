@@ -19,7 +19,6 @@ class ArticaleController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'title' => 'required',
             'artical_body' => 'required',
@@ -31,6 +30,7 @@ class ArticaleController extends Controller
             'artical_body' => $request->artical_body,
             'author' => $request->author,
         ]);
+
     }
 
     public function show($id)
