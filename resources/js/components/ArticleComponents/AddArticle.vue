@@ -2,7 +2,7 @@
 <div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Ajouter un Article
+       Add Article
     </button>
 
     <!-- Modal -->
@@ -10,14 +10,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un Article</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Article</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" >
                     <form>
-                        <!-- {{Form::token()}} -->
                         <div class=" form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" v-model="title" class="form-control" placeholder="title">
@@ -34,7 +33,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Ajouter" @click="AddArticle" data-dismiss="modal">
+                    <input type="submit" class="btn btn-primary" @click="AddArticle" value="add" data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -46,6 +45,12 @@
 </template>
 
 <script>
+
+// we have the main root in EnvPath work using this in every file please
+import Path from "../../EnvPath";
+
+const url=Path.baseUrl+"Article";
+
 export default {
     data: function () {
         return {
@@ -57,7 +62,7 @@ export default {
     },
     methods: {
         AddArticle() {
-            axios.post('http://rusrs-website.test/api/Article', {
+            axios.post( url, {
                     title: this.title,
                     artical_body: this.artical_body,
                     author: this.author,

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\ArticaleController;
+use App\Http\Controllers\API\ArticleController;
 use App\Http\Controllers\API\EventController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -10,11 +10,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/Article/{q?}', [ArticaleController::class,'index']);
-Route::get('/Event/{q?}', [ArticaleController::class,'index']);
-
-
-Route::resource('Article', ArticaleController::class);
-Route::resource('Event', EventController::class);
-
-
+Route::resource('Article', 'API\ArticleController');
+Route::resource('Event', 'API\EventController');

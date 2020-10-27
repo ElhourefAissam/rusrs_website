@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Article;
+use Illuminate\Http\Request;
 
-
-class ArticaleController extends Controller
+class ArticleController extends Controller
 {
     public function index()
     {
@@ -25,12 +24,16 @@ class ArticaleController extends Controller
             'author' => 'required',
         ]);
 
-        Article::create([
+        $created = Article::create([
             'title' => $request->title,
             'artical_body' => $request->artical_body,
             'author' => $request->author,
         ]);
 
+            if($created)
+                return ["success"=>"Article created"];
+            else
+                return ["error"=>"Article not created"];
     }
 
     public function show($id)

@@ -53,6 +53,11 @@
 </template>
 
 <script>
+import Path from "../../EnvPath";
+
+const url=Path.baseUrl+"Article/";
+
+
 export default {
     props: ['article'],
     data: function () {
@@ -65,7 +70,7 @@ export default {
             // if (document.getElementById('Image').files[0]) {
             //     data.append('Image', document.getElementById('Image').files[0]);
             // }
-            axios.put('http://rusrs-website.test/api/Article/' + this.article.id, {
+            axios.put(url + this.article.id, {
                     title: this.article.title,
                     artical_body: this.article.artical_body,
                     author: this.article.author,
