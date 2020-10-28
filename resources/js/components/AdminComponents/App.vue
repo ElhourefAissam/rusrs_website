@@ -1,5 +1,5 @@
 <template>
-<div class="">
+<div class="exapnd">
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show sidebar-navigation" style="">
             <div class="sidebar-sticky pt-3">
@@ -43,7 +43,9 @@ export default {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    height: 120vh !important;
+}
+.exapnd{
+    height: 120vh;
 }
 
 </style>

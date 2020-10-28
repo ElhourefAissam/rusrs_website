@@ -46,7 +46,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" @click="AddArticle" value="add" data-dismiss="modal">
+                    <input type="submit" class="btn btn-primary" @click="AddEvent" value="add" data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@ export default {
         }
     },
     methods: {
-        AddArticle() {
+        AddEvent() {
             axios.post( url, {...this.Event})
                 .then((response) => {
                     this.$emit('EventAdded', response)

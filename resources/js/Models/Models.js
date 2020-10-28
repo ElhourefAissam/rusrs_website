@@ -22,5 +22,10 @@ let Member={
     position:""
 }
 
+let Program ={
+    id:"",
+    title:"",
+    link:""
+}
 
-export {Event,Article,Member};
+export {Event,Article,Member,Program};

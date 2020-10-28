@@ -57,7 +57,11 @@ Vue.component('Delete-Member', require('./components/MemberComponents/DeleteMemb
 Vue.component('Show-Member', require('./components/MemberComponents/ShowMember.vue').default);
 
 // Program FID WA ASTAFID componenets for CRUD operations
-// write code
+Vue.component('Program-list', require('./components/ProgramComponents/ProgramList.vue').default);
+Vue.component('Add-Program', require('./components/ProgramComponents/AddProgram.vue').default);
+Vue.component('Edit-Program', require('./components/ProgramComponents/EditProgram.vue').default);
+Vue.component('Delete-Program', require('./components/ProgramComponents/DeleteProgram.vue').default);
+Vue.component('Show-Program', require('./components/ProgramComponents/ShowProgram.vue').default);
 
 //pagination
 Vue.component('pagination', require('laravel-vue-pagination'));

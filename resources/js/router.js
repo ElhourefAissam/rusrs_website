@@ -3,6 +3,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 
+//projects routes....
 const routes = [
     //Admin
     {
@@ -23,8 +24,13 @@ const routes = [
         component: () =>
             import ("./components/MemberComponents/MemberList.vue")
     },
+    {
+        path: '/Program',
+        name: 'Program',
+        component: () =>
+            import ("./components/ProgramComponents/ProgramList.vue")
+    },
 
-    //projects routes....
 
 ]
 
