@@ -57,14 +57,14 @@
 // we have the main root in EnvPath work using this in every file please
 import Path from "../../EnvPath";
 
-const url = Path.baseUrl + "Article/";
+const url = Path.baseUrl + "Article";
 
 export default {
     data: function () {
         return {
             Articles: {},
             article: {},
-            q: "",
+            q: '',
         };
     },
 
@@ -74,21 +74,19 @@ export default {
 
     methods: {
         getResults(page = 1) {
-            axios.get(url + this.q + '?page=' + page)
+            axios.get(url + '?page=' + page)
                 .then(response => {
                     this.Articles = response.data;
                 });
         },
-
         getArticle(article) {
             this.article = {
                 ...article
             };
         },
-
         FindArticle() {
             if (this.q.length > 0) {
-                axios.get(url + this.q)
+                axios.get(url + '/' + this.q)
                     .then(response => {
                         this.Articles = response.data;
                     });

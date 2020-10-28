@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ArticleController;
 use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\MemberController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -16,3 +17,4 @@ Route::resource('Article', 'API\ArticleController');
 Route::resource('Event', 'API\EventController');
 Route::resource('Memebr', 'API\MemberController');
 Route::resource('Program', 'API\ProgramController');
+Route::resource('Image', 'API\ImageController');
