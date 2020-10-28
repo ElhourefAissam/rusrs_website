@@ -2,18 +2,9 @@
 <div>
     <div class="card-body">
         <div class="dropdown float-right position-relative">
-            <a href="#" class="dropdown-toggle h4 text-muted" data-toggle="dropdown" aria-expanded="false">
-                <i class="mdi mdi-dots-vertical"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="#" class="dropdown-item">Action</a></li>
-                <li><a href="#" class="dropdown-item">Another action</a></li>
-                <li><a href="#" class="dropdown-item">Something else here</a></li>
-                <li class="dropdown-divider"></li>
-                <li><a href="#" class="dropdown-item">Separated link</a></li>
-            </ul>
+
         </div>
-        <h4 class="card-title d-inline-block">All Projects</h4>
+        <h4 class="card-title d-block alert alert-info my-2">List of Association events</h4>
         <Add-Event class=" m-3" @EventAdded="getResults"></Add-Event>
         <div class="container-small mb-3">
             <input type="text" class="form-control text-center" @keyup="FindEvent" v-model="q" placeholder="Search">
@@ -41,10 +32,10 @@
 
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getEvent(Event)">
                                 Details
-                            </button>|
+                            </button>
                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getEvent(Event)">
                                 Modify
-                            </button>|
+                            </button>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getEvent(Event)">
                                 delete
                             </button>
