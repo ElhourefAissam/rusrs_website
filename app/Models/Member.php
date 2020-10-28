@@ -12,6 +12,6 @@ class Member extends Model
     protected $fillable=[''];
 
     public function Images(){
-        return $this->morphMany('App\Photo','Imageable');
+        return $this->morphMany(Photo::class,'Imageable');
     }
 }
