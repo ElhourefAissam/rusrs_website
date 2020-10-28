@@ -2163,13 +2163,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 // we have the main root in EnvPath work using this in every file please
 
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       Articles: {},
       article: {},
-      q: ""
+      q: ''
     };
   },
   mounted: function mounted() {
@@ -2180,21 +2180,18 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article/";
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(url + this.q + '?page=' + page).then(function (response) {
+      axios.get(url + '?page=' + page).then(function (response) {
         _this.Articles = response.data;
       });
     },
     getArticle: function getArticle(article) {
       this.article = _objectSpread({}, article);
     },
-    refresh: function refresh(Articles) {
-      this.Articles = _objectSpread({}, Articles.filteredData);
-    },
     FindArticle: function FindArticle() {
       var _this2 = this;
 
       if (this.q.length > 0) {
-        axios.get(url + this.q).then(function (response) {
+        axios.get(url + '/' + this.q).then(function (response) {
           _this2.Articles = response.data;
         });
       } else this.getResults();
@@ -60952,7 +60949,7 @@ module.exports = "/images/03-full.jpg?3b263f0ffc3870f7fc6cefee9a86d50b";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  baseUrl:  false ? undefined : "http://websiterusrs.test/api/"
+  baseUrl:  false ? undefined : "http://rusrs-website.test/api/"
 });
 
 /***/ }),

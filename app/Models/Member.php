@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Member extends Model
 {
     use HasFactory;
 
-    protected $fillable=['title','description','place','adress','start_date','end_date'];
+    protected $fillable=[''];
 
     public function Images(){
         return $this->morphMany('App\Photo','Imageable');

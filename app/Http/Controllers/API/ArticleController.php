@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -11,9 +12,10 @@ class ArticleController extends Controller
     public function index()
     {
         if(request('q') != null){
-            return Article::where('title','like','%'.request('q').'%')->orderBy('created_at','desc')->paginate(6);
+            return Article::with('photos')->where('title','like','%'.request('q').'%')->orderBy('created_at','desc')->paginate(6);
         }
-        return Article::orderBy('created_at','desc')->paginate(6);
+        return Article::with('photos')->orderBy('created_at','desc')->paginate(6);
+        // return Article::with('photos')->get();
     }
 
     public function store(Request $request)
@@ -24,13 +26,21 @@ class ArticleController extends Controller
             'author' => 'required',
         ]);
 
-        $created = Article::create([
+        $article = Article::create([
             'title' => $request->title,
             'artical_body' => $request->artical_body,
             'author' => $request->author,
         ]);
+        $photos = explode(",",$request->get('photo'));
+        foreach($photos as $photo){
+            Photo::created([
+                'imageable_id' => $article->id,
+                'imageable_type' => 'App\Article',
+                'filename' => $photo
+            ]);
+        }
 
-            if($created)
+            if($article)
                 return ["success"=>"Article created"];
             else
                 return ["error"=>"Article not created"];
