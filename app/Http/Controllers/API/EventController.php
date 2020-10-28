@@ -10,7 +10,10 @@ class EventController extends Controller
 {
     public function index()
     {
-        return Event::orderBy('start_date','asc')->paginate(9);
+        if(request('q') != null){
+            return Event::where('title','like','%'.request('q').'%')->orderBy('created_at','desc')->paginate(6);
+        }
+        return Event::orderBy('start_date','asc')->paginate(6);
     }
 
     public function store(Request $request)
@@ -19,18 +22,18 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'place' => 'required',
-            'adress' => 'required',
+            'address' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
 
         Event::create([
             'title' => $request->title,
-            'content' => $request->description,
-            'content' => $request->place,
-            'content' => $request->adress,
-            'content' => $request->start_date,
-            'image' => $request->end_date,
+            'description' => $request->description,
+            'place' => $request->place,
+            'address' => $request->address,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
         ]);
     }
 
@@ -45,7 +48,6 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'place' => 'required',
-            'adress' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
@@ -54,7 +56,7 @@ class EventController extends Controller
         $event->title = $request->title;
         $event->description = $request->description;
         $event->place = $request->place;
-        $event->adress = $request->adress;
+        $event->address = $request->address;
         $event->start_date = $request->start_date;
         $event->end_date = $request->end_date;
         $event->save();

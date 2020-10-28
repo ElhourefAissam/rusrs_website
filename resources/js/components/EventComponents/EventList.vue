@@ -20,15 +20,21 @@
                         <th>Start date</th>
                         <th>End date</th>
                         <th>Address</th>
+                        <th>Created at</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="Event in Events.data" :key="Event.id">
                         <th>{{ Event.id }}</th>
-                        <td>{{ Event.title }}</td>
+                        <td>{{ Event.title | subStr }}</td>
+                        <td>{{ Event.place | subStr }}</td>
+                        <td>{{ Event.description | subStr }}</td>
+                        <td>{{ Event.start_date }}</td>
+                        <td>{{ Event.end_date }}</td>
+                        <td>{{ Event.address | subStr }}</td>
                         <td>{{ Event.created_at }}</td>
-                        <td>
+                        <td class="btns">
 
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getEvent(Event)">
                                 Details
@@ -59,13 +65,14 @@
 <script>
 import Path from "../../EnvPath";
 
-const url = Path.baseUrl + "Event";
+const url = Path.baseUrl + "Event/";
 
 
 export default {
     data: function () {
         return {
             Events: {},
+            Event:{},
             q: ''
         }
     },
@@ -75,9 +82,9 @@ export default {
     methods: {
 
         getResults(page = 1) {
+
             axios.get(url + this.q + '?page=' + page)
                 .then(response => {
-
                     this.Events = response.data;
                 });
         },
@@ -88,21 +95,27 @@ export default {
             };
         },
 
-        refresh(Events) {
-            this.Events = {
-                ...Events.filteredData
-            };
-        },
         FindEvent() {
-            if (this.q.length > 0) {
-                axios.get(url + this.q)
-                    .then(response => {
 
+            if (this.q.length > 0) {
+
+            axios.get(url + this.q)
+                    .then(response => {
                         this.Events = response.data;
                     });
+
             } else this.getResults();
         },
+    },
+    filters: {
 
-    }
+  	subStr: function(string) {
+    	return string.substring(0,15) + '...';
+        }
+
+  }
 }
 </script>
+<style scoped>
+
+</style>

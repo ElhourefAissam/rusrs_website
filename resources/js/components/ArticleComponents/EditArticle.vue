@@ -29,8 +29,8 @@
                                             <input type="text" name="title" v-model="article.title" class="form-control" placeholder="title">
                                         </div>
                                         <div class=" form-group">
-                                            <label for="artical_body">Artical_body</label>
-                                            <textarea rows="2" name="artical_body" v-model="article.artical_body" class="form-control" placeholder="Artical_body"></textarea>
+                                            <label for="article_body ">Artical body</label>
+                                            <textarea rows="2" name="article_body " v-model="article.article_body " class="form-control" placeholder="article body"></textarea>
                                         </div>
                                         <div class=" form-group">
                                             <label for="author">author</label>

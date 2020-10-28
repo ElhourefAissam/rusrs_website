@@ -15,7 +15,7 @@
                     <tr>
                         <th>No</th>
                         <th>Title</th>
-                        <!-- <th>Body</th> -->
+                        <th>Body</th>
                         <th>Date</th>
                         <th></th>
                     </tr>
@@ -23,8 +23,8 @@
                 <tbody>
                     <tr v-for="article in Articles.data" :key="article.id">
                         <th>{{ article.id }}</th>
-                        <!-- <th>{{ article.artical_body }}</th> -->
                         <td>{{ article.title }}</td>
+                        <th>{{ article.article_body | subStr }}</th>
                         <td>{{ article.created_at }}</td>
                         <td>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getArticle(article)">
@@ -93,6 +93,11 @@ export default {
             } else this.getResults();
         },
     },
+    filters: {
+        subStr: function(string) {
+            return string.substring(0,15) + '...';
+            }
+    }
 };
 </script>
 

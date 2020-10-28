@@ -43,8 +43,8 @@ class ProgramController extends Controller
     public function update(Request $request,$id)
     {
         $request->validate([
-            'title' => $request->title,
-            'link' => $request->link,
+            "title" => "required",
+            "link"  => "required",
         ]);
 
 

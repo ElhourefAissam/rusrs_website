@@ -1,12 +1,12 @@
 <template>
-<div class="exapnd">
+<div class="">
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show sidebar-navigation" style="">
             <div class="sidebar-sticky pt-3">
                 <Nav></Nav>
             </div>
         </nav>
-        <div id="app" class="col-md-9">
+        <div id="app" class="col-md-9 exapnd">
             <transition name="route" mode="out-in">
                 <router-view :key="$route.path"></router-view>
             </transition>
@@ -43,9 +43,11 @@ export default {
     display: flex !important;
     justify-content: center;
     align-items: center;
+    height: 120vh;
 }
 .exapnd{
-    height: 120vh;
+    overflow:auto;
+
 }
 
 </style>

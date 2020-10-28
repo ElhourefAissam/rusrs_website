@@ -36,7 +36,7 @@
 <script>
 import Path from "../../EnvPath";
 
-const url=Path.baseUrl+"Program/";
+const url = Path.baseUrl + "Program/";
 
 
 export default {

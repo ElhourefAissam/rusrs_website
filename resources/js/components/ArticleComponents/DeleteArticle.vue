@@ -11,7 +11,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h4>Est que vous voulez Supprimer cette Article : {{article.title}}</h4>
+                    <h4>Do you want to remove : {{article.title}}</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

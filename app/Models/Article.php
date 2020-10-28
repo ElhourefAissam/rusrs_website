@@ -9,7 +9,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable=["title","artical_body","author"];
+    protected $fillable=["title","article_body","author"];
 
     public function photos(){
         return $this->morphMany(Photo::class,'Imageable');

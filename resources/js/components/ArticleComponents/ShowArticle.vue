@@ -37,7 +37,7 @@
                                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                 </div>
                                 <div class="modal-body">
-                                    <p>{{article.artical_body}}</p>
+                                    <p>{{article.article_body }}</p>
                                 </div>
                             </div>
                         </div>

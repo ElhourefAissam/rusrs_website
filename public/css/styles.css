@@ -10523,4 +10523,12 @@ section#contact form#contactForm :-ms-input-placeholder {
     width:100%;
 }
 
+.btns{
+    display: flex;
+    flex-direction: row;
+}
+.btns button{
+    margin-right:0.5rem ;
+}
+
 

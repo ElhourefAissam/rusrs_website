@@ -9,7 +9,7 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable=['title','description','place','adress','start_date','end_date'];
+    protected $fillable=['title','description','place','address','start_date','end_date'];
 
     public function Images(){
         return $this->morphMany(Photo::class,'Imageable');

@@ -22,13 +22,13 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'artical_body' => 'required',
+            'article_body' => 'required',
             'author' => 'required',
         ]);
 
         $article = Article::create([
             'title' => $request->title,
-            'artical_body' => $request->artical_body,
+            'article_body' => $request->article_body,
             'author' => $request->author,
         ]);
         $photos = explode(",",$request->get('photo'));
@@ -55,13 +55,13 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'artical_body' => 'required',
+            'article_body' => 'required',
             'author' => 'required',
         ]);
 
         $event = Article::findOrFail($id);
         $event->title = $request->title;
-        $event->artical_body = $request->artical_body;
+        $event->article_body  = $request->article_body ;
         $event->author = $request->author;
 
         $result=$event->save();

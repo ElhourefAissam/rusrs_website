@@ -28,6 +28,10 @@
                                             <label for="full_name">Full name</label>
                                             <input type="text" name="full_name" v-model="Member.full_name" class="form-control" placeholder="full name">
                                         </div>
+                                         <div class=" form-group">
+                                            <label for="facebook">Facebook link</label>
+                                            <input type="text" name="facebook" v-model="Member.facebook" class="form-control" placeholder="facebook link">
+                                        </div>
                                         <div class=" form-group">
                                             <label for="position">Position</label>
                                             <textarea rows="2" name="position" v-model="Member.position" class="form-control" placeholder="position"></textarea>

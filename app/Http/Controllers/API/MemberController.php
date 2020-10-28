@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Member;
 use Illuminate\Http\Request;
 
-class MemebrController extends Controller
+class MemberController extends Controller
 {
     public function index()
     {

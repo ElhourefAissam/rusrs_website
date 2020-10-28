@@ -16,24 +16,25 @@
                         <th>No</th>
                         <th>Title</th>
                         <th>Link</th>
+                        <th>Created at</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="Program in Programs.data" :key="Program.id">
-                        <th>{{ Program.id }}</th>
-                        <td>{{ Program.title }}</td>
-                        <td>{{ Program.link }}</td>
-                        <td>{{ Program.created_at }}</td>
-                        <td>
+                    <tr v-for="program in Programs.data" :key="program.id">
+                        <th>{{ program.id }}</th>
+                        <td>{{ program.title }}</td>
+                        <td>{{ program.link }}</td>
+                        <td>{{ program.created_at }}</td>
+                        <td class="btns">
 
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getProgram(Program)">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getProgram(program)">
                                 Details
                             </button>
-                           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getProgram(Program)">
+                           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getProgram(program)">
                                 Modify
                             </button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getProgram(Program)">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getProgram(program)">
                                 Delete
                             </button>
                        </td>
@@ -55,14 +56,16 @@
 
 <script>
 import Path from "../../EnvPath";
+import {Program} from "../../Models/Models"
 
-const url = Path.baseUrl + "Program";
+const url = Path.baseUrl + "Program/";
 
 
 export default {
     data: function () {
         return {
             Programs: {},
+            Program,
             q: ''
         }
     },
@@ -79,22 +82,16 @@ export default {
                 });
         },
 
-        getProgram(Program) {
+        getProgram(program) {
             this.Program = {
-                ...Program
+                ...program
             };
         },
 
-        refresh(Programs) {
-            this.Programs = {
-                ...Programs.filteredData
-            };
-        },
         FindProgram() {
             if (this.q.length > 0) {
                 axios.get(url + this.q)
                     .then(response => {
-
                         this.Programs = response.data;
                     });
             } else this.getResults();

@@ -4,7 +4,7 @@ let Event={
     title: "",
     description: "",
     place: "",
-    adress:"",
+    address:"",
     start_date:"",
     end_date:"",
 }
@@ -12,13 +12,14 @@ let Event={
 let Article={
     id:"",
     title:"",
-    artical_body:"",
+    article_body:"",
     author:"",
 }
 
 let Member={
     id:"",
     full_name:"",
+    facebook:"",
     position:""
 }
 

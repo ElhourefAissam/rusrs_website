@@ -32,15 +32,15 @@
                         </div>
                         <div class=" form-group">
                             <label for="address">Address</label>
-                            <input type="text" name="address" v-model="Event.adress" class="form-control" placeholder="address">
+                            <input type="text" name="address" v-model="Event.address" class="form-control" placeholder="address">
                         </div>
                         <div class=" form-group">
                             <label for="start_date">Start Date</label>
-                            <input type="date" name="start_date" v-model="Event.start_date" class="form-control" placeholder="start_date">
+                            <input type="date" name="start_date" v-model="Event.start_date" class="form-control" placeholder="starting date">
                         </div>
                         <div class=" form-group">
                             <label for="end_date">End Date</label>
-                            <input type="date" name="end_date" v-model="Event.end_date" class="form-control" placeholder="end_date">
+                            <input type="date" name="end_date" v-model="Event.end_date" class="form-control" placeholder="ending date">
                         </div>
                     </form>
                 </div>
@@ -76,6 +76,7 @@ export default {
         AddEvent() {
             axios.post( url, {...this.Event})
                 .then((response) => {
+                    console.log(this.Event)
                     this.$emit('EventAdded', response)
                     alert('Event was added successfully')
                 })

@@ -21,11 +21,15 @@
 
                         <div class=" form-group">
                             <label for="full_name">Full Name</label>
-                            <input type="text" name="full_name" v-model="full_name" class="form-control" placeholder="full name">
+                            <input type="text" name="full_name" v-model="Member.full_name" class="form-control" placeholder="full name">
+                        </div>
+                         <div class=" form-group">
+                            <label for="facebook">Facebook link</label>
+                            <input name="facebook" v-model="Member.facebook" class="form-control" placeholder="facebook"/>
                         </div>
                         <div class=" form-group">
                             <label for="position">Position</label>
-                            <textarea rows="2" name="position" v-model="position" class="form-control" placeholder="position"></textarea>
+                            <input name="position" v-model="Member.position" class="form-control" placeholder="position"/>
                         </div>
                     </form>
                 </div>
