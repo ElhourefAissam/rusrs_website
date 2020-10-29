@@ -8,7 +8,7 @@
         </nav>
         <div id="app" class="col-md-9 exapnd">
             <transition name="route" mode="out-in">
-                <router-view :key="$route.path"></router-view>
+                <router-view default="{name: 'Article'}" :key="$route.path"></router-view>
             </transition>
         </div>
     </div>
@@ -39,15 +39,15 @@ export default {
     transition: all 0.5s ease;
 }
 
-.sidebar-navigation{
+.sidebar-navigation {
     display: flex !important;
     justify-content: center;
     align-items: center;
     height: 120vh;
 }
-.exapnd{
-    overflow:auto;
+
+.exapnd {
+    overflow: auto;
 
 }
-
 </style>

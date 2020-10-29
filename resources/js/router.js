@@ -8,7 +8,7 @@ const routes = [
     //Admin
     {
         path: '/Article',
-        name: 'Article',
+        // name: 'Article',
         component: () =>
             import ("./components/ArticleComponents/Article")
     },
@@ -30,8 +30,7 @@ const routes = [
         component: () =>
             import ("./components/ProgramComponents/ProgramList.vue")
     },
-
-
+    //
 ]
 
 

@@ -2,7 +2,7 @@
 <div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-       Add Member
+        Add Member
     </button>
 
     <!-- Modal -->
@@ -15,7 +15,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" >
+                <div class="modal-body">
                     <form>
                         <!-- display an image here -->
 
@@ -23,13 +23,13 @@
                             <label for="full_name">Full Name</label>
                             <input type="text" name="full_name" v-model="Member.full_name" class="form-control" placeholder="full name">
                         </div>
-                         <div class=" form-group">
+                        <div class=" form-group">
                             <label for="facebook">Facebook link</label>
-                            <input name="facebook" v-model="Member.facebook" class="form-control" placeholder="facebook"/>
+                            <input name="facebook" v-model="Member.facebook" class="form-control" placeholder="facebook" />
                         </div>
                         <div class=" form-group">
                             <label for="position">Position</label>
-                            <input name="position" v-model="Member.position" class="form-control" placeholder="position"/>
+                            <input name="position" v-model="Member.position" class="form-control" placeholder="position" />
                         </div>
                     </form>
                 </div>
@@ -47,12 +47,13 @@
 </template>
 
 <script>
-
 // we have the main root in EnvPath work using this in every file please
 import Path from "../../EnvPath";
-import {Member} from "../../Models/Models"
+import {
+    Member
+} from "../../Models/Models"
 
-const url=Path.baseUrl+"Member";
+const url = Path.baseUrl + "Member";
 
 export default {
     data: function () {
@@ -63,7 +64,9 @@ export default {
     },
     methods: {
         AddMember() {
-            axios.post( url, {...this.Member})
+            axios.post(url, {
+                    ...this.Member
+                })
                 .then((response) => {
                     this.$emit('MemberAdded', response)
                     alert('Member added')
