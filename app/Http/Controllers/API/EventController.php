@@ -8,6 +8,8 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
+    public static $event = null;
+
     public function index()
     {
         if(request('q') != null){
@@ -18,23 +20,36 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'place' => 'required',
-            'address' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-        ]);
 
-        Event::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'place' => $request->place,
-            'address' => $request->address,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-        ]);
+        if($request->title)
+        {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'place' => 'required',
+                'address' => 'required',
+                'start_date' => 'required',
+                'end_date' => 'required',
+            ]);
+
+            $this::$event = Event::create([
+                    'title' => $request->title,
+                    'description' => $request->description,
+                    'place' => $request->place,
+                    'address' => $request->address,
+                    'start_date' => $request->start_date,
+                    'end_date' => $request->end_date,
+            ]);
+        }
+
+        if($request->hasFile('files'))
+        {
+
+            // return request()->json(["contains event"=> $request->hasFile("event")]);
+
+            $imageController= new ImageController;
+             return $imageController->store($request, $this::$event->id);
+        }
     }
 
     public function show($id)

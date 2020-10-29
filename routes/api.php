@@ -21,4 +21,5 @@ Route::resource('Article', 'API\ArticleController');
 Route::resource('Event', 'API\EventController');
 Route::resource('Member', 'API\MemberController');
 Route::resource('Program', 'API\ProgramController');
-Route::resource('Image', 'API\ImageController');
+
+Route::apiResource('/imageUpload', 'API\ImageController');

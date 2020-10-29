@@ -20,6 +20,8 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
+        $imageController = new ImageController;
+
         $request->validate([
             'title' => 'required',
             'article_body' => 'required',
@@ -31,7 +33,9 @@ class ArticleController extends Controller
             'article_body' => $request->article_body,
             'author' => $request->author,
         ]);
+
         $photos = explode(",",$request->get('photo'));
+
         foreach($photos as $photo){
             Photo::created([
                 'imageable_id' => $article->id,
@@ -40,10 +44,11 @@ class ArticleController extends Controller
             ]);
         }
 
-            if($article)
-                return ["success"=>"Article created"];
-            else
-                return ["error"=>"Article not created"];
+
+        if($article)
+            return ["success"=>"Article created"];
+        else
+            return ["error"=>"Article not created"];
     }
 
     public function show($id)
