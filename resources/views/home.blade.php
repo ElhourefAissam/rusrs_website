@@ -20,8 +20,8 @@
     <body id="page-top">
 
          {{-- our main layout --}}
-         <?php @Auth::loginUsingId(1); ?>
-         {{-- <?php @Auth::logout(); ?> --}}
+         {{-- <?php @Auth::loginUsingId(1); ?> --}}
+         <?php @Auth::logout(); ?>
 
         <div id="app">
             @if(Auth::check())

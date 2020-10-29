@@ -3921,7 +3921,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -45619,93 +45618,80 @@ var render = function() {
     "section",
     { staticClass: "page-section bg-light", attrs: { id: "portfolio" } },
     [
-      _c(
-        "div",
-        { staticClass: "container" },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("Add-Article", {
-            staticClass: " m-3",
-            on: { ArticleAdded: _vm.getResults }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "container-small mb-3" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.q,
-                  expression: "q"
-                }
-              ],
-              staticClass: "form-control text-center",
-              attrs: { type: "text", placeholder: "Recherche" },
-              domProps: { value: _vm.q },
-              on: {
-                keyup: _vm.FindArticle,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.q = $event.target.value
-                }
+      _c("div", { staticClass: "container" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "container-small mb-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.q,
+                expression: "q"
               }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row" },
-            [
-              _vm._l(_vm.Articles.data, function(article) {
-                return _c(
-                  "div",
-                  { key: article.id, staticClass: "col-lg-4 col-sm-6 mb-4" },
-                  [
-                    _c("div", { staticClass: "portfolio-item" }, [
-                      _vm._m(1, true),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "portfolio-caption" }, [
-                        _c(
-                          "div",
-                          { staticClass: "portfolio-caption-heading" },
-                          [_vm._v(_vm._s(article.title))]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "portfolio-caption-subheading text-muted"
-                          },
-                          [_vm._v(_vm._s(article.author))]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {},
-                [
-                  _c("pagination", {
-                    staticClass: "mt-5",
-                    attrs: { data: _vm.Articles },
-                    on: { "pagination-change-page": _vm.getResults }
-                  })
-                ],
-                1
-              )
             ],
-            2
-          )
-        ],
-        1
-      )
+            staticClass: "form-control text-center",
+            attrs: { type: "text", placeholder: "Recherche" },
+            domProps: { value: _vm.q },
+            on: {
+              keyup: _vm.FindArticle,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.q = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row" },
+          [
+            _vm._l(_vm.Articles.data, function(article) {
+              return _c(
+                "div",
+                { key: article.id, staticClass: "col-lg-4 col-sm-6 mb-4" },
+                [
+                  _c("div", { staticClass: "portfolio-item" }, [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "portfolio-caption" }, [
+                      _c("div", { staticClass: "portfolio-caption-heading" }, [
+                        _vm._v(_vm._s(article.title))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "portfolio-caption-subheading text-muted"
+                        },
+                        [_vm._v(_vm._s(article.author))]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {},
+              [
+                _c("pagination", {
+                  staticClass: "mt-5",
+                  attrs: { data: _vm.Articles },
+                  on: { "pagination-change-page": _vm.getResults }
+                })
+              ],
+              1
+            )
+          ],
+          2
+        )
+      ])
     ]
   )
 }
