@@ -66,6 +66,10 @@ Vue.component('Show-Program', require('./components/ProgramComponents/ShowProgra
 //pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
 
+//Image uploader component
+Vue.component('image-uploader', require('./components/ImageUploaderComponent/ImageUploader.vue').default);
+
+
 
 const app = new Vue({
     el: '#app',

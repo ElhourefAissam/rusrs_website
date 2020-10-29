@@ -17,6 +17,9 @@ Route::get('/Event/{q?}',[EventController::class,'index']);
 Route::get('/Member/{q?}',[MemberController::class,'index']);
 Route::get('/Program/{q?}',[ProgramController::class,'index']);
 
+/// ghawad ayt7kmn gh image ulpoader controller
+Route::apiResource('/imageUpload', 'API\ImageController');
+
 Route::resource('Article', 'API\ArticleController')->middleware('auth');
 Route::resource('Event', 'API\EventController')->middleware('auth');
 Route::resource('Member', 'API\MemberController')->middleware('auth');
