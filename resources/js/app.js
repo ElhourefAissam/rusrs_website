@@ -28,7 +28,7 @@ Vue.component('section-program', require('./components/main-components/Program.v
 // write code
 
 // Admin Components
-Vue.component('App', require('./components/AdminComponents/App.vue').default);
+Vue.component('admin-app', require('./components/AdminComponents/App.vue').default);
 
 // Nav Components
 Vue.component('Nav', require('./components/NavComponents/Nav.vue').default);

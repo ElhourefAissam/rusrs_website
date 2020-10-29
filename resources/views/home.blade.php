@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="شبكة وحدة للسلامة الطرقية بالصحراء" />
         <meta name="author" content="AMZOUR Hicham" />
-        <title>شبكة وحدة للسلامة الطرقية بالصحراء</title>
+        <title>{{ config('app.name', 'شبكة وحدة للسلامة الطرقية بالصحراء') }}</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
@@ -20,9 +20,15 @@
     <body id="page-top">
 
          {{-- our main layout --}}
+         <?php @Auth::loginUsingId(1); ?>
+         {{-- <?php @Auth::logout(); ?> --}}
+
         <div id="app">
-            {{-- <main-page/> --}}
-            <App/>
+            @if(Auth::check())
+                <navbar-element :isadmin="true" />
+            @else 
+                <navbar-element :isadmin="false" />
+            @endif
         </div>
 
 

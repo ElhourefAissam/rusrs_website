@@ -1,10 +1,7 @@
 <template>
 <div>
     <div class="card-body">
-        <div class="dropdown float-right position-relative">
-
-        </div>
-        <h4 class="card-title d-block alert alert-info my-2">List of all articles</h4>
+        <h4 class="card-title d-block alert alert-info my-2 fixed">List of all articles</h4>
         <Add-Article class="m-3" @ArticleAdded="getResults"></Add-Article>
         <div class="container-small mb-3">
             <input type="text" class="form-control text-center" @keyup="FindArticle" v-model="q" placeholder="Search">
@@ -94,9 +91,9 @@ export default {
         },
     },
     filters: {
-        subStr: function(string) {
-            return string.substring(0,15) + '...';
-            }
+        subStr: function (string) {
+            return string.substring(0, 15) + '...';
+        }
     }
 };
 </script>

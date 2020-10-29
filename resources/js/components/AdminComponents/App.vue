@@ -39,15 +39,15 @@ export default {
     transition: all 0.5s ease;
 }
 
-.sidebar-navigation{
+.sidebar-navigation {
     display: flex !important;
     justify-content: center;
     align-items: center;
     height: 120vh;
 }
-.exapnd{
-    overflow:auto;
+
+.exapnd {
+    overflow: auto;
 
 }
-
 </style>

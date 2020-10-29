@@ -30,8 +30,7 @@ const routes = [
         component: () =>
             import ("./components/ProgramComponents/ProgramList.vue")
     },
-
-
+    //
 ]
 
 
