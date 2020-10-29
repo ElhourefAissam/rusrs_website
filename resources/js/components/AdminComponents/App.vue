@@ -8,7 +8,7 @@
         </nav>
         <div id="app" class="col-md-9 exapnd">
             <transition name="route" mode="out-in">
-                <router-view default="{name: 'Article'}" :key="$route.path"></router-view>
+                <router-view :key="$route.path"></router-view>
             </transition>
         </div>
     </div>

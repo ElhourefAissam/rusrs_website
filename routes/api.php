@@ -17,8 +17,13 @@ Route::get('/Event/{q?}',[EventController::class,'index']);
 Route::get('/Member/{q?}',[MemberController::class,'index']);
 Route::get('/Program/{q?}',[ProgramController::class,'index']);
 
-Route::resource('Article', 'API\ArticleController');
-Route::resource('Event', 'API\EventController');
-Route::resource('Member', 'API\MemberController');
-Route::resource('Program', 'API\ProgramController');
-Route::resource('Image', 'API\ImageController');
+Route::resource('Article', 'API\ArticleController')->middleware('auth');
+Route::resource('Event', 'API\EventController')->middleware('auth');
+Route::resource('Member', 'API\MemberController')->middleware('auth');
+Route::resource('Program', 'API\ProgramController')->middleware('auth');
+Route::resource('Image', 'API\ImageController')->middleware('auth');
+
+
+Route::group(['middleware' => ['auth']], function () {
+    //
+});

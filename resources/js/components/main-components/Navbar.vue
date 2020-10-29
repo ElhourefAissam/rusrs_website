@@ -3,7 +3,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <button v-if="admin" type="button" class="btn btn-outline-primary">تسجيل</button>
+            <button v-if="!admin" type="button" class="btn btn-outline-primary">تسجيل</button>
             <h6 v-else class="nav-link js-scroll-trigger border border-primary text-white">مرحبا</h6>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 القائمة
@@ -25,7 +25,7 @@
         <a class="navbar-brand js-scroll-trigger right-0" href="http://rusrs-website.test/"><img id="logo" src="assets/img/navbar-logo.jpg" alt="" /></a>
     </nav>
     <!-- Navigation-->
-    <div>
+    <div class="mt-10">
         <main-page v-if="!admin" />
         <admin-app v-else />
     </div>

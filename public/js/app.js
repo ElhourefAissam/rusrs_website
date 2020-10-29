@@ -2088,9 +2088,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 // we have the main root in EnvPath work using this in every file please
 
 var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
@@ -41322,12 +41319,7 @@ var render = function() {
           _c(
             "transition",
             { attrs: { name: "route", mode: "out-in" } },
-            [
-              _c("router-view", {
-                key: _vm.$route.path,
-                attrs: { default: "{name: 'Article'}" }
-              })
-            ],
+            [_c("router-view", { key: _vm.$route.path })],
             1
           )
         ],
@@ -41570,11 +41562,11 @@ var render = function() {
       "div",
       { staticClass: "card-body" },
       [
-        _c("div", { staticClass: "dropdown float-right position-relative" }),
-        _vm._v(" "),
-        _c("h4", { staticClass: "card-title d-block alert alert-info my-2" }, [
-          _vm._v("List of all articles")
-        ]),
+        _c(
+          "h4",
+          { staticClass: "card-title d-block alert alert-info my-2 fixed" },
+          [_vm._v("List of all articles")]
+        ),
         _vm._v(" "),
         _c("Add-Article", {
           staticClass: "m-3",
@@ -46121,7 +46113,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "container" }, [
-          _vm.admin
+          !_vm.admin
             ? _c(
                 "button",
                 {
@@ -46318,7 +46310,12 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c("div", [!_vm.admin ? _c("main-page") : _c("admin-app")], 1)
+    _c(
+      "div",
+      { staticClass: "mt-10" },
+      [!_vm.admin ? _c("main-page") : _c("admin-app")],
+      1
+    )
   ])
 }
 var staticRenderFns = [
@@ -64593,7 +64590,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 var routes = [//Admin
 {
   path: '/Article',
-  // name: 'Article',
+  name: 'Article',
   component: function component() {
     return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./components/ArticleComponents/Article */ "./resources/js/components/ArticleComponents/Article.vue"));
   }

@@ -8,7 +8,7 @@ const routes = [
     //Admin
     {
         path: '/Article',
-        // name: 'Article',
+        name: 'Article',
         component: () =>
             import ("./components/ArticleComponents/Article")
     },
