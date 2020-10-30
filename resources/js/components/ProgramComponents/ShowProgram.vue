@@ -18,13 +18,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <h4>{{Program.title}}</h4>
-                                    <h4>{{Program.link}}</h4>
+                                    <video-player :id="Program.link"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button @click="stopVideo" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -45,6 +45,11 @@ export default {
     data: function () {
         return {
 
+        }
+    },
+    methods:{
+        stopVideo(){
+            this.Program.link=""
         }
     },
     computed: {

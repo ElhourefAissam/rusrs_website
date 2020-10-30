@@ -4,7 +4,12 @@
         <h4 class="card-title d-block alert alert-info my-2 fixed">List of all articles</h4>
         <Add-Article class="m-3" @ArticleAdded="getResults"></Add-Article>
         <div class="container-small mb-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary w-100 my-2" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-plus-square"></i>
+            </button>
             <input type="text" class="form-control text-center" @keyup="FindArticle" v-model="q" placeholder="Search">
+         <pagination :data="Articles" @pagination-change-page="getResults" class="my-2"></pagination>
         </div>
         <div class="table-responsive">
             <table class="table table-borderless table-hover mb-0">
@@ -25,13 +30,13 @@
                         <td>{{ article.created_at }}</td>
                         <td>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getArticle(article)">
-                                Details
+                                <i class="fas fa-info-square"></i>
                             </button>
                             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
-                                Modify
+                                <i class="fas fa-edit"></i>
                             </button>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
-                                delete
+                                <i class="far fa-trash-alt"></i>
                             </button>
                         </td>
                     </tr>
@@ -42,7 +47,7 @@
                 <Delete-Article :article="article" @ArticleDeleted="getResults"></Delete-Article>
                 <Show-Article :article="article"></Show-Article>
             </div>
-            <div class="">
+            <div class="container-small mb-3">
                 <pagination :data="Articles" @pagination-change-page="getResults" class="mt-5"></pagination>
             </div>
         </div>

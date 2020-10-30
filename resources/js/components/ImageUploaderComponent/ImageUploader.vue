@@ -5,8 +5,10 @@
             <label class="custom-file-label" for="customFile">Choose an image</label>
         </div>
         <div>
+            <img v-if="images" :src="images"  class="uploaded-image figure-img img-fluid my-3" alt="image not found">
             <img v-for="(image,index) in imagesPreview" :key="index"  :src="image"  class="uploaded-image figure-img img-fluid my-3" alt="image not found">
         </div>
+
         <button type="button" class="btn btn-success my-4" @click="uploadImages">Upload</button>
     </div>
 </template>
@@ -16,6 +18,8 @@ import Path from "../../EnvPath";
 const url = Path.baseUrl + "imageUpload/"
 
 export default {
+
+    props:["images"],
 
     data(){
         return {

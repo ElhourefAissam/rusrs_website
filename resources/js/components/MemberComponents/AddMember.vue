@@ -1,10 +1,5 @@
 <template>
 <div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Add Member
-    </button>
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -17,8 +12,6 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <!-- display an image here -->
-
                         <div class=" form-group">
                             <label for="full_name">Full Name</label>
                             <input type="text" name="full_name" v-model="Member.full_name" class="form-control" placeholder="full name">

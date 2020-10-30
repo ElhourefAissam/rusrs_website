@@ -15,12 +15,6 @@
                         <!-- {{Form::token()}} -->
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modify a member</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
                                 <div class="modal-body">
                                     <form>
                                         <!-- {{Form::token()}} -->
@@ -36,6 +30,7 @@
                                             <label for="position">Position</label>
                                             <textarea rows="2" name="position" v-model="Member.position" class="form-control" placeholder="position"></textarea>
                                         </div>
+                                       <image-uploader :images="Member.photos ? Member.photos.filename:'/images/unkown.jpg' "  @imageUploaded="getDateObject"/>
                                     </form>
                                 </div>
                             </div>

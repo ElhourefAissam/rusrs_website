@@ -68,6 +68,7 @@ Vue.component('pagination', require('laravel-vue-pagination'));
 
 //Image uploader component
 Vue.component('image-uploader', require('./components/ImageUploaderComponent/ImageUploader.vue').default);
+Vue.component('video-player', require('./components/VideoComponents/displayVideo.vue').default);
 
 
 
