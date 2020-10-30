@@ -31,6 +31,7 @@
                             <label for="position">Position</label>
                             <input name="position" v-model="Member.position" class="form-control" placeholder="position" />
                         </div>
+                         <image-uploader  @imageUploaded="getDateObject"/>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -39,9 +40,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div v-if="imagepreview" class="mt-3"> -->
-        <!-- <img :src="imagepreview" class="figure-img img-fluid rounded" style="max-height:100px;"> -->
-        <!-- </div> -->
     </div>
 </div>
 </template>
@@ -49,9 +47,7 @@
 <script>
 // we have the main root in EnvPath work using this in every file please
 import Path from "../../EnvPath";
-import {
-    Member
-} from "../../Models/Models"
+import { Member , UploadImagesModel } from "../../Models/Models"
 
 const url = Path.baseUrl + "Member";
 
@@ -59,19 +55,38 @@ export default {
     data: function () {
         return {
             Members: {},
-            Member
+            Member,
+            UploadImagesModel
         }
     },
     methods: {
         AddMember() {
-            axios.post(url, {
-                    ...this.Member
-                })
+            axios.post(url, this.Member)
                 .then((response) => {
-                    this.$emit('MemberAdded', response)
-                    alert('Member added')
+                    if(response.data.id){
+                        this.UploadImagesModel.formData.append("modelId",response.data.id)
+                        this.addImages()
+                    }else{
+                        this.UploadImagesModel.formData.append("error","ID does not exist")
+                    }
                 })
                 .catch(error => console.log(error));
+        },
+
+        getDateObject(data){
+            this.UploadImagesModel.formData = data.formData
+            this.UploadImagesModel.config = data.config
+        },
+
+        addImages(){
+            axios.post(url , this.UploadImagesModel.formData , this.UploadImagesModel.config )
+            .then(response=>{
+                this.$emit('MemberAdded', response)
+                alert('Member was added successfully')
+            })
+            .catch(err=>{
+                console.log(err)
+            })
         }
     }
 }

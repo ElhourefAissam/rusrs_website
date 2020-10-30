@@ -29,7 +29,9 @@
                             <label for="author">author</label>
                             <input type="text" name="author" v-model="Article.author" class="form-control" placeholder="author">
                         </div>
+                            <image-uploader  @imageUploaded="getDateObject"/>
                     </form>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -37,9 +39,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div v-if="imagepreview" class="mt-3"> -->
-        <!-- <img :src="imagepreview" class="figure-img img-fluid rounded" style="max-height:100px;"> -->
-        <!-- </div> -->
     </div>
 </div>
 </template>
@@ -48,25 +47,46 @@
 
 // we have the main root in EnvPath work using this in every file please
 import Path from "../../EnvPath";
-import {Article} from "../../Models/Models";
+import {Article, UploadImagesModel} from "../../Models/Models";
 
-const url=Path.baseUrl+"Article";
+const url = Path.baseUrl + "Article";
 
 export default {
     data: function () {
         return {
             Articles: {},
-            Article
+            Article,
+            UploadImagesModel
         }
     },
     methods: {
         AddArticle() {
-            axios.post( url, {...this.Article})
+            axios.post( url, this.Article)
                 .then((response) => {
-                    this.$emit('ArticleAdded', response)
-                    alert('article added')
-                })
-                .catch(error => console.log(error));
+                    console.log(response)
+
+                    if(response.data.id){
+                    this.UploadImagesModel.formData.append("modelId",response.data.id)
+                    this.addImages()
+               }
+            })
+            .catch(error => console.log(error));
+        },
+
+        getDateObject(data){
+            this.UploadImagesModel.formData = data.formData
+            this.UploadImagesModel.config = data.config
+        },
+
+        addImages(){
+            axios.post(url , this.UploadImagesModel.formData , this.UploadImagesModel.config )
+            .then(response=>{
+                this.$emit('ArticleAdded', response)
+                alert('Article was added successfully')
+            })
+            .catch(err=>{
+                console.log(err)
+            })
         }
     }
 }

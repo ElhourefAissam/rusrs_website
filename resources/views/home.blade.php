@@ -20,15 +20,16 @@
     <body id="page-top">
 
          {{-- our main layout --}}
-         <?php @Auth::loginUsingId(1); ?>
+         {{-- <?php @Auth::loginUsingId(1); ?> --}}
          {{-- <?php @Auth::logout(); ?> --}}
 
         <div id="app">
-            @if(Auth::check())
-                <navbar-element :isadmin="true" />
-            @else 
+            {{-- @if(Auth::check())
                 <navbar-element :isadmin="false" />
-            @endif
+            @else
+                <navbar-element :isadmin="true" />
+            @endif --}}
+            <admin-app />
         </div>
 
 

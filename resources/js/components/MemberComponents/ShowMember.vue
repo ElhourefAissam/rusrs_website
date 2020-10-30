@@ -15,7 +15,9 @@
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-
+                                <div class="slideshow-container">
+                                       <img class="silder-image" :src="Member.photos.filename">
+                                </div>
                                 </div>
                                 <div class="modal-body">
                                     <h1>{{Member.full_name}}</h1>

@@ -74,6 +74,7 @@ export default {
             axios.get(url + '?page=' + page)
                 .then(response => {
                     this.Articles = response.data;
+                    console.log(response.data)
                 });
         },
         getArticle(article) {

@@ -20,19 +20,19 @@
                         <!-- {{Form::token()}} -->
                         <div class=" form-group">
                             <label for="title">Title</label>
-                            <input type="text" name="title" v-model="Event.title" class="form-control" placeholder="title">
+                            <input type="text" name="title"  v-model="Event.title" class="form-control" placeholder="title">
                         </div>
                         <div class=" form-group">
                             <label for="description">Description</label>
-                            <textarea rows="2" name="description" v-model="Event.description" class="form-control" placeholder="description"></textarea>
+                            <textarea rows="2" name="description"   v-model="Event.description" class="form-control" placeholder="description"></textarea>
                         </div>
                         <div class=" form-group">
                             <label for="place">Place</label>
-                            <input type="text" name="place" v-model="Event.place" class="form-control" placeholder="place">
+                            <input type="text" name="place" v-model="Event.place"   class="form-control" placeholder="place">
                         </div>
                         <div class=" form-group">
                             <label for="address">Address</label>
-                            <input type="text" name="address" v-model="Event.address" class="form-control" placeholder="address">
+                            <input type="text" name="address" v-model="Event.address"  class="form-control" placeholder="address">
                         </div>
                         <div class=" form-group">
                             <label for="start_date">Start Date</label>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" @click="AddEvent"  value="add" data-dismiss="modal">
+                    <input type="submit" class="btn btn-primary" @click="AddEvent"  data-dismiss="modal">
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
 // we have the main root in EnvPath work using this in every file please
 import Path from "../../EnvPath";
 import axios from "axios";
-import {Event} from "../../Models/Models";
+import {Event , UploadImagesModel} from "../../Models/Models";
 
 
 
@@ -74,38 +74,39 @@ export default {
     data: function () {
         return {
             Events: {},
-            Event:{},
-            formData: new FormData(),
-            config:{}
+            Event,
+            UploadImagesModel
         }
     },
     methods: {
-        AddEvent() {
+        async AddEvent() {
 
-            // jrbgh adskrgh sin post at waaaaaloooooo
-            // jrbgh adfgh event i formData atyawi s lcontroller walo
+           axios.post( url , this.Event)
+           .then(response=>{
+               if(response.data.id){
+                   this.UploadImagesModel.formData.append("modelId",response.data.id)
+                   this.addImages()
+               }
 
-            // axios.post( url , {...this.Event})
-            // .then((response) => {
+           }).catch(err=>{
+                console.log(err)
+            })
+        },
 
-            //     this.$emit('EventAdded', response)
-            //     // alert('Event was added successfully')
-            // })
-            // .catch(error => console.log(error));
-            this.formData.append("event",JSON.stringify(this.Event))
-            axios.post(url , this.formData , this.config )
-            .then(resp=>{
-                console.log(resp)
+        getDateObject(data){
+            this.UploadImagesModel.formData = data.formData
+            this.UploadImagesModel.config = data.config
+        },
+
+        addImages(){
+            axios.post(url , this.UploadImagesModel.formData , this.UploadImagesModel.config )
+            .then(response=>{
+                this.$emit('EventAdded', response)
+                alert('Event was added successfully')
             })
             .catch(err=>{
                 console.log(err)
             })
-
-        },
-
-        getDateObject(data){
-            this.formData = data.formData
-            this.config   = data.config
         }
 
     }

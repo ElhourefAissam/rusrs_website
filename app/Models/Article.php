@@ -12,6 +12,6 @@ class Article extends Model
     protected $fillable=["title","article_body","author"];
 
     public function photos(){
-        return $this->morphMany(Photo::class,'Imageable');
+        return $this->morphMany(Photo::class,'imageable');
     }
 }

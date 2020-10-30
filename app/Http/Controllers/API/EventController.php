@@ -8,47 +8,54 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    public static $event = null;
+    public static $id = null;
 
     public function index()
     {
         if(request('q') != null){
-            return Event::where('title','like','%'.request('q').'%')->orderBy('created_at','desc')->paginate(6);
+            return Event::with("photos")->where('title','like','%'.request('q').'%')->orderBy('created_at','desc')->paginate(6);
         }
-        return Event::orderBy('start_date','asc')->paginate(6);
+        return Event::with("photos")->orderBy('created_at','asc')->paginate(6);
     }
 
     public function store(Request $request)
     {
 
-        if($request->title)
+        if(!$request->hasFile("files"))
         {
-            $request->validate([
-                'title' => 'required',
-                'description' => 'required',
-                'place' => 'required',
-                'address' => 'required',
-                'start_date' => 'required',
-                'end_date' => 'required',
+
+          $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'place' => 'required',
+            'address' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+           ]);
+
+             $addedEvent = Event::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'place' => $request->place,
+                'address' => $request->address,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
             ]);
 
-            $this::$event = Event::create([
-                    'title' => $request->title,
-                    'description' => $request->description,
-                    'place' => $request->place,
-                    'address' => $request->address,
-                    'start_date' => $request->start_date,
-                    'end_date' => $request->end_date,
-            ]);
+            if($addedEvent){
+                return response()->json(["id"=>$addedEvent->id]);
+            }else
+            {
+                return response()->json(["error"=>"Error in adding this event"]);
+            }
         }
-
-        if($request->hasFile('files'))
+        else
         {
-
-            // return request()->json(["contains event"=> $request->hasFile("event")]);
-
             $imageController= new ImageController;
-             return $imageController->store($request, $this::$event->id);
+            $id = $imageController->ModelIdFinder($request);
+            $eventModel = Event::find($id);
+
+            return $imageController->store($request, $eventModel);
         }
     }
 
