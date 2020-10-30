@@ -4343,6 +4343,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -8865,7 +8866,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.uploaded-image[data-v-fe34300e]{\n max-height:100px;\n padding:5px;\n border-radius: 10px;\n margin-right: 2px;\n box-shadow: 0 5px 5px rgb(0, 0, 0,0.2);\n}\n", ""]);
+exports.push([module.i, "\n.uploaded-image[data-v-fe34300e]{\r\n max-height:100px;\r\n padding:5px;\r\n border-radius: 10px;\r\n margin-right: 2px;\r\n box-shadow: 0 5px 5px rgb(0, 0, 0,0.2);\n}\r\n", ""]);
 
 // exports
 
@@ -8884,7 +8885,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nsection[data-v-0ebf8c49]{\n    border:1px green solid\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-0ebf8c49]{\r\n    border:1px green solid\n}\r\n", ""]);
 
 // exports
 
@@ -8922,7 +8923,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\nsection[data-v-679135f8]{\n    border:1px blue solid\n}\n", ""]);
+exports.push([module.i, "\nsection[data-v-679135f8]{\r\n    border:1px blue solid\n}\r\n", ""]);
 
 // exports
 
@@ -41491,7 +41492,7 @@ var render = function() {
           "data-target": "#exampleModal"
         }
       },
-      [_vm._v("\n       Add Article\n    ")]
+      [_vm._v("\r\n       Add Article\r\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -42415,7 +42416,7 @@ var render = function() {
           "data-target": "#exampleModal"
         }
       },
-      [_vm._v("\n       Add Event\n    ")]
+      [_vm._v("\r\n       Add Event\r\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -43256,7 +43257,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Details\n                            "
+                            "\r\n                                Details\r\n                            "
                           )
                         ]
                       ),
@@ -43278,7 +43279,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Modify\n                            "
+                            "\r\n                                Modify\r\n                            "
                           )
                         ]
                       ),
@@ -43300,7 +43301,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                delete\n                            "
+                            "\r\n                                delete\r\n                            "
                           )
                         ]
                       )
@@ -44198,7 +44199,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Details\n                            "
+                            "\r\n                                Details\r\n                            "
                           )
                         ]
                       ),
@@ -44220,7 +44221,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Modify\n                            "
+                            "\r\n                                Modify\r\n                            "
                           )
                         ]
                       ),
@@ -44242,7 +44243,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                delete\n                            "
+                            "\r\n                                delete\r\n                            "
                           )
                         ]
                       )
@@ -44476,7 +44477,7 @@ var render = function() {
                   _c("polyline", { attrs: { points: "9 22 9 12 15 12 15 22" } })
                 ]
               ),
-              _vm._v("\n                Article "),
+              _vm._v("\r\n                Article "),
               _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
             ]
           )
@@ -44521,7 +44522,7 @@ var render = function() {
                   _c("polyline", { attrs: { points: "9 22 9 12 15 12 15 22" } })
                 ]
               ),
-              _vm._v("\n                Event "),
+              _vm._v("\r\n                Event "),
               _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
             ]
           )
@@ -44566,7 +44567,7 @@ var render = function() {
                   _c("polyline", { attrs: { points: "9 22 9 12 15 12 15 22" } })
                 ]
               ),
-              _vm._v("\n                Member "),
+              _vm._v("\r\n                Member "),
               _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
             ]
           )
@@ -44611,7 +44612,7 @@ var render = function() {
                   _c("polyline", { attrs: { points: "9 22 9 12 15 12 15 22" } })
                 ]
               ),
-              _vm._v("\n                Program "),
+              _vm._v("\r\n                Program "),
               _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
             ]
           )
@@ -44654,7 +44655,7 @@ var render = function() {
           "data-target": "#exampleModal"
         }
       },
-      [_vm._v("\n       Add Program\n    ")]
+      [_vm._v("\r\n       Add Program\r\n    ")]
     ),
     _vm._v(" "),
     _c(
@@ -45154,7 +45155,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Details\n                            "
+                            "\r\n                                Details\r\n                            "
                           )
                         ]
                       ),
@@ -45176,7 +45177,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Modify\n                            "
+                            "\r\n                                Modify\r\n                            "
                           )
                         ]
                       ),
@@ -45198,7 +45199,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                Delete\n                            "
+                            "\r\n                                Delete\r\n                            "
                           )
                         ]
                       )
@@ -64917,8 +64918,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a(vue__WEBPACK_IMPORTED_MODULE_0___
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\rusrs-website\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\rusrs-website\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\laragon\www\RUSRS-WEBSITE\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\RUSRS-WEBSITE\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })
