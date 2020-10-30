@@ -85,6 +85,7 @@ export default {
 
             axios.get(url + this.q + '?page=' + page)
                 .then(response => {
+                    console.log(response.data)
                     this.Events = response.data;
                 });
         },

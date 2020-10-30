@@ -11,7 +11,7 @@ class Member extends Model
 
     protected $fillable=["full_name","facebook","position"];
 
-    public function Images(){
-        return $this->morphMany(Photo::class,'Imageable');
+    public function photos(){
+        return $this->morphOne(Photo::class,'imageable');
     }
 }

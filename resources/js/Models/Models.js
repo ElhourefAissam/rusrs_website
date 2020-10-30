@@ -29,4 +29,9 @@ let Program ={
     link:""
 }
 
-export {Event,Article,Member,Program};
+let UploadImagesModel={
+    formData: new FormData(),
+    config:{}
+}
+
+export {Event,Article,Member,Program, UploadImagesModel};

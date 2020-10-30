@@ -18,32 +18,24 @@ class ImageController extends Controller
     }
 
 
-    public function store(Request $request, $model=null)
+    public function store(Request $request, $Model)
     {
 
-        if($request->hasFile('files'))
+        $images = [];
+        foreach($request->file('files') as $file)
         {
-
-            $images = [];
-            foreach($request->file('files') as $file)
-            {
-                $filename= "/images/".time()."_".$file->getClientOriginalName();
-                $file->move(public_path('images'), $filename);
-                $images[]= $filename;
-            }
-
-            foreach($images as $image){
-                Photo::created([
-                    'imageable_id' => $model,
-                    'imageable_type' => 'App\\Event',
-                    'filename' => $image
-                ]);
-            }
-
-
-            return response()->json(["sucess"=>"images were uploaded" ]);
+            $filename= "/images/".time()."_".$file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $images[]= $filename;
         }
-        return response()->json(["error"=> "Error on uploading"]);
+
+        foreach($images as $image){
+            $photo = new Photo ;
+            $photo->filename= $image;
+            $Model->photos()->save($photo);
+        }
+
+         return response()->json(["sucess"=>"images were uploaded" ]);
 
     }
 
@@ -62,5 +54,20 @@ class ImageController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ModelIdFinder(Request $request){
+        $model=null;
+        $data = $request->all("modelId");
+        if($data){
+            $ev=[];
+            foreach($data as $e){
+                $ev[]=$e;
+            }
+
+            $array = json_encode($ev[0]);
+            $model = json_decode($array);
+        }
+        return $model;
     }
 }

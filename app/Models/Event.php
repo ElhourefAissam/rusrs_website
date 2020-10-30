@@ -11,7 +11,7 @@ class Event extends Model
 
     protected $fillable=['title','description','place','address','start_date','end_date'];
 
-    public function Images(){
-        return $this->morphMany(Photo::class,'Imageable');
+    public function photos(){
+        return $this->morphMany(Photo::class,'imageable');
     }
 }

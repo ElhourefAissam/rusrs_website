@@ -14,41 +14,37 @@ class ArticleController extends Controller
         if(request('q') != null){
             return Article::with('photos')->where('title','like','%'.request('q').'%')->orderBy('created_at','desc')->paginate(6);
         }
+
         return Article::with('photos')->orderBy('created_at','desc')->paginate(6);
-        // return Article::with('photos')->get();
     }
 
     public function store(Request $request)
     {
-        $imageController = new ImageController;
 
-        $request->validate([
-            'title' => 'required',
-            'article_body' => 'required',
-            'author' => 'required',
-        ]);
-
-        $article = Article::create([
-            'title' => $request->title,
-            'article_body' => $request->article_body,
-            'author' => $request->author,
-        ]);
-
-        $photos = explode(",",$request->get('photo'));
-
-        foreach($photos as $photo){
-            Photo::created([
-                'imageable_id' => $article->id,
-                'imageable_type' => 'App\Article',
-                'filename' => $photo
+        if(!$request->hasFile("files"))
+        {
+            $request->validate([
+                'title' => 'required',
+                'article_body' => 'required',
+                'author' => 'required',
             ]);
-        }
 
+            $article = Article::create([
+                'title' => $request->title,
+                'article_body' => $request->article_body,
+                'author' => $request->author,
+            ]);
+            //this one is very important
+           return response()->json(["id"=> $article->id]);
 
-        if($article)
-            return ["success"=>"Article created"];
-        else
-            return ["error"=>"Article not created"];
+       }else{
+
+        $imageController= new ImageController;
+        $id = $imageController->ModelIdFinder($request);
+        $eventModel = Article::find($id);
+
+        return $imageController->store($request, $eventModel);
+       }
     }
 
     public function show($id)

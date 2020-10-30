@@ -26,8 +26,9 @@
     </nav>
     <!-- Navigation-->
     <div class="mt-10">
-        <main-page v-if="!admin" />
-        <admin-app v-else />
+        <!-- <main-page v-if="!admin" />
+        <admin-app v-else /> -->
+
     </div>
 </div>
 </template>

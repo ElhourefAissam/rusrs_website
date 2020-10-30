@@ -68,9 +68,6 @@ export default {
     },
     methods: {
         UpdateArticle: function () {
-            // if (document.getElementById('Image').files[0]) {
-            //     data.append('Image', document.getElementById('Image').files[0]);
-            // }
             axios.put(url + this.article.id, {...this.article})
                 .then((response) => {
                     this.$emit('ArticleUpdated', response)
