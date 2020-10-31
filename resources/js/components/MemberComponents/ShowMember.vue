@@ -16,12 +16,14 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                 <div class="slideshow-container">
-                                       <img class="silder-image" :src="Member.photos.filename">
+                                       <img class="silder-image rounded mx-auto"  :src="Member.photos!=null ? Member.photos.filename : '/public/images/no-image.png' ">
+                                       <button class="btn btn-danger">delete</button>
                                 </div>
                                 </div>
                                 <div class="modal-body">
                                     <h1>{{Member.full_name}}</h1>
                                     <h1>{{Member.position}}</h1>
+                                    <h1>{{Member.faebook}}</h1>
                                 </div>
                             </div>
                         </div>

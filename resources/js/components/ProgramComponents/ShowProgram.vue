@@ -3,7 +3,7 @@
     <div>
         <!-- Modal -->
         <div class="modal fade" id="DetailsModal" tabindex="-1" aria-labelledby="DetailsModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title alert alert-info w-100" id="DetailsModalLabel">Program Details</h5>
@@ -18,13 +18,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <h4>{{Program.title}}</h4>
-                                    <h4>{{Program.link}}</h4>
+                                    <video-player :id="Program.link" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button @click="stopVideo" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -45,6 +45,11 @@ export default {
     data: function () {
         return {
 
+        }
+    },
+    methods: {
+        stopVideo() {
+            this.Program.link = ""
         }
     },
     computed: {

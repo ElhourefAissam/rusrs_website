@@ -1,56 +1,48 @@
 <template>
 <div>
-    <div class="card-body">
-        <div class="dropdown float-right position-relative">
-
-        </div>
+    <div class="container">
         <h4 class="card-title d-block alert alert-info my-2">Members of the association</h4>
-        <Add-Member class="m-3" @MemberAdded="getResults"></Add-Member>
         <div class="container-small mb-3">
+             <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary w-100 my-2" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-plus-square"></i>
+            </button>
+            <Add-Member class="m-3" @MemberAdded="getResults"></Add-Member>
             <input type="text" class="form-control text-center" @keyup="FindMember" v-model="q" placeholder="Search">
+            <pagination :data="Members" @pagination-change-page="getResults" class="mt-5"></pagination>
         </div>
-        <div class="table-responsive">
-            <table class="table table-borderless table-hover mb-0">
-                <thead class="thead-light">
-                    <tr>
-                        <th>No</th>
-                        <th>Full Name</th>
-                        <th>Facebook</th>
-                        <th>Position</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="member in Members.data" :key="member.id">
-                        <td>{{ member.id }}</td>
-                        <td>{{ member.full_name }}</td>
-                        <td>{{ member.facebook }}</td>
-                        <td>{{ member.position }}</td>
-                        <td class="btns">
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal"  @click="getMember(member)">
-                                Details
-                            </button>
-                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getMember(member)">
-                                Modify
-                            </button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal"  @click="getMember(member)">
-                                delete
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <Show-Member :Member="Member" ></Show-Member>
-                <Edit-Member :Member="Member" @MemberUpdated="getResults"></Edit-Member>
-                <Delete-Member :Member="Member" @MemberDeleted="getResults"></Delete-Member>
-            </div>
-            <div class="">
-                <pagination :data="Members" @pagination-change-page="getResults" class="mt-5"></pagination>
+
+        <div class="row">
+            <div v-for="member in Members.data" :key="member.id" class="card col3 mx-4 mt-2" style="width: 18rem;">
+                <img width="286" height="180" class="card-img-top" :src="member.photos ? member.photos.filename : '/images/unkown.jpg' " alt=""/>
+                <div class="card-body">
+                    <h4 class="card-title"><i class="far fa-user"></i> {{ member.full_name }}</h4>
+                    <p class="ml-1"> <i class="fas fa-user-md"></i> {{member.position}}</p>
+                    <a  :href="member.facebook? member.facebook: '#'" class="ml-1"> <i class="fab fa-facebook"></i> {{member.facebook? member.facebook: 'unkown facebook'}} </a>
+
+                    <div class="card-body">
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal"  @click="getMember(member)">
+                        <i class="fas fa-info-square"></i></button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getMember(member)">
+                        <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal"  @click="getMember(member)">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="container-small mb-3">
+             <pagination :data="Members" @pagination-change-page="getResults" class="mt-5"></pagination>
+        </div>
+
+        <Show-Member :Member="Member" ></Show-Member>
+        <Edit-Member :Member="Member" @MemberUpdated="getResults"></Edit-Member>
+        <Delete-Member :Member="Member" @MemberDeleted="getResults"></Delete-Member>
+
     </div>
-</div>
+ </div>
 </template>
 
 <script>
@@ -75,7 +67,7 @@ export default {
         getResults(page = 1) {
            axios.get( url + this.q + '?page=' + page)
                 .then(response => {
-                    console.log(response)
+                     console.log(response)
                      this.Members = response.data
                 })
         },

@@ -1,13 +1,15 @@
 <template>
 <div>
     <div class="card-body">
-        <div class="dropdown float-right position-relative">
-
-        </div>
         <h4 class="card-title d-block alert alert-info my-2">List of Association events</h4>
         <Add-Event class=" m-3" @EventAdded="getResults"></Add-Event>
         <div class="container-small mb-3">
+             <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary w-100 my-2" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-plus-square"></i>
+            </button>
             <input type="text" class="form-control text-center" @keyup="FindEvent" v-model="q" placeholder="Search">
+            <pagination :data="Events" @pagination-change-page="getResults" class="mt-5"></pagination>
         </div>
         <div class="table-responsive">
             <table class="table table-borderless table-hover mb-0">
@@ -36,15 +38,15 @@
                         <td>{{ Event.created_at }}</td>
                         <td class="btns">
 
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getEvent(Event)">
-                                Details
-                            </button>
-                           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getEvent(Event)">
-                                Modify
-                            </button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getEvent(Event)">
-                                delete
-                            </button>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getArticle(article)">
+                            <i class="fas fa-info-square"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
                        </td>
                     </tr>
                 </tbody>
@@ -54,7 +56,7 @@
                 <Delete-Event :Event="Event" @EventDeleted="getResults"></Delete-Event>
                 <Show-Event :Event="Event" ></Show-Event>
             </div>
-            <div class="">
+            <div class="container-small mb-3">
                 <pagination :data="Events" @pagination-change-page="getResults" class="mt-5"></pagination>
             </div>
         </div>

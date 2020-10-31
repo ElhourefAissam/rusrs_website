@@ -1,13 +1,16 @@
 <template>
 <div>
     <div class="card-body">
-        <div class="dropdown float-right position-relative">
 
-        </div>
         <h4 class="card-title d-block alert alert-info my-2">List of Association Programs</h4>
         <Add-Program class=" m-3" @ProgramAdded="getResults"></Add-Program>
         <div class="container-small mb-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary w-100 my-2" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-plus-square"></i>
+            </button>
             <input type="text" class="form-control text-center" @keyup="FindProgram" v-model="q" placeholder="Search">
+            <pagination :data="Programs" @pagination-change-page="getResults" class="my-3"></pagination>
         </div>
         <div class="table-responsive">
             <table class="table table-borderless table-hover mb-0">
@@ -28,15 +31,15 @@
                         <td>{{ program.created_at }}</td>
                         <td class="btns">
 
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getProgram(program)">
-                                Details
-                            </button>
-                           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getProgram(program)">
-                                Modify
-                            </button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getProgram(program)">
-                                Delete
-                            </button>
+                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getProgram(program)">
+                            <i class="fas fa-info-square"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getProgram(program)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getProgram(program)">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
                        </td>
                     </tr>
                 </tbody>
@@ -46,7 +49,7 @@
                 <Delete-Program :Program="Program" @ProgramDeleted="getResults"></Delete-Program>
                 <Show-Program :Program="Program" ></Show-Program>
             </div>
-            <div class="">
+            <div class="container-small mb-3">
                 <pagination :data="Programs" @pagination-change-page="getResults" class="mt-5"></pagination>
             </div>
         </div>
