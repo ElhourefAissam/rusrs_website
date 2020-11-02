@@ -1,25 +1,59 @@
 <template>
-     <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © R.U.S.R.S developed by AMZOUR Hicham 2020</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/RUSRS.officiel" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-right">
-                        <a class="mr-3" href="#!">الخصوصيات</a>
-                        <a href="#!">شروط الاستخدام</a>
-                        <a>Tele: 0662534890</a>
-                        <a>Email : rucasrs@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    <v-footer dark padless>
+        <v-card flat tile class="orange darken-4 white--text text-center">
+            <v-card-text>
+                <v-btn
+                    v-for="(icon, index) in icons"
+                    :key="index"
+                    class="mx-4 white--text"
+                    icon
+                    :href="icon.link"
+                    target="_blank"
+                >
+                    <v-icon size="24px">
+                        {{ icon.name }}
+                    </v-icon>
+                </v-btn>
+            </v-card-text>
+
+            <v-card-text class="white--text pt-0">
+                Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit
+                amet. Mauris cursus commodo interdum. Praesent ut risus eget
+                metus luctus accumsan id ultrices nunc. Sed at orci sed massa
+                consectetur dignissim a sit amet dui. Duis commodo vitae velit
+                et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat
+                augue vel ipsum ultrices, cursus iaculis dui sollicitudin.
+                Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci
+                varius natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus.
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-text class="white--text montserrat">
+                2020 — <strong>Made by AMZOUR Hicham , ELHOUREF Aissam</strong>
+            </v-card-text>
+        </v-card>
+    </v-footer>
 </template>
 <script>
 export default {
+    name: "footer",
 
-}
+    data() {
+        return {
+            icons: [
+                {
+                    name: "facebook",
+                    link: "https://www.facebook.com/RUSRS.officiel"
+                },
+                {
+                    name: "video_library",
+                    link: "https://www.youtube.com/user/nadifnet"
+                },
+                { name: "email", link: "rucasrs@gmail.com" }
+            ]
+        };
+    }
+};
 </script>

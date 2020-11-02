@@ -525,24 +525,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Program";
@@ -640,7 +622,11 @@ var render = function() {
                       ),
                       on
                     ),
-                    [_vm._v("\n        إضافة حلقة او برنامج جديد\n        ")]
+                    [
+                      _vm._v(
+                        "\r\n        إضافة حلقة او برنامج جديد\r\n        "
+                      )
+                    ]
                   )
                 ]
               }
@@ -690,7 +676,7 @@ var render = function() {
                           attrs: { dark: "", text: "" },
                           on: { click: _vm.AddProgram }
                         },
-                        [_vm._v("\n              حفض\n            ")]
+                        [_vm._v("\r\n              حفض\r\n            ")]
                       )
                     ],
                     1
@@ -742,7 +728,7 @@ var render = function() {
                                 attrs: {
                                   label: "الرابط",
                                   hint: "إضافة  رابط البرنامج في اليوتيوب",
-                                  "prepend-icon": "facebook"
+                                  "prepend-icon": "youtube_searched_for"
                                 },
                                 model: {
                                   value: _vm.Program.link,
@@ -838,11 +824,11 @@ var render = function() {
             "v-card",
             [
               _c("v-card-title", { staticClass: "headline" }, [
-                _vm._v("\n           تنبيه؟\n        ")
+                _vm._v("\r\n           تنبيه؟\r\n        ")
               ]),
               _vm._v(" "),
               _c("v-card-text", [
-                _vm._v("\n           هل تريد مسح البرنامج  ؟\n        ")
+                _vm._v("\r\n           هل تريد مسح البرنامج  ؟\r\n        ")
               ]),
               _vm._v(" "),
               _c(
@@ -860,7 +846,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n            لا\n          ")]
+                    [_vm._v("\r\n            لا\r\n          ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -869,7 +855,7 @@ var render = function() {
                       attrs: { color: "green darken-1", text: "" },
                       on: { click: _vm.DeleteProgram }
                     },
-                    [_vm._v("\n            نعم\n          ")]
+                    [_vm._v("\r\n            نعم\r\n          ")]
                   )
                 ],
                 1
@@ -988,7 +974,7 @@ var render = function() {
                           attrs: { dark: "", text: "" },
                           on: { click: _vm.UpdateProgram }
                         },
-                        [_vm._v("\n              حفض\n            ")]
+                        [_vm._v("\r\n              حفض\r\n            ")]
                       )
                     ],
                     1
@@ -1326,7 +1312,7 @@ var render = function() {
                       attrs: { color: "orange", text: "" },
                       on: { click: _vm.exit }
                     },
-                    [_vm._v("\n        خروج\n      ")]
+                    [_vm._v("\r\n                    خروج\r\n                ")]
                   )
                 ],
                 1

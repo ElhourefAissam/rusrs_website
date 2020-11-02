@@ -1,37 +1,53 @@
 <template>
-<!-- Masthead-->
-<header class="">
-    <!-- <div class="container mt-4"> -->
-    <!-- <div class="masthead-subheading"></div>
-                <div class="masthead-heading text-uppercase"></div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">tell me more</a> -->
 
-    <div class="slideshow-container">
-        <div class="mySlides fade-slider">
-            <div class="numbertext">1 / 3</div>
-            <img class="silder-image" src="../../../../public/assets/img/portfolio/02-full.jpg">
-            <div class="text">London, Ebgland</div>
-        </div>
-        <div class="mySlides fade-slider">
-            <div class="numbertext">2 / 3</div>
-            <img class="silder-image" src="../../../../public/assets/img/portfolio/01-full.jpg">
-            <div class="text">Sunset in Romania</div>
-        </div>
-        <div class="mySlides fade-slider">
-            <div class="numbertext">3 / 3</div>
-            <img class="silder-image" src="../../../../public/assets/img/portfolio/03-full.jpg">
-            <div class="text">New York, USA</div>
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <!-- </div> -->
-    <!-- Masthead-->
-</header>
+<div class="heroBlock">
+    <v-carousel hide-delimiters cycle>
+        <v-carousel-item
+        v-for="(item,i) in items"
+        :key="i"
+        :src="item.src"
+        reverse-transition="fade-transition"
+        transition="fade-transition"
+        >
+        <v-row
+          class="fill-height"
+          align="center"
+          justify="center"
+        >
+          <div class=" title">
+            {{ item.title }}
+          </div>
+        </v-row>
+        </v-carousel-item>
+    </v-carousel>
+ </div>
+
 </template>
 
 <script>
 export default {
+    data () {
+      return {
+        items: [
+          {
+            src:  require('../../src/assets/team1.jpeg'),
+            title:" تنبيه   تحميل الصور نعم  لا تعديل",
+          },
+          {
+            src:  require('../../src/assets/team2.jpeg'),
+            title:"ى معلومات العضوالاسم الكامل الفايسبوك ",
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            title:"العنوان الحدث البداية النهاية",
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            title:" البداية النهاية تعديل الحدث  استمارة ",
+          },
+        ],
+      }
+    },
 
 }
 </script>
