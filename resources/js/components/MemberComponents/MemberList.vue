@@ -1,66 +1,93 @@
 <template>
-<div>
-    <div class="container">
-        <h4 class="card-title d-block alert alert-info my-2">Members of the association</h4>
+<div class="Members" color="grey">
+     <v-container class="my-5 ">
+        <h1 class="display2 grey--text">أعضاء الجمعية</h1>
+           <v-row justify="space-between">
+                <v-col cols="12" md="5" sm="6">
+                    <v-text-field
+                        color="primary darken-2"
+                        label="إبحث عن عضو في الجمعية"
+                        @change="FindMember"
+                        v-model="q"
+                        hide-details="auto"
+                    ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="4" sm="6">
+                    <addMember></addMember>
+                </v-col>
+            </v-row>
+
+            <v-row>
+             <v-col v-for="Member in Members.data" :key="Member.id" col="12" md="4">
+                    <v-card
+                    class="mx-auto"
+                    max-width="344"
+                >
+                    <v-img style="z-index:1"
+                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                    height="200px"
+                    >
+                    <!-- <v-avatar size="56">
+                    <img style="z-index:3"
+                        alt="user"
+                        src="https://cdn.pixabay.com/photo/2020/06/24/19/12/cabbage-5337431_1280.jpg"
+                    >
+                    </v-avatar> -->
+                    </v-img>
+
+                    <v-card-title>
+                    {{Member.full_name}}
+                    </v-card-title>
+
+                    <v-card-subtitle>
+                    {{Member.position}}
+                    </v-card-subtitle>
+                    <v-card-subtitle>
+                    {{Member.facebook}}
+                    </v-card-subtitle>
+
+                    <v-card-actions>
+                     <v-row cols="12"  no-gutters>
+                        <editMember    :Member="Member"/>
+                        <deleteMember  :Member="Member"/>
+                     </v-row>
+                    </v-card-actions>
+                </v-card>
+             </v-col>
+            </v-row>
         <div class="container-small mb-3">
-             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary w-100 my-2" data-toggle="modal" data-target="#exampleModal">
-              <i class="fas fa-plus-square"></i>
-            </button>
-            <Add-Member class="m-3" @MemberAdded="getResults"></Add-Member>
-            <input type="text" class="form-control text-center" @keyup="FindMember" v-model="q" placeholder="Search">
             <pagination :data="Members" @pagination-change-page="getResults" class="mt-5"></pagination>
         </div>
-
-        <div class="row">
-            <div v-for="member in Members.data" :key="member.id" class="card col3 mx-4 mt-2" style="width: 18rem;">
-                <img width="286" height="180" class="card-img-top" :src="member.photos ? member.photos.filename : '/images/unkown.jpg' " alt=""/>
-                <div class="card-body">
-                    <h4 class="card-title"><i class="far fa-user"></i> {{ member.full_name }}</h4>
-                    <p class="ml-1"> <i class="fas fa-user-md"></i> {{member.position}}</p>
-                    <a  :href="member.facebook? member.facebook: '#'" class="ml-1"> <i class="fab fa-facebook"></i> {{member.facebook? member.facebook: 'unkown facebook'}} </a>
-
-                    <div class="card-body">
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal"  @click="getMember(member)">
-                        <i class="fas fa-info-square"></i></button>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getMember(member)">
-                        <i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal"  @click="getMember(member)">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-small mb-3">
-             <pagination :data="Members" @pagination-change-page="getResults" class="mt-5"></pagination>
-        </div>
-
-        <Show-Member :Member="Member" ></Show-Member>
-        <Edit-Member :Member="Member" @MemberUpdated="getResults"></Edit-Member>
-        <Delete-Member :Member="Member" @MemberDeleted="getResults"></Delete-Member>
-
-    </div>
- </div>
+     </v-container>
+</div>
 </template>
 
 <script>
 import Path from "../../EnvPath";
 import {Member} from "../../Models/Models";
 
+import addMember    from "./AddMember"
+import deleteMember from "./DeleteMember"
+import editMember   from "./EditMember"
+
 const url = Path.baseUrl + "Member/";
 
 
 export default {
+    components:{
+        addMember,
+        deleteMember,
+        editMember,
+    },
     data: function () {
         return {
             Members: {},
             Member,
-            q: ''
+            q: '',
+            show:false
         }
     },
-    mounted() {
+    created() {
         this.getResults();
     },
     methods: {

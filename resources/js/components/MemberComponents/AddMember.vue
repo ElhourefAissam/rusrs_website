@@ -1,40 +1,104 @@
 <template>
-<div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title alert alert-info w-100" id="exampleModalLabel">Add Member information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class=" form-group">
-                            <label for="full_name">Full Name</label>
-                            <input type="text" name="full_name" v-model="Member.full_name" class="form-control" placeholder="full name">
-                        </div>
-                        <div class=" form-group">
-                            <label for="facebook">Facebook link</label>
-                            <input name="facebook" v-model="Member.facebook" class="form-control" placeholder="facebook" />
-                        </div>
-                        <div class=" form-group">
-                            <label for="position">Position</label>
-                            <input name="position" v-model="Member.position" class="form-control" placeholder="position" />
-                        </div>
-                         <image-uploader  @imageUploaded="getDateObject"/>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" @click="AddMember" value="add" data-dismiss="modal">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<v-col md="4">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="600px"
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="warning"
+          dark
+          v-bind="attrs"
+          v-on="on"
+
+        >
+        إضافة عضو جديد
+        </v-btn>
+      </template>
+      <v-card>
+        <v-toolbar
+          dark
+          color="primary"
+        >
+          <v-btn
+            icon
+            dark
+            @click="dialog = false"
+          >
+            <v-icon>close</v-icon>
+          </v-btn>
+          <v-toolbar-title> تعديل معلومات العضو </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn
+              dark
+              text
+              @click="AddMember"
+            >
+              حفض
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+
+        <v-card-title>
+
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row justify="space-between">
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="الاسم الكامل*"
+                  required
+                  hint="الاسم الكامل"
+                  prepend-icon="person"
+                  v-model="Member.full_name"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="الفايسبوك"
+                  hint="الفايسبوك"
+                  prepend-icon="facebook"
+                   v-model="Member.facebook"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  label="المنصب*"
+                  required
+                  prepend-icon="description"
+                   v-model="Member.position"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+             <v-divider></v-divider>
+             <v-row>
+                <v-col cols="12">
+                   <v-file-input
+                    chips
+                    label="تحميل الصورة"
+                    ></v-file-input>
+                </v-col>
+            </v-row>
+          </v-container>
+          <small class="red--text">*يشير الى ضرورة ملئ الأماكن المطلوبة</small>
+        </v-card-text>
+
+      </v-card>
+    </v-dialog>
+  </v-col>
 </template>
 
 <script>
@@ -49,7 +113,8 @@ export default {
         return {
             Members: {},
             Member,
-            UploadImagesModel
+            UploadImagesModel,
+            dialog:false
         }
     },
     methods: {
@@ -58,7 +123,8 @@ export default {
                 .then((response) => {
                     if(response.data.id){
                         this.UploadImagesModel.formData.append("modelId",response.data.id)
-                        this.addImages()
+                        //this.addImages()
+                        this.dialog=false
                     }else{
                         this.UploadImagesModel.formData.append("error","ID does not exist")
                     }

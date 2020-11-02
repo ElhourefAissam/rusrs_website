@@ -1,50 +1,105 @@
 <template>
-<div>
-    <!-- Modal -->
-    <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title alert alert-info w-100" id="EditModalLabel">Modify Member</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <!-- {{Form::token()}} -->
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <form>
-                                        <!-- {{Form::token()}} -->
-                                        <div class=" form-group">
-                                            <label for="full_name">Full name</label>
-                                            <input type="text" name="full_name" v-model="Member.full_name" class="form-control" placeholder="full name">
-                                        </div>
-                                         <div class=" form-group">
-                                            <label for="facebook">Facebook link</label>
-                                            <input type="text" name="facebook" v-model="Member.facebook" class="form-control" placeholder="facebook link">
-                                        </div>
-                                        <div class=" form-group">
-                                            <label for="position">Position</label>
-                                            <textarea rows="2" name="position" v-model="Member.position" class="form-control" placeholder="position"></textarea>
-                                        </div>
-                                       <image-uploader :images="Member.photos ? Member.photos.filename:'/images/unkown.jpg' "  @imageUploaded="getDateObject"/>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Modifie" @click="UpdateMember" data-dismiss="modal">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<v-col md="4">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="600px"
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="warning"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          small
+        >
+          <v-icon>edit</v-icon>
+        </v-btn>
+      </template>
+      <v-card>
+        <v-toolbar
+          dark
+          color="primary"
+        >
+          <v-btn
+            icon
+            dark
+            @click="dialog = false"
+          >
+            <v-icon>close</v-icon>
+          </v-btn>
+          <v-toolbar-title> تعديل معلومات العضو </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn
+              dark
+              text
+              @click="UpdateMember"
+            >
+              حفض
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+
+        <v-card-title>
+
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row justify="space-between">
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="الاسم الكامل*"
+                  required
+                  hint="الاسم الكامل"
+                  prepend-icon="person"
+                  v-model="updatedMember.full_name"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="الفايسبوك"
+                  hint="الفايسبوك"
+                  prepend-icon="facebook"
+                   v-model="updatedMember.facbeook"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  label="منصب*"
+                  required
+                  prepend-icon="description"
+                   v-model="updatedMember.position"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+             <v-divider></v-divider>
+             <v-row>
+                <v-col cols="12">
+                   <v-file-input
+                    chips
+                    multiple
+                    label="تحميل الصورة"
+                    ></v-file-input>
+                </v-col>
+            </v-row>
+          </v-container>
+          <small class="red--text">*يشير الى ضرورة ملئ الأماكن المطلوبة</small>
+        </v-card-text>
+
+      </v-card>
+    </v-dialog>
+  </v-col>
 </template>
 
 <script>
@@ -57,17 +112,19 @@ export default {
     props: ['Member'],
     data: function () {
         return {
-
+            dialog: false,
+            notifications: false,
+            sound: true,
+            widgets: false,
+            updatedMember:{...this.Member}
         }
     },
     methods: {
         UpdateMember: function () {
-            // if (document.getElementById('Image').files[0]) {
-            //     data.append('Image', document.getElementById('Image').files[0]);
-            // }
-            axios.put(url + this.Member.id, {...this.Member})
+            axios.put(url + this.updatedMember.id, {...this.updatedMember})
                 .then((response) => {
                     this.$emit('MemberUpdated', response)
+                    this.dialog=false
                 })
                 .catch(error => console.log(error));
         }

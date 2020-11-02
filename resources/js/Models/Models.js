@@ -29,9 +29,17 @@ let Program ={
     link:""
 }
 
+let notification={
+    success:"",
+    error:"",
+    message:"",
+    type:"",
+    show:false
+}
+
 let UploadImagesModel={
     formData: new FormData(),
     config:{}
 }
 
-export {Event,Article,Member,Program, UploadImagesModel};
+export {Event,Article,Member,Program, UploadImagesModel,notification};

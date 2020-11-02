@@ -1,55 +1,106 @@
 <template>
-<div>
-    <!-- Modal -->
-    <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title alert alert-info w-100" id="EditModalLabel">Modifie information d'article</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <!-- {{Form::token()}} -->
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter un Article</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <!-- {{Form::token()}} -->
-                                        <div class=" form-group">
-                                            <label for="title">Title</label>
-                                            <input type="text" name="title" v-model="article.title" class="form-control" placeholder="title">
-                                        </div>
-                                        <div class=" form-group">
-                                            <label for="article_body ">Artical body</label>
-                                            <textarea rows="2" name="article_body " v-model="article.article_body " class="form-control" placeholder="article body"></textarea>
-                                        </div>
-                                        <div class=" form-group">
-                                            <label for="author">author</label>
-                                            <input type="text" name="author" v-model="article.author" class="form-control" placeholder="author">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Modifie" @click="UpdateArticle" data-dismiss="modal">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+<v-col md="4">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="600px"
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="warning"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          small
+        >
+          <v-icon>edit</v-icon>
+        </v-btn>
+      </template>
+      <v-card>
+        <v-toolbar
+          dark
+          color="primary"
+        >
+          <v-btn
+            icon
+            dark
+            @click="dialog = false"
+          >
+            <v-icon>close</v-icon>
+          </v-btn>
+          <v-toolbar-title> تعديل المقالة </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn
+              dark
+              text
+              @click="UpdateArticle"
+            >
+              حفض
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+
+        <v-card-title>
+
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row justify="space-between">
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="عنوان المقالة*"
+                  required
+                  hint="عنوان المقالة"
+                  prepend-icon="article"
+                  v-model="updatedArticle.title"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="كاتب المقالة"
+                  hint="كاتب المقالة"
+                  prepend-icon="account_circle"
+                   v-model="updatedArticle.author"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-textarea
+                  label="نص المقالة*"
+                  required
+                  prepend-icon="description"
+                   v-model="updatedArticle.article_body"
+                ></v-textarea>
+              </v-col>
+            </v-row>
+             <v-divider></v-divider>
+             <v-row>
+                <v-col cols="12">
+                   <v-file-input
+                    chips
+                    multiple
+                    label="تحميل الصور"
+                    ></v-file-input>
+                </v-col>
+            </v-row>
+          </v-container>
+          <small class="red--text">*يشير الى ضرورة ملئ الأماكن المطلوبة</small>
+        </v-card-text>
+
+      </v-card>
+    </v-dialog>
+  </v-col>
 </template>
 
 <script>
@@ -63,14 +114,18 @@ export default {
     props: ['article'],
     data: function () {
         return {
-
+            dialog: false,
+            notifications: false,
+            sound: true,
+            widgets: false,
+            updatedArticle:{...this.article}
         }
     },
     methods: {
         UpdateArticle: function () {
-            axios.put(url + this.article.id, {...this.article})
+            axios.put(url + this.updatedArticle.id, {...this.updatedArticle})
                 .then((response) => {
-                    this.$emit('ArticleUpdated', response)
+                    this.dialog = false
                 })
                 .catch(error => console.log(error));
         }

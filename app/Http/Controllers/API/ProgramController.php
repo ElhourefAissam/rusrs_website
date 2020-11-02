@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Program;
+use Exception;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -19,20 +20,25 @@ class ProgramController extends Controller
     // is facebook required
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'link' => 'required',
-        ]);
+        try{
+            $request->validate([
+                'title' => 'required',
+                'link' => 'required',
+            ]);
 
-        $created = Program::create([
-            'title' => $request->title,
-            'link' => $request->link,
-        ]);
+            $created = Program::create([
+                'title' => $request->title,
+                'link' => $request->link,
+            ]);
 
-            if($created)
-                return ["success"=>"Program created"];
-            else
-                return ["error"=>"Program was not created"];
+                if($created)
+                    return ["success"=>true];
+                else
+                    return ["success"=>false];
+
+        }catch(Exception $e){
+            return ["success"=>false];
+        }
     }
 
     public function show($id)

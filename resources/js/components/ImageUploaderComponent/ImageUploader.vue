@@ -5,7 +5,7 @@
             <label class="custom-file-label" for="customFile">Choose an image</label>
         </div>
         <div>
-            <img v-if="images" :src="images"  class="uploaded-image figure-img img-fluid my-3" alt="image not found">
+            <img v-if="imagesList" :src="images"  class="uploaded-image figure-img img-fluid my-3" alt="image not found">
             <img v-for="(image,index) in imagesPreview" :key="index"  :src="image"  class="uploaded-image figure-img img-fluid my-3" alt="image not found">
         </div>
 
@@ -19,7 +19,7 @@ const url = Path.baseUrl + "imageUpload/"
 
 export default {
 
-    props:["images"],
+    props:["imagesList"],
 
     data(){
         return {

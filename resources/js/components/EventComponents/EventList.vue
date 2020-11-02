@@ -1,76 +1,102 @@
 <template>
-<div>
-    <div class="card-body">
-        <h4 class="card-title d-block alert alert-info my-2">List of Association events</h4>
-        <Add-Event class=" m-3" @EventAdded="getResults"></Add-Event>
+<div class="events" color="grey">
+     <v-container class="my-5 ">
+        <h1 class="display2 grey--text">الاحداث</h1>
+           <v-row justify="space-between">
+                <v-col cols="12" md="5" sm="6">
+                    <v-text-field
+                        color="primary darken-2"
+                        label="ابحث عن حدث "
+                        @change="FindEvent"
+                        v-model="q"
+                        hide-details="auto"
+                    ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="4" sm="6">
+                    <addEvent @EventAdded="getResults"></addEvent>
+                </v-col>
+            </v-row>
+
+          <v-card class="my-2 pa-2" flat>
+            <v-row>
+                    <v-col cols="12" md="2" sm="4">
+                        <h3 class="subtitle-1 grey--text">عنوان الحدث</h3>
+                    </v-col>
+                    <v-col cols="12" md="2" sm="4">
+                        <div class="subtitle-1 grey--text">توصيف الحدث</div>
+                    </v-col>
+                    <v-col cols="12" md="2" sm="4">
+                        <div class="subtitle-1 grey--text">مكان الحدث</div>
+                    </v-col>
+                    <v-col cols="12" md="2" sm="4">
+                        <div class="subtitle-1 grey--text"> العنوان </div>
+                    </v-col>
+                    <v-col cols="12" md="1" sm="4">
+                        <div class="subtitle-1 grey--text">تاريخ البداية</div>
+                    </v-col>
+                    <v-col cols="12" md="1" sm="4">
+                        <div class="subtitle-1 grey--text">تاريخ النهاية</div>
+                    </v-col>
+                    <v-col cols="12" md="2" sm="4">
+
+                    </v-col>
+            </v-row>
+          </v-card>
+        <v-card v-for="Event in Events.data" :key="Event.id" flat class="pa-3">
+            <v-row>
+                <v-col cols="12" md="2" sm="4">
+                    <div>{{Event.title}}</div>
+                </v-col>
+                <v-col cols="12" md="2" sm="4">
+                     <div>{{ Event.description | subStr }}</div>
+                </v-col>
+                <v-col cols="12" md="2" sm="4">
+                     <div>{{ Event.place | subStr }}</div>
+                </v-col>
+                <v-col cols="12" md="2" sm="4">
+                    <div>{{ Event.address }}</div>
+                </v-col>
+                 <v-col cols="12" md="1" sm="4">
+                    <div>{{ Event.start_date }}</div>
+                </v-col>
+                 <v-col cols="12" md="1" sm="4">
+                    <div>{{ Event.end_date }}</div>
+                </v-col>
+                 <v-col cols="12" md="2" sm="4">
+                     <v-row cols="12"  no-gutters>
+                        <showEvent    :Event="Event"/>
+                        <editEvent    :Event="Event"/>
+                        <deleteEvent  :Event="Event"/>
+                     </v-row>
+                 </v-col>
+            </v-row>
+            <v-divider></v-divider>
+        </v-card>
         <div class="container-small mb-3">
-             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary w-100 my-2" data-toggle="modal" data-target="#exampleModal">
-              <i class="fas fa-plus-square"></i>
-            </button>
-            <input type="text" class="form-control text-center" @keyup="FindEvent" v-model="q" placeholder="Search">
             <pagination :data="Events" @pagination-change-page="getResults" class="mt-5"></pagination>
         </div>
-        <div class="table-responsive">
-            <table class="table table-borderless table-hover mb-0">
-                <thead class="thead-light">
-                    <tr>
-                        <th>No</th>
-                        <th>Title</th>
-                        <th>Place</th>
-                        <th>Desciption</th>
-                        <th>Start date</th>
-                        <th>End date</th>
-                        <th>Address</th>
-                        <th>Created at</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="Event in Events.data" :key="Event.id">
-                        <th>{{ Event.id }}</th>
-                        <td>{{ Event.title | subStr }}</td>
-                        <td>{{ Event.place | subStr }}</td>
-                        <td>{{ Event.description | subStr }}</td>
-                        <td>{{ Event.start_date }}</td>
-                        <td>{{ Event.end_date }}</td>
-                        <td>{{ Event.address | subStr }}</td>
-                        <td>{{ Event.created_at }}</td>
-                        <td class="btns">
-
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getArticle(article)">
-                            <i class="fas fa-info-square"></i>
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getArticle(article)">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getArticle(article)">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                       </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <Edit-Event :Event="Event" @EventUpdated="getResults"></Edit-Event>
-                <Delete-Event :Event="Event" @EventDeleted="getResults"></Delete-Event>
-                <Show-Event :Event="Event" ></Show-Event>
-            </div>
-            <div class="container-small mb-3">
-                <pagination :data="Events" @pagination-change-page="getResults" class="mt-5"></pagination>
-            </div>
-        </div>
-    </div>
+     </v-container>
 </div>
 </template>
 
 <script>
 import Path from "../../EnvPath";
+import addEvent from "./AddEvent";
+import editEvent from "./EditEvent";
+import showEvent from "./ShowEvent";
+import deleteEvent from "./DeleteEvent";
+
 
 const url = Path.baseUrl + "Event/";
 
 
 export default {
+    components:{
+        addEvent,
+        editEvent,
+        showEvent,
+        deleteEvent,
+    },
     data: function () {
         return {
             Events: {},
@@ -80,6 +106,9 @@ export default {
     },
     mounted() {
         this.getResults();
+    },
+    created(){
+        this.getResults()
     },
     methods: {
 

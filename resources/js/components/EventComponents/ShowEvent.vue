@@ -1,50 +1,79 @@
 <template>
-<div>
-    <div>
-        <!-- Modal -->
-        <div class="modal fade" id="DetailsModal" tabindex="-1" aria-labelledby="DetailsModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title alert alert-info w-100" id="DetailsModalLabel">Event Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4>{{Event.title}}</h4>
-                                </div>
-
-                                <div class="slideshow-container">
-                                    <div v-for="photo in Event.photos" :key="photo.id" class="mySlides fade-slider">
-                                        <div class="numbertext">1 / 3</div>
-                                        <img class="silder-image" :src="photo.filename">
-                                        <div class="text">London, Ebgland</div>
-                                    </div>
-                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                                </div>
-                                 <div>
-                                    <h4>{{Event.desctiption}}</h4>
-                                    <h5>{{Event.place}}</h5>
-                                    <h5>{{Event.adress}}</h5>
-                                    <h5>{{Event.start_date}}</h5>
-                                    <h5>{{Event.end_date}}</h5>
-                                </div>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
+<v-col md="4">
+    <v-dialog
+       v-model="dialog"
+       transition="dialog-bottom-transition"
+       hide-overlay
+       max-width="900px"
+    >
+    <template v-slot:activator="{ on, attrs }">
+        <v-btn
+            color="primary"
+            dark
+            v-bind="attrs"
+            v-on="on"
+            small
+        >
+        <v-icon>info</v-icon>
+        </v-btn>
+    </template>
+  <v-card class="pa-4">
+    <v-row align="center">
+    <v-item-group
+    v-model="window"
+    class="shrink mr-6"
+    mandatory
+    tag="v-flex"
+    >
+      <v-item
+        v-for="n in length"
+        :key="n"
+        v-slot="{ active, toggle }"
+      >
+        <div>
+          <v-btn
+            :input-value="active"
+            icon
+            @click="toggle"
+          >
+            <v-icon>panorama_fish_eye</v-icon>
+          </v-btn>
         </div>
-    </div>
-</div>
+      </v-item>
+    </v-item-group>
+
+    <v-col>
+        <v-row
+        class="mb-4"
+        align="center"
+        >
+        <v-avatar
+            color="grey"
+            class="mr-4"
+        ></v-avatar>
+        <strong class="title">{{Event.title}}</strong>
+        <v-spacer></v-spacer>
+        <v-btn icon>
+            <v-icon>account</v-icon>
+        </v-btn>
+        </v-row>
+
+        <p>
+        {{Event.description}}
+        </p>
+
+        <p>
+            {{Event.place}} - {{Event.addres}}
+        </p>
+
+        <p>
+            من {{Event.start_date}} الى {{Event.end_date}}
+        </p>
+    </v-col>
+  </v-row>
+</v-card>
+</v-dialog>
+</v-col>
 </template>
 
 >
@@ -59,10 +88,13 @@ export default {
     data: function () {
         return {
 
+            dialog: false,
+            notifications: false,
+            sound: true,
+            widgets: false,
+            length: 1,
+            window: 0,
         }
-    },
-    computed: {
-
     }
 }
 </script>>

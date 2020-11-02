@@ -30,6 +30,12 @@ const routes = [
         component: () =>
             import ("./components/ProgramComponents/ProgramList.vue")
     },
+    {
+        path: '/Gallery',
+        name: 'Gelleru',
+        component: () =>
+            import ("./components/GalleryComponent/GalleryList.vue")
+    },
     //
 ]
 

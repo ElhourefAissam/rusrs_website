@@ -1,36 +1,88 @@
 <template>
-<div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="d-block alert alert-info w-100" id="exampleModalLabel">Add Program</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" >
-                    <form>
-                        <!-- {{Form::token()}} -->
-                        <div class=" form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" v-model="Program.title" class="form-control" placeholder="title of your program">
-                        </div>
-                        <div class=" form-group">
-                            <label for="link">link</label>
-                            <textarea rows="2" name="link" v-model="Program.link" class="form-control" placeholder="youtube video link"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" @click="AddProgram" value="add" data-dismiss="modal">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<v-col md="4">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="600px"
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="warning"
+          dark
+          v-bind="attrs"
+          v-on="on"
+
+        >
+        إضافة حلقة او برنامج جديد
+        </v-btn>
+      </template>
+      <v-card>
+        <v-toolbar
+          dark
+          color="primary"
+        >
+          <v-btn
+            icon
+            dark
+            @click="dialog = false"
+          >
+            <v-icon>close</v-icon>
+          </v-btn>
+          <v-toolbar-title> إضافة معلومات البرنامج  </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-toolbar-items>
+            <v-btn
+              dark
+              text
+              @click="AddProgram"
+            >
+              حفض
+            </v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+
+        <v-card-title>
+
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row justify="space-between">
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="إسم البرنامج*"
+                  required
+                  hint="إسم البرنامج"
+                  prepend-icon="person"
+                  v-model="Program.title"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="5"
+              >
+                <v-text-field
+                  label="الرابط"
+                  hint="إضافة  رابط البرنامج في اليوتيوب"
+                  prepend-icon="facebook"
+                   v-model="Program.link"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+             <v-divider></v-divider>
+          </v-container>
+          <small class="red--text">*يشير الى ضرورة ملئ الأماكن المطلوبة</small>
+        </v-card-text>
+
+      </v-card>
+    </v-dialog>
+  </v-col>
 </template>
 
 <script>
@@ -39,23 +91,40 @@
 import Path from "../../EnvPath";
 import {Program} from "../../Models/Models";
 
-const url=Path.baseUrl+"Program";
+const url = Path.baseUrl + "Program";
 
 export default {
     data: function () {
         return {
             Programs: {},
-            Program
+            Program,
+            dialog:false,
+
         }
+    },
+    mounted(){
+
     },
     methods: {
         AddProgram() {
-            axios.post( url, {...this.Program})
-                .then((response) => {
-                    this.$emit('ProgramAdded', response)
-                    alert('Program was added successfully')
-                })
-                .catch(error => console.log(error));
+
+            if(Program.link.search('v=')>0){
+                this.Program.link= Program.link.split("?v=")[1];
+                axios.post( url, this.Program)
+                    .then((response) => {
+                        // this.$emit('success', response)
+                        // this.$emit('ProgramAdded')
+                        this.dialog=false
+
+                    })
+                    .catch(error => console.log(error));
+            }else{
+                const response={
+                    success:false
+                }
+                // this.$emit('success', response)
+                // this.$emit('ProgramAdded')
+            }
         }
     }
 }
