@@ -742,7 +742,7 @@ var render = function() {
                                 attrs: {
                                   label: "الرابط",
                                   hint: "إضافة  رابط البرنامج في اليوتيوب",
-                                  "prepend-icon": "facebook"
+                                  "prepend-icon": "youtube_searched_for"
                                 },
                                 model: {
                                   value: _vm.Program.link,
