@@ -27,6 +27,9 @@ Vue.component('section-program', require('./components/main-components/Program.v
 // the main layout for mini program of CRUD operations -> containes articles,events,members,program componenets ...
 // write code
 
+// login Components
+Vue.component('admin-login', require('./components/AdminComponents/login.vue').default);
+
 // Admin Components
 Vue.component('admin-app', require('./components/AdminComponents/App.vue').default);
 

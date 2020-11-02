@@ -21,15 +21,15 @@
 
          {{-- our main layout --}}
          {{-- <?php @Auth::loginUsingId(1); ?> --}}
-         {{-- <?php @Auth::logout(); ?> --}}
+         <?php @Auth::logout(); ?>
 
         <div id="app">
-            {{-- @if(Auth::check())
-                <navbar-element :isadmin="false" />
-            @else
-                <navbar-element :isadmin="true" />
+            {{-- @if(Auth::check())--}}
+                 <navbar-element :isadmin="true" /> 
+            {{--@else
+                {{-- <navbar-element :isadmin="false" /> 
             @endif --}}
-            <admin-app />
+            {{-- <admin-app /> --}}
         </div>
 
 

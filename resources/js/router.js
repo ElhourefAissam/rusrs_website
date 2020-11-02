@@ -31,6 +31,14 @@ const routes = [
             import ("./components/ProgramComponents/ProgramList.vue")
     },
     //
+    // login
+    {
+        path: '/auth/login',
+        name: 'login',
+        component: () =>
+            import ("./components/AdminComponents/login.vue")
+    },
+    //
 ]
 
 
