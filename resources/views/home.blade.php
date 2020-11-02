@@ -34,7 +34,7 @@
                 <navbar-element :isadmin="true" />
             @endif --}}
             <front-page />
-            {{-- <main-page/> --}}
+            {{-- <admin-app/> --}}
         </div>
 
 

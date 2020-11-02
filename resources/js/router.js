@@ -36,7 +36,12 @@ const routes = [
         component: () =>
             import ("./components/GalleryComponent/GalleryList.vue")
     },
-    //
+    {
+        path: '*',
+        name: 'Articles',
+        component: () =>
+            import ("./components/NotFound/NotFound.vue")
+    },
 ]
 
 

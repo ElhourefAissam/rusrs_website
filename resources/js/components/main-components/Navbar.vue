@@ -3,7 +3,7 @@
     <v-toolbar flat >
         <v-toolbar-title>
             <v-avatar size="50">
-                <img src="../../../src/assets/navbar-logo.jpg" alt="no image">
+                <img :src="image" alt="no image">
             </v-avatar>
             شبكة وحدة للسلامة الطرقية بالصحراء
         </v-toolbar-title>
@@ -25,9 +25,9 @@
 <script>
 export default {
     props: [],
-    data: function () {
+    data() {
         return {
-
+            image:require('../../src/assets/navbar-logo.jpg'),
         }
     },
     mounted() {
