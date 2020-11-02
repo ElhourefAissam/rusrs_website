@@ -1,6 +1,5 @@
 <template>
-
-<v-col md="4">
+<div>
     <v-btn
       color="error"
       dark
@@ -20,7 +19,7 @@
         </v-card-title>
 
         <v-card-text>
-           هل تريد مسح هذه المقالة؟
+           هل تريد مسح هذا المعرض ؟
         </v-card-text>
 
         <v-card-actions>
@@ -37,44 +36,30 @@
           <v-btn
             color="green darken-1"
             text
-            @click="DeleteArticle"
+            @click="DeleteGallery"
           >
             نعم
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-col>
+  </div>
 </template>
-
 <script>
-import Path from "../../EnvPath";
-
-const url=Path.baseUrl+"Article";
-
 export default {
-    props: ['article'],
-    data: function () {
-        return {
+
+    data(){
+        return{
             dialog:false
         }
     },
-    methods: {
-        DeleteArticle: function () {
-
-            const param = this.article.id ? '/' + this.article.id : '';
-
-            axios.delete(url + param)
-                .then((response) => {
-                    this.dialog = false
-                    // if(response.data.deleted===true)
-                    // {
-                    // }
-
-                    // this.$emit('ArticleDeleted', response)
-                })
-                .catch(error => console.log(error));
+    methods:{
+        DeleteGallery(){
+            this.dialog=false
         }
     }
 }
 </script>
+<style scoped>
+
+</style>

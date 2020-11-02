@@ -1,5 +1,13 @@
 <template>
-<div class="">
+
+<v-app>
+    <Navbar />
+    <v-main color="grey accent-2" class="mx-4">
+        <router-view></router-view>
+    </v-main>
+</v-app>
+
+<!-- <div class="">
     <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse show sidebar-navigation" style="">
             <div class="sidebar-sticky pt-3">
@@ -12,16 +20,26 @@
             </transition>
         </div>
     </div>
-</div>
+</div> -->
 </template>
 
 <script>
+import Navbar from "../NavComponents/Navbar"
+
 export default {
+    components:{
+        Navbar
+    }
 
 }
 </script>
 
 <style scoped>
+
+.v-application{
+    background-color: #f5f5f5
+}
+
 .route-enter-to,
 .route-leave {
     opacity: 0;

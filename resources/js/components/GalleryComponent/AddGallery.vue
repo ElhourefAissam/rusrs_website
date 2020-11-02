@@ -1,6 +1,5 @@
 <template>
-
-<v-col md="4">
+    <v-row >
     <v-dialog
       v-model="dialog"
       persistent
@@ -10,14 +9,13 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="warning"
+          color="primary"
           dark
           v-bind="attrs"
           v-on="on"
-          small
-        >
-          <v-icon>edit</v-icon>
-        </v-btn>
+        small
+        > <v-icon>add</v-icon>
+         </v-btn>
       </template>
       <v-card>
         <v-toolbar
@@ -31,13 +29,13 @@
           >
             <v-icon>close</v-icon>
           </v-btn>
-          <v-toolbar-title> تعديل المقالة </v-toolbar-title>
+          <v-toolbar-title>  استمارة إدخال معرض جديد </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
             <v-btn
               dark
               text
-              @click="UpdateArticle"
+              @click="AddGallery"
             >
               حفض
             </v-btn>
@@ -52,36 +50,16 @@
             <v-row justify="space-between">
               <v-col
                 cols="12"
-                sm="6"
-                md="5"
+                sm="12"
+                md="12"
               >
                 <v-text-field
-                  label="عنوان المقالة*"
+                  label="عنوان المعرض *"
                   required
-                  hint="عنوان المقالة"
+                  hint="عنوان المعرض "
                   prepend-icon="article"
-                  v-model="updatedArticle.title"
+                  v-model="Article.title"
                 ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-                md="5"
-              >
-                <v-text-field
-                  label="كاتب المقالة"
-                  hint="كاتب المقالة"
-                  prepend-icon="account_circle"
-                   v-model="updatedArticle.author"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-textarea
-                  label="نص المقالة*"
-                  required
-                  prepend-icon="description"
-                   v-model="updatedArticle.article_body"
-                ></v-textarea>
               </v-col>
             </v-row>
              <v-divider></v-divider>
@@ -100,35 +78,24 @@
 
       </v-card>
     </v-dialog>
-  </v-col>
+  </v-row>
 </template>
 
 <script>
-import Path from "../../EnvPath";
-
-
-const url=Path.baseUrl+"Article/";
-
-
 export default {
-    props: ['article'],
-    data: function () {
-        return {
-            dialog: false,
-            notifications: false,
-            sound: true,
-            widgets: false,
-            updatedArticle:{...this.article}
+
+    data(){
+        return{
+            dialog:false
         }
     },
-    methods: {
-        UpdateArticle: function () {
-            axios.put(url + this.updatedArticle.id, {...this.updatedArticle})
-                .then((response) => {
-                    this.dialog = false
-                })
-                .catch(error => console.log(error));
+    methods:{
+        AddGallery(){
+            this.dialog=false
         }
     }
 }
 </script>
+<style scoped>
+
+</style>

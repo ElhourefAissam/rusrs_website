@@ -10,12 +10,21 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> --}}
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+        {{-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" /> --}}
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
+        {{-- <link href="{{ asset('css/styles.css')}}" rel="stylesheet" /> --}}
         <link href="{{ asset('css/slider.css')}}" rel="stylesheet" />
+        <style>
+            /* html{
+                direction:rtl;
+                font-family:"Droid Arabic Kufi", "Droid Sans", sans-serif;
+                font-size:14px;
+            } */
+        </style>
     </head>
     <body id="page-top">
 
@@ -29,7 +38,8 @@
             {{--@else
                 {{-- <navbar-element :isadmin="false" /> 
             @endif --}}
-            {{-- <admin-app /> --}}
+            <admin-app />
+            {{-- <main-page/> --}}
         </div>
 
 

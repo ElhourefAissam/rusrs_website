@@ -1,26 +1,49 @@
 <template>
-<div>
-    <!-- Modal -->
-    <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title alert alert-info w-100" id="DeleteModalLabel">Supprimer un Member</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h4>Do you want to remove Member : {{Member.full_name}}</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-danger" value="Suprrimer" @click="DeleteMember" data-dismiss="modal">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<v-col md="4">
+    <v-btn
+      color="error"
+      dark
+      @click.stop="dialog = true"
+      small
+    >
+      <v-icon>delete</v-icon>
+    </v-btn>
+
+    <v-dialog
+      v-model="dialog"
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline">
+           تنبيه؟
+        </v-card-title>
+
+        <v-card-text>
+           هل تريد مسح هذه العضو؟
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            لا
+          </v-btn>
+
+          <v-btn
+            color="green darken-1"
+            text
+            @click="DeleteMember"
+          >
+            نعم
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-col>
 </template>
 
 <script>
@@ -32,7 +55,7 @@ export default {
     props: ['Member'],
     data: function () {
         return {
-
+            dialog:false
         }
     },
     methods: {
@@ -41,6 +64,7 @@ export default {
             axios.delete(url + this.Member.id)
                 .then((response) => {
                     this.$emit('MemberDeleted', response)
+                    this.dialog=false
                 })
                 .catch(error => console.log(error));
         }

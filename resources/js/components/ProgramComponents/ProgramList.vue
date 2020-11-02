@@ -1,88 +1,109 @@
 <template>
-<div>
-    <div class="card-body">
+<div class="Programs" color="grey">
+     <v-container class="my-5 ">
+        <h1 class="display2 grey--text">البرنامج</h1>
+           <v-row justify="space-between">
+                <v-col cols="12" md="5" sm="6">
+                    <v-text-field
+                        color="primary darken-2"
+                        label="ابحث عن برنامج"
+                        @change="FindProgram"
+                        v-model="q"
+                        hide-details="auto"
+                    ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="4" sm="6">
+                    <addProgram @ProgramAdded="getResults"></addProgram>
+                </v-col>
+            </v-row>
 
-        <h4 class="card-title d-block alert alert-info my-2">List of Association Programs</h4>
-        <Add-Program class=" m-3" @ProgramAdded="getResults"></Add-Program>
+          <v-card class="my-2 pa-2" flat>
+            <v-row>
+                    <v-col cols="12" md="4" sm="2">
+                        <h3 class="subtitle-1 grey--text"> اسم البرنامج</h3>
+                    </v-col>
+                    <v-col cols="12" md="4" sm="2">
+                        <div class="subtitle-1 grey--text"> رابط البرنامج</div>
+                    </v-col>
+                    <v-col cols="12" md="4" sm="2">
+
+                    </v-col>
+            </v-row>
+          </v-card>
+        <v-card v-for="Program in Programs.data" :key="Program.id" flat class="pa-3">
+            <v-row>
+                <v-col cols="12" md="4" sm="2">
+                    <div>{{Program.title}}</div>
+                </v-col>
+                <v-col cols="12" md="4" sm="2">
+                     <div>{{ Program.link}}</div>
+                </v-col>
+                 <v-col cols="12" md="4" sm="2">
+                     <v-row cols="12"  no-gutters>
+                        <showProgram    :Program="Program"/>
+                        <editProgram    :Program="Program"/>
+                        <deleteProgram  :Program="Program"/>
+                     </v-row>
+                 </v-col>
+            </v-row>
+            <v-divider></v-divider>
+        </v-card>
         <div class="container-small mb-3">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary w-100 my-2" data-toggle="modal" data-target="#exampleModal">
-              <i class="fas fa-plus-square"></i>
-            </button>
-            <input type="text" class="form-control text-center" @keyup="FindProgram" v-model="q" placeholder="Search">
-            <pagination :data="Programs" @pagination-change-page="getResults" class="my-3"></pagination>
+            <pagination :data="Programs" @pagination-change-page="getResults" class="mt-5"></pagination>
         </div>
-        <div class="table-responsive">
-            <table class="table table-borderless table-hover mb-0">
-                <thead class="thead-light">
-                    <tr>
-                        <th>No</th>
-                        <th>Title</th>
-                        <th>Link</th>
-                        <th>Created at</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="program in Programs.data" :key="program.id">
-                        <th>{{ program.id }}</th>
-                        <td>{{ program.title }}</td>
-                        <td>{{ program.link }}</td>
-                        <td>{{ program.created_at }}</td>
-                        <td class="btns">
-
-                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#DetailsModal" @click="getProgram(program)">
-                            <i class="fas fa-info-square"></i>
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#EditModal" @click="getProgram(program)">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" @click="getProgram(program)">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                       </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <Edit-Program :Program="Program" @ProgramUpdated="getResults"></Edit-Program>
-                <Delete-Program :Program="Program" @ProgramDeleted="getResults"></Delete-Program>
-                <Show-Program :Program="Program" ></Show-Program>
-            </div>
-            <div class="container-small mb-3">
-                <pagination :data="Programs" @pagination-change-page="getResults" class="mt-5"></pagination>
-            </div>
-        </div>
-    </div>
+     </v-container>
 </div>
 </template>
 
 <script>
 import Path from "../../EnvPath";
 import {Program} from "../../Models/Models"
+import showProgram from "./ShowProgram"
+import deleteProgram from "./DeleteProgram"
+import editProgram from "./EditProgram"
+import addProgram from "./AddProgram"
 
 const url = Path.baseUrl + "Program/";
 
 
 export default {
+
+    components:{
+        showProgram,
+        editProgram,
+        deleteProgram,
+        addProgram
+    },
+
     data: function () {
         return {
             Programs: {},
             Program,
-            q: ''
+            q: '',
+
         }
     },
     mounted() {
         this.getResults();
+
     },
     methods: {
 
-        getResults(page = 1) {
-            axios.get(url + this.q + '?page=' + page)
+        getResults() {
+            axios.get(url + this.q + '?page=1')
                 .then(response => {
-
                     this.Programs = response.data;
-                });
+            });
+        },
+        onSuccess(data){
+
+            console.log(data)
+
+            if(data.success){
+
+            }else{
+
+            }
         },
 
         getProgram(program) {
