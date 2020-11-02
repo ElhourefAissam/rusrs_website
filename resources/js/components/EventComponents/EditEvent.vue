@@ -29,7 +29,7 @@
           >
             <v-icon>close</v-icon>
           </v-btn>
-          <v-toolbar-title>استمارة  تعديل الحدث</v-toolbar-title>
+          <v-toolbar-title>استمارة  تعديل الفعالية</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
             <v-btn
@@ -55,9 +55,9 @@
                 md="5"
               >
                 <v-text-field
-                  label="عنوان الحدث*"
+                  label="عنوان الفعالية*"
                   required
-                  hint="عنوان الحدث"
+                  hint="عنوان الفعالية"
                   prepend-icon="article"
                   v-model="UpdatedEvent.title"
                 ></v-text-field>
@@ -90,7 +90,7 @@
               </v-col>
                 <v-col cols="12">
                 <v-textarea
-                    label="*توصيف الحدث"
+                    label="*توصيف الفعالية"
                     required
                     prepend-icon="description"
                     v-model="UpdatedEvent.description"

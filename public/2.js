@@ -885,7 +885,7 @@ var render = function() {
                       ),
                       on
                     ),
-                    [_vm._v("\n          حدث جديدة\n        ")]
+                    [_vm._v("\n          فعالية جديدة\n        ")]
                   )
                 ]
               }
@@ -922,7 +922,9 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-toolbar-title", [_vm._v(" استمارة إدخال حدث جديد ")]),
+                  _c("v-toolbar-title", [
+                    _vm._v(" استمارة إدخال فعالية جديدة  ")
+                  ]),
                   _vm._v(" "),
                   _c("v-spacer"),
                   _vm._v(" "),
@@ -962,9 +964,9 @@ var render = function() {
                             [
                               _c("v-text-field", {
                                 attrs: {
-                                  label: "عنوان الحدث*",
+                                  label: "عنوان الفعالية*",
                                   required: "",
-                                  hint: "عنوان الحدث",
+                                  hint: "عنوان الفعالية",
                                   "prepend-icon": "article"
                                 },
                                 model: {
@@ -1029,7 +1031,7 @@ var render = function() {
                             [
                               _c("v-textarea", {
                                 attrs: {
-                                  label: "*توصيف الحدث",
+                                  label: "*توصيف الفعالية",
                                   required: "",
                                   "prepend-icon": "description"
                                 },
@@ -1361,7 +1363,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("v-card-text", [
-                _vm._v("\n           هل تريد مسح هذا الحدث ؟\n        ")
+                _vm._v("\n           هل تريد مسح هذه الفعالية ؟\n        ")
               ]),
               _vm._v(" "),
               _c(
@@ -1494,7 +1496,7 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-toolbar-title", [_vm._v("استمارة  تعديل الحدث")]),
+                  _c("v-toolbar-title", [_vm._v("استمارة  تعديل الفعالية")]),
                   _vm._v(" "),
                   _c("v-spacer"),
                   _vm._v(" "),
@@ -1534,9 +1536,9 @@ var render = function() {
                             [
                               _c("v-text-field", {
                                 attrs: {
-                                  label: "عنوان الحدث*",
+                                  label: "عنوان الفعالية*",
                                   required: "",
-                                  hint: "عنوان الحدث",
+                                  hint: "عنوان الفعالية",
                                   "prepend-icon": "article"
                                 },
                                 model: {
@@ -1601,7 +1603,7 @@ var render = function() {
                             [
                               _c("v-textarea", {
                                 attrs: {
-                                  label: "*توصيف الحدث",
+                                  label: "*توصيف الفعالية",
                                   required: "",
                                   "prepend-icon": "description"
                                 },
@@ -2290,21 +2292,6 @@ var staticRenderFns = []
 render._withStripped = true
 
 
-
-/***/ }),
-
-/***/ "./resources/js/EnvPath.js":
-/*!*********************************!*\
-  !*** ./resources/js/EnvPath.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  baseUrl:  false ? undefined : "http://rusrs-website.test/api/"
-});
 
 /***/ }),
 

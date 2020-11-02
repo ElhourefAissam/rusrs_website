@@ -15,7 +15,7 @@
           v-bind="attrs"
           v-on="on"
         >
-          حدث جديدة
+          فعالية جديدة
         </v-btn>
       </template>
       <v-card>
@@ -30,7 +30,7 @@
           >
             <v-icon>close</v-icon>
           </v-btn>
-          <v-toolbar-title> استمارة إدخال حدث جديد </v-toolbar-title>
+          <v-toolbar-title> استمارة إدخال فعالية جديدة  </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
             <v-btn
@@ -56,9 +56,9 @@
                 md="5"
               >
                 <v-text-field
-                  label="عنوان الحدث*"
+                  label="عنوان الفعالية*"
                   required
-                  hint="عنوان الحدث"
+                  hint="عنوان الفعالية"
                   prepend-icon="article"
                   v-model="Event.title"
                 ></v-text-field>
@@ -91,7 +91,7 @@
               </v-col>
                 <v-col cols="12">
                 <v-textarea
-                    label="*توصيف الحدث"
+                    label="*توصيف الفعالية"
                     required
                     prepend-icon="description"
                     v-model="Event.description"

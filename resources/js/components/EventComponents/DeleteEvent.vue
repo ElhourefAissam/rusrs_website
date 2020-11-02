@@ -20,7 +20,7 @@
         </v-card-title>
 
         <v-card-text>
-           هل تريد مسح هذا الحدث ؟
+           هل تريد مسح هذه الفعالية ؟
         </v-card-text>
 
         <v-card-actions>

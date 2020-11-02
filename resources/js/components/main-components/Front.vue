@@ -1,14 +1,18 @@
 <template>
-    <v-app color="grey">
+     <v-app color="grey">
           <Navbar />
       <v-main>
             <masthead/>
-            <gallery/>
-            <articles/>
       </v-main>
-      <footer>
-          <Footer/>
-      </footer>
+      <v-main>
+            <events/>
+            <articles/>
+            <gallery/>
+            <programs/>
+            <members/>
+      </v-main>
+
+       <footerSection/>
     </v-app>
 </template>
 <script>
@@ -16,7 +20,10 @@ import Navbar from "./Navbar"
 import masthead from "./Masthead"
 import gallery from "./Gallery"
 import articles from "./Articles"
-import Footer from "./Footer"
+import footerSection from "./Footer"
+import events from "./Events"
+import programs from "./Program"
+import members from "./Members"
 
 export default {
 
@@ -25,7 +32,10 @@ export default {
         masthead,
         gallery,
         articles,
-        Footer,
+        footerSection,
+        events,
+        programs,
+        members,
     }
 }
 </script>

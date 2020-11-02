@@ -1556,21 +1556,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/EnvPath.js":
-/*!*********************************!*\
-  !*** ./resources/js/EnvPath.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  baseUrl:  false ? undefined : "http://rusrs-website.test/api/"
-});
-
-/***/ }),
-
 /***/ "./resources/js/Models/Models.js":
 /*!***************************************!*\
   !*** ./resources/js/Models/Models.js ***!

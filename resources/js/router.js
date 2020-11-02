@@ -38,7 +38,6 @@ const routes = [
     },
     {
         path: '*',
-        name: 'Articles',
         component: () =>
             import ("./components/NotFound/NotFound.vue")
     },
