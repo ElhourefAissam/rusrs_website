@@ -36,15 +36,12 @@ const routes = [
         component: () =>
             import ("./components/GalleryComponent/GalleryList.vue")
     },
-    //
-    // login
     {
-        path: '/auth/login',
-        name: 'login',
+        path: '*',
+        name: 'Articles',
         component: () =>
-            import ("./components/AdminComponents/login.vue")
+            import ("./components/NotFound/NotFound.vue")
     },
-    //
 ]
 
 

@@ -29,12 +29,12 @@
 
         <div id="app">
             {{-- @if(Auth::check())--}}
-                 <navbar-element :isadmin="true" /> 
+                 {{-- <navbar-element :isadmin="true" />  --}}
             {{--@else
                 {{-- <navbar-element :isadmin="false" /> 
             @endif --}}
-            <front-page />
-            {{-- <main-page/> --}}
+            {{-- <front-page /> --}}
+            <admin-app/>
         </div>
 
 
