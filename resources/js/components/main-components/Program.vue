@@ -5,8 +5,8 @@
 <v-row>
     <v-col v-for="program in programs.data" :key="program.id" cols="12" md="4" sm="12">
         <v-card class="mx-auto">
-            <videoPlayer :id="program.link" />
-
+            <videoPlayer :id="program.programId" />
+            <!-- use toolstips to display the full program name -->
             <v-card-title>{{ program.title }}</v-card-title>
             <v-card-actions>
             </v-card-actions>

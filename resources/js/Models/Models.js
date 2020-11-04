@@ -25,15 +25,15 @@ let Member = {
 let Program = {
     id: "",
     title: "",
-    link: ""
+    link: "",
+    programId:"",
 };
 
 let notification = {
-    success: "",
-    error: "",
     message: "",
-    type: "",
-    show: false
+    snackbar: false,
+    color:"",
+    timeout:6000,
 };
 
 let UploadImagesModel = {
@@ -41,4 +41,13 @@ let UploadImagesModel = {
     config: {}
 };
 
-export { Event, Article, Member, Program, UploadImagesModel, notification };
+let notify = (message, color) => {
+    let notif={
+        color,
+        message,
+        snackbar:true,
+    }
+    return notif
+}
+
+export { Event, Article, Member, Program, UploadImagesModel, notification, notify };

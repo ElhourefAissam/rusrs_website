@@ -9,5 +9,5 @@ class Program extends Model
 {
     use HasFactory;
 
-    protected $fillable=["title","link"];
+    protected $fillable=["title","link","programId"];
 }

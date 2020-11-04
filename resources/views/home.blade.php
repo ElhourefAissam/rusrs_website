@@ -24,8 +24,8 @@
     </head>
     <body id="page-top">
         <div id="app">
-            <front-page />
-            {{-- <admin-app/> --}}
+            {{-- <front-page /> --}}
+            <admin-app/>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
