@@ -17,6 +17,7 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string("title");
             $table->text("link");
+            $table->string("programId");
             $table->timestamps();
         });
     }

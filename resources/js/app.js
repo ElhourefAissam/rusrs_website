@@ -20,6 +20,9 @@ Vue.component('admin-app', require('./components/AdminComponents/App.vue').defau
 Vue.component('pagination', require('laravel-vue-pagination'));
 // Front App
 Vue.component('front-page', require("./components/main-components/Front.vue").default);
+//notifications
+Vue.component('notification', require("./components/AdminComponents/Notifications/NotificationComponent.vue").default);
+
 
 
 

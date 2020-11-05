@@ -18,6 +18,7 @@ class ProgramSeeder extends Seeder
         DB::table('programs')->insert([
             'title' => Str::random(10),
             'link' => 'Use this area to describe your position',
+            'programId'=> 'programId id id'
         ]);
     }
 }

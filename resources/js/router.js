@@ -10,35 +10,40 @@ const routes = [
         path: '/Article',
         name: 'Article',
         component: () =>
-            import ("./components/ArticleComponents/Article")
+            import ("./components/AdminComponents/ArticleComponents/ArticleList")
     },
     {
         path: '/Event',
         name: 'Event',
         component: () =>
-            import ("./components/EventComponents/EventList.vue")
+            import ("./components/AdminComponents/EventComponents/EventList.vue")
     },
     {
         path: '/Member',
         name: 'Member',
         component: () =>
-            import ("./components/MemberComponents/MemberList.vue")
+            import ("./components/AdminComponents/MemberComponents/MemberList.vue")
     },
     {
         path: '/Program',
         name: 'Program',
         component: () =>
-            import ("./components/ProgramComponents/ProgramList.vue")
+            import ("./components/AdminComponents/ProgramComponents/ProgramList.vue")
     },
     {
         path: '/Gallery',
-        name: 'Gelleru',
+        name: 'Gellery',
         component: () =>
-            import ("./components/GalleryComponent/GalleryList.vue")
+            import ("./components/AdminComponents/GalleryComponent/GalleryList.vue")
     },
+
+    {
+        path: '/',
+        redirect:'/Article'
+    },
+
     {
         path: '*',
-        name: 'Articles',
         component: () =>
             import ("./components/NotFound/NotFound.vue")
     },

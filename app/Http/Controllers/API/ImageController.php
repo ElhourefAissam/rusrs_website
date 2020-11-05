@@ -31,11 +31,13 @@ class ImageController extends Controller
 
         foreach($images as $image){
             $photo = new Photo ;
+
             $photo->filename= $image;
-            $Model->photos()->save($photo);
+            $Model->photos()
+                  ->save($photo);
         }
 
-         return response()->json(["sucess"=>"images were uploaded" ]);
+         return response()->json(["sucess"=>true ]);
 
     }
 
@@ -59,6 +61,7 @@ class ImageController extends Controller
     public function ModelIdFinder(Request $request){
         $model=null;
         $data = $request->all("modelId");
+
         if($data){
             $ev=[];
             foreach($data as $e){

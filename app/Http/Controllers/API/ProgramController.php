@@ -29,15 +29,16 @@ class ProgramController extends Controller
             $created = Program::create([
                 'title' => $request->title,
                 'link' => $request->link,
+                'programId' => $request->programId,
             ]);
 
-                if($created)
-                    return ["success"=>true];
-                else
-                    return ["success"=>false];
+            if($created)
+                return request()->json(["success"=>true]);
+            else
+                return request()->json(["success"=>false]);
 
         }catch(Exception $e){
-            return ["success"=>false];
+            return ["success"=>false, "error"=> $e];
         }
     }
 
@@ -51,6 +52,7 @@ class ProgramController extends Controller
         $request->validate([
             "title" => "required",
             "link"  => "required",
+            'programId' => $request->programId,
         ]);
 
 
@@ -60,14 +62,16 @@ class ProgramController extends Controller
 
         $result=$program->save();
         if($result){
-            return ["result" => "Updated "];
+            request()->json(["success"=>true]);
         }else{
-            return ["result"=>"not updated"];
+            request()->json(["success"=>false]);
         }
     }
 
     public function destroy($id)
     {
-        Program::destroy($id);
+        $removed = Program::destroy($id);
+        if($removed) request()->json(["success"=>true]);
+        else request()->json(["success"=>false]);
     }
 }
