@@ -668,18 +668,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
 
 
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Event/";
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Event";
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     addEvent: _AddEvent__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -706,7 +700,6 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Event/";
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get(url + this.q + '?page=' + page).then(function (response) {
-        console.log(response.data);
         _this.Events = response.data;
       });
     },
@@ -717,7 +710,7 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Event/";
       var _this2 = this;
 
       if (this.q.length > 0) {
-        axios.get(url + this.q).then(function (response) {
+        axios.get(url + '/' + this.q).then(function (response) {
           _this2.Events = response.data;
         });
       } else this.getResults();
@@ -1924,7 +1917,7 @@ var render = function() {
                       label: "ابحث عن حدث ",
                       "hide-details": "auto"
                     },
-                    on: { change: _vm.FindEvent },
+                    on: { keyup: _vm.FindEvent },
                     model: {
                       value: _vm.q,
                       callback: function($$v) {

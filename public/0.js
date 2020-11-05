@@ -424,19 +424,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
 
 
 
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Program/";
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Program";
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     showProgram: _ShowProgram__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -474,7 +468,7 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Program/";
       var _this2 = this;
 
       if (this.q.length > 0) {
-        axios.get(url + this.q).then(function (response) {
+        axios.get(url + '/' + this.q).then(function (response) {
           _this2.Programs = response.data;
         });
       } else this.getResults();
@@ -1112,7 +1106,7 @@ var render = function() {
                       label: "ابحث عن برنامج",
                       "hide-details": "auto"
                     },
-                    on: { change: _vm.FindProgram },
+                    on: { keyup: _vm.FindProgram },
                     model: {
                       value: _vm.q,
                       callback: function($$v) {

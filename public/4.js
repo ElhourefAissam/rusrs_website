@@ -464,24 +464,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 
 
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member";
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     addMember: _AddMember__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -505,7 +493,6 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get(url + this.q + '?page=' + page).then(function (response) {
-        console.log(response);
         _this.Members = response.data;
       });
     },
@@ -519,7 +506,7 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
       var _this2 = this;
 
       if (this.q.length > 0) {
-        axios.get(url + this.q).then(function (response) {
+        axios.get(url + '/' + this.q).then(function (response) {
           _this2.Members = response.data;
         });
       } else this.getResults();
@@ -1147,7 +1134,7 @@ var render = function() {
                       label: "إبحث عن عضو في الجمعية",
                       "hide-details": "auto"
                     },
-                    on: { change: _vm.FindMember },
+                    on: { keyup: _vm.FindMember },
                     model: {
                       value: _vm.q,
                       callback: function($$v) {
@@ -1192,7 +1179,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-card-title", [
                         _vm._v(
-                          "\r\n                    " +
+                          "\r\n                        " +
                             _vm._s(Member.full_name) +
                             "\r\n                    "
                         )
@@ -1200,7 +1187,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-card-subtitle", [
                         _vm._v(
-                          "\r\n                    " +
+                          "\r\n                        " +
                             _vm._s(Member.position) +
                             "\r\n                    "
                         )
@@ -1208,7 +1195,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-card-subtitle", [
                         _vm._v(
-                          "\r\n                    " +
+                          "\r\n                        " +
                             _vm._s(Member.facebook) +
                             "\r\n                    "
                         )

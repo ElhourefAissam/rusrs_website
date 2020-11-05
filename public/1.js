@@ -64,56 +64,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // we have the main root in EnvPath work using this in every file please
 
 
@@ -136,14 +86,14 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Article";
       var _this = this;
 
       axios.post(url, this.Article).then(function (response) {
-        console.log(response);
-
         if (response.data.id) {
           _this.UploadImagesModel.formData.append("modelId", response.data.id); //this.addImages()
 
 
           _this.dialog = false;
         }
+
+        _this.$emit('ArticleAdded', response.data);
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -190,12 +140,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -685,7 +629,7 @@ var render = function() {
                       ),
                       on
                     ),
-                    [_vm._v("\r\n          مقالة جديدة\r\n        ")]
+                    [_vm._v("\r\n                مقالة جديدة\r\n            ")]
                   )
                 ]
               }
@@ -723,7 +667,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("v-toolbar-title", [
-                    _vm._v("  استمارة إدخال مقالة جديدة ")
+                    _vm._v(" استمارة إدخال مقالة جديدة ")
                   ]),
                   _vm._v(" "),
                   _c("v-spacer"),
@@ -737,7 +681,11 @@ var render = function() {
                           attrs: { dark: "", text: "" },
                           on: { click: _vm.AddArticle }
                         },
-                        [_vm._v("\r\n              حفض\r\n            ")]
+                        [
+                          _vm._v(
+                            "\r\n                        حفض\r\n                    "
+                          )
+                        ]
                       )
                     ],
                     1
@@ -918,7 +866,7 @@ var render = function() {
                       label: "ابحث عن مقالة",
                       "hide-details": "auto"
                     },
-                    on: { change: _vm.FindArticle },
+                    on: { keyup: _vm.FindArticle },
                     model: {
                       value: _vm.q,
                       callback: function($$v) {
@@ -948,15 +896,9 @@ var render = function() {
               _c(
                 "v-row",
                 [
-                  _c("v-col", { attrs: { cols: "12", md: "2", sm: "4" } }, [
+                  _c("v-col", { attrs: { cols: "12", md: "4", sm: "4" } }, [
                     _c("h3", { staticClass: "subtitle-1 grey--text" }, [
                       _vm._v("عنوان المقالة")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("v-col", { attrs: { cols: "12", md: "3", sm: "4" } }, [
-                    _c("div", { staticClass: "subtitle-1 grey--text" }, [
-                      _vm._v("نص المقالة")
                     ])
                   ]),
                   _vm._v(" "),
@@ -966,7 +908,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("v-col", { attrs: { cols: "12", md: "2", sm: "4" } }, [
+                  _c("v-col", { attrs: { cols: "12", md: "3", sm: "4" } }, [
                     _c("div", { staticClass: "subtitle-1 grey--text" }, [
                       _vm._v("تاريخ الكتابة")
                     ])
@@ -988,14 +930,8 @@ var render = function() {
                 _c(
                   "v-row",
                   [
-                    _c("v-col", { attrs: { cols: "12", md: "2", sm: "4" } }, [
+                    _c("v-col", { attrs: { cols: "12", md: "4", sm: "4" } }, [
                       _c("div", [_vm._v(_vm._s(article.title))])
-                    ]),
-                    _vm._v(" "),
-                    _c("v-col", { attrs: { cols: "12", md: "3", sm: "4" } }, [
-                      _c("div", [
-                        _vm._v(_vm._s(_vm._f("subStr")(article.article_body)))
-                      ])
                     ]),
                     _vm._v(" "),
                     _c("v-col", { attrs: { cols: "12", md: "2", sm: "4" } }, [
@@ -1004,7 +940,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("v-col", { attrs: { cols: "12", md: "2", sm: "4" } }, [
+                    _c("v-col", { attrs: { cols: "12", md: "3", sm: "4" } }, [
                       _c("div", [_vm._v(_vm._s(article.created_at))])
                     ]),
                     _vm._v(" "),
@@ -1016,11 +952,20 @@ var render = function() {
                           "v-row",
                           { attrs: { cols: "12", "no-gutters": "" } },
                           [
-                            _c("showArticle", { attrs: { article: article } }),
+                            _c("showArticle", {
+                              attrs: { article: article },
+                              on: { ArticleAdded: _vm.getResults }
+                            }),
                             _vm._v(" "),
-                            _c("editArticle", { attrs: { article: article } }),
+                            _c("editArticle", {
+                              attrs: { article: article },
+                              on: { ArticleUpdated: _vm.getResults }
+                            }),
                             _vm._v(" "),
-                            _c("deleteArticle", { attrs: { article: article } })
+                            _c("deleteArticle", {
+                              attrs: { article: article },
+                              on: { ArticleDeleted: _vm.getResults }
+                            })
                           ],
                           1
                         )
