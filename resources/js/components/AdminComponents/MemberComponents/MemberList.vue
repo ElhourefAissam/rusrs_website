@@ -1,7 +1,7 @@
 <template>
 <div class="Members" color="grey">
-    <notification :notification="notification"/>
-     <v-container class="my-5 ">
+    <notification :notification="notification" />
+    <v-container class="my-5 ">
         <h1 class="display2 grey--text">أعضاء الجمعية</h1>
            <v-row justify="space-between">
                 <v-col cols="12" md="5" sm="6">
@@ -72,7 +72,7 @@
         <div class="container-small mb-3">
             <pagination :data="members" @pagination-change-page="members" class="mt-5"></pagination>
         </div>
-     </v-container>
+    </v-container>
 </div>
 </template>
 
@@ -80,12 +80,12 @@
 import {notification, notify} from "../../../Models/Models";
 import memberService from "../../../Services/MemberService";
 
-import addMember    from "./AddMember"
+import addMember from "./AddMember"
 import deleteMember from "./DeleteMember"
 import editMember   from "./EditMember"
 
 export default {
-    components:{
+    components: {
         addMember,
         deleteMember,
         editMember,

@@ -99,7 +99,7 @@ import showEvent from "./ShowEvent";
 import deleteEvent from "./DeleteEvent";
 
 export default {
-    components:{
+    components: {
         addEvent,
         editEvent,
         showEvent,

@@ -1,4 +1,3 @@
-
 import Vue from "vue"
 
 require('./bootstrap');
@@ -12,6 +11,9 @@ import '../sass/_variables.scss'
 
 import router from './router';
 import vuetify from './plugins/vuetify' // path to vuetify export
+
+// login Components
+Vue.component('admin-login', require('./components/AdminComponents/login.vue').default);
 
 // Admin Components
 Vue.component('admin-app', require('./components/AdminComponents/App.vue').default);

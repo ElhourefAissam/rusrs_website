@@ -1,20 +1,21 @@
 <template>
-     <v-app color="grey">
-          <Navbar />
-      <v-main>
-            <masthead/>
-      </v-main>
-      <v-main>
-            <events/>
-            <articles/>
-            <gallery/>
-            <programs/>
-            <members/>
-      </v-main>
+<v-app color="grey">
+    <Navbar />
+    <v-main>
+        <masthead />
+    </v-main>
+    <v-main>
+        <events />
+        <articles />
+        <gallery />
+        <programs />
+        <members />
+    </v-main>
 
-       <footerSection/>
-    </v-app>
+    <footerSection />
+</v-app>
 </template>
+
 <script>
 import Navbar from "./Navbar"
 import masthead from "./Masthead"
@@ -27,7 +28,7 @@ import members from "./Members"
 
 export default {
 
-    components:{
+    components: {
         Navbar,
         masthead,
         gallery,
@@ -39,6 +40,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 
 </style>

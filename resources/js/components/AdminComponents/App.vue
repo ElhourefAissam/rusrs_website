@@ -11,7 +11,7 @@
 import Navbar from "./NavComponents/Navbar"
 
 export default {
-    components:{
+    components: {
         Navbar
     }
 
@@ -19,8 +19,7 @@ export default {
 </script>
 
 <style scoped>
-
-.v-application{
+.v-application {
     background-color: #dbdbdb
 }
 </style>

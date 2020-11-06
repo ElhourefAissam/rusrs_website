@@ -16,19 +16,9 @@
                 <v-col cols="12" md="4" sm="6">
                     <addProgram @programAdded="programAdded"></addProgram>
                 </v-col>
-            </v-row>
+                <v-col cols="12" md="4" sm="2">
 
-          <v-card class="my-2 pa-2" flat>
-            <v-row>
-                    <v-col cols="12" md="4" sm="2">
-                        <h3 class="subtitle-1 grey--text"> اسم البرنامج</h3>
-                    </v-col>
-                    <v-col cols="12" md="4" sm="2">
-                        <div class="subtitle-1 grey--text"> رابط البرنامج</div>
-                    </v-col>
-                    <v-col cols="12" md="4" sm="2">
-
-                    </v-col>
+                </v-col>
             </v-row>
           </v-card>
          <div v-if="programs.data.length >0" >
@@ -62,7 +52,7 @@
         <div class="container-small mb-3">
             <pagination :data="programs" @pagination-change-page="programs" class="mt-5"></pagination>
         </div>
-     </v-container>
+    </v-container>
 </div>
 </template>
 
@@ -77,7 +67,7 @@ import addProgram from "./AddProgram"
 
 export default {
 
-    components:{
+    components: {
         showProgram,
         editProgram,
         deleteProgram,

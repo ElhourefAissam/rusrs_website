@@ -1,10 +1,6 @@
 <template>
-  <v-container>
-      <v-app-bar
-      color="white"
-      app
-      scroll-target="#scrolling-techniques-3"
-      >
+<v-container>
+    <v-app-bar color="white" app scroll-target="#scrolling-techniques-3">
         <v-toolbar flat>
             <v-toolbar-title>
                 <v-avatar size="50">
@@ -19,13 +15,12 @@
                 <v-btn class="grey--text title" text href="#articles"> المقالات</v-btn>
                 <v-btn class="grey--text title" text href="#gallery"> المعرض</v-btn>
                 <v-btn class="grey--text title" text href="#programs"> البرامج</v-btn>
-                <v-btn class="grey--text title" text href="#members" >الاعضاء</v-btn>
+                <v-btn class="grey--text title" text href="#members">الاعضاء</v-btn>
             </v-toolbar-items>
 
         </v-toolbar>
-      </v-app-bar>
- </v-container>
-
+    </v-app-bar>
+</v-container>
 </template>
 
 <script>
@@ -33,14 +28,14 @@ export default {
     props: [],
     data() {
         return {
-            image:require('../../src/assets/navbar-logo.jpg'),
+            image: require('../../src/assets/navbar-logo.jpg'),
         }
     },
     mounted() {
 
     }
 }
-</script>
+</script>>
 
 <style scoped>
 
