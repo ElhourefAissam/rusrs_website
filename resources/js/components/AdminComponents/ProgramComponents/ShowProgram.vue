@@ -41,10 +41,7 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
 import videoPlayer from "../../VideoComponents/displayVideo";
-
-const url = Path.baseUrl + "Program";
 
 export default {
     components:{
@@ -65,9 +62,6 @@ export default {
             this.ShowProgram.link=""
             this.dialog=false
         },
-    },
-    computed: {
-
     }
 }
 </script>

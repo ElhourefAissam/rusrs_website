@@ -12,13 +12,13 @@ let Article = {
     id: "",
     title: "",
     article_body: "",
-    author: ""
+    author: "لايوجد"
 };
 
 let Member = {
     id: "",
     full_name: "",
-    facebook: "",
+    facebook: "لايوجد",
     position: ""
 };
 

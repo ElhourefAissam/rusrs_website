@@ -14,7 +14,7 @@
             </template>
             <v-card>
                 <v-toolbar dark color="primary">
-                    <v-btn icon dark @click="dialog = false">
+                    <v-btn icon dark @click="resetValidation">
                         <v-icon>close</v-icon>
                     </v-btn>
                     <v-toolbar-title>
@@ -101,41 +101,31 @@
 </template>
 
 <script>
-// we have the main root in EnvPath work using this in every file please
-import Path from "../../../EnvPath";
 import { Article, UploadImagesModel } from "../../../Models/Models";
-
-const url = Path.baseUrl + "Article";
+import articleService from "../../../Services/ArticleService";
 
 export default {
     data: function() {
         return {
-            Articles: {},
             Article,
             UploadImagesModel,
             dialog: false,
             rules: [v => v.length > 0 || "المرجو ملئ الأماكن الفارغة"],
-            error: false
+            error: false,
         };
     },
-    created() {},
     methods: {
-        AddArticle() {
+        async AddArticle() {
             if (this.$refs.form.validate()) {
-                axios
-                    .post(url, this.Article)
-                    .then(response => {
-                        const isAdded = response.data.success;
-                        if (isAdded) {
-                            this.$emit("articleAdded", isAdded);
-                            //this.UploadImagesModel.formData.append("modelId",response.data.id)
-                            //this.addImages()
-                            this.dialog = false;
-                        }
-                    })
-                    .catch(error => console.log(error));
+                if(!this.Article.author) this.Article.author = 'لايوجد'
+                const isAdded = await articleService.addArticle(this.Article)
+                this.$emit("articleAdded", isAdded.success);
+                //this.UploadImagesModel.formData.append("modelId",response.data.id)
+                //this.addImages()
+                this.dialog=false
+            }else{
+                this.error = !this.$refs.form.validate();
             }
-            this.error = !this.$refs.form.validate();
         },
 
         getDateObject(data) {
@@ -152,12 +142,15 @@ export default {
                 )
                 .then(response => {
                     this.dialog = false;
-                    this.$emit("ArticleAdded", response);
-                    alert("Article was added successfully");
+                    this.$emit("articleAdded");
                 })
                 .catch(err => {
                     console.log(err);
                 });
+        },
+        resetValidation(){
+            this.error=false
+            this.dialog=false
         }
     }
 };

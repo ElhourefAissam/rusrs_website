@@ -119,19 +119,13 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-const url=Path.baseUrl+"Member/";
-
+import memberService from "../../../Services/MemberService";
 
 export default {
     props: ['Member'],
     data: function () {
         return {
             dialog: false,
-            notifications: false,
-            sound: true,
-            widgets: false,
             updatedMember:{...this.Member},
             rules:[
                 v=> v.length > 0 || 'المرجو ملئ الأماكن الفارغة'
@@ -140,18 +134,14 @@ export default {
         }
     },
     methods: {
-        UpdateMember: function () {
-            this.error= ! this.$refs.form.validate()
-            if(this.$refs.form.validate()){
-                axios.put(url + this.updatedMember.id, {...this.updatedMember})
-                    .then((response) => {
-                        const isUpdated = response.data.success;
-                        this.$emit('memberUpdated', isUpdated)
-                        this.dialog=false
-                    })
-                    .catch(error => console.log(error));
-            }
+    UpdateMember:async function () {
+        this.error= ! this.$refs.form.validate()
+        if(this.$refs.form.validate()){
+            const isUpdated = await memberService.editMember(this.updatedMember)
+            this.dialog = false
+            this.$emit("memberUpdated", isUpdated.success)
         }
+    }
     }
 }
 </script>

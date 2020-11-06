@@ -15,7 +15,7 @@
         <v-fade-transition mode="out-in">
             <v-card>
                 <v-img
-                src="https://picsum.photos/350/165?random"
+                :src="require('../../../src/assets/team2.jpeg')"
                 height="125"
                 class="grey darken-4"
                 ></v-img>
@@ -62,6 +62,3 @@ export default {
 
 }
 </script>
-<style scoped>
-
-</style>

@@ -119,16 +119,12 @@
 </template>
 
 <script>
-// we have the main root in EnvPath work using this in every file please
-import Path from "../../../EnvPath";
 import { Member , UploadImagesModel } from "../../../Models/Models"
-
-const url = Path.baseUrl + "Member";
+import memberService from "../../../Services/MemberService";
 
 export default {
     data: function () {
         return {
-            Members: {},
             Member,
             UploadImagesModel,
             dialog:false,
@@ -139,39 +135,43 @@ export default {
         }
     },
     methods: {
-        AddMember() {
-            this.error= ! this.$refs.form.validate()
-            if(this.$refs.form.validate()){
-                axios.post(url, this.Member)
-                    .then((response) => {
-                        const isAdded = response.data.success;
-
-                        if(isAdded){
-                            this.UploadImagesModel.formData.append("modelId",response.data.id)
-                            this.$emit('memberAdded', response)
-                            //this.addImages()
-                            this.dialog=false
-                        }else{
-                            this.UploadImagesModel.formData.append("error","ID does not exist")
-                        }
-                    })
-                    .catch(error => console.log(error));
+        async AddMember() {
+            if (this.$refs.form.validate()) {
+                const isAdded = await memberService.addMember(this.Member)
+                this.$emit("memberAdded", isAdded.success);
+                // this.UploadImagesModel.formData.append("modelId",isAdded.id)
+                // this.addImages()
+                this.dialog=false
+            }else{
+                this.error = !this.$refs.form.validate();
             }
         },
 
-        getDateObject(data){
-            this.UploadImagesModel.formData = data.formData
-            this.UploadImagesModel.config = data.config
+        getDateObject(data) {
+            // this.UploadImagesModel.formData = data.formData;
+            // this.UploadImagesModel.config = data.config;
         },
 
-        addImages(){
-            axios.post(url , this.UploadImagesModel.formData , this.UploadImagesModel.config )
-            .then(response=>{
-                // notify
-            })
-            .catch(err=>{
-                console.log(err)
-            })
+        addImages() {
+
+            // memberService.addMember()
+            // axios
+            //     .post(
+            //         url,
+            //         this.UploadImagesModel.formData,
+            //         this.UploadImagesModel.config
+            //     )
+            //     .then(response => {
+            //         this.dialog = false;
+            //         this.$emit("memberAdded");
+            //     })
+            //     .catch(err => {
+            //         console.log(err);
+            //     });
+        },
+        resetValidation(){
+            this.error=false
+            this.dialog=false
         }
     }
 }

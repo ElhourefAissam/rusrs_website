@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Photo;
+use Exception;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -25,30 +26,32 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
+        try{
+            if (!$request->hasFile("files")) {
+                $request->validate([
+                    'title'        => 'required',
+                    'article_body' => 'required',
+                ]);
 
-        if (!$request->hasFile("files")) {
-            $request->validate([
-                'title'        => 'required',
-                'article_body' => 'required',
-                'author'       => 'required',
-            ]);
+                $article = Article::create([
+                    'title'        => $request->title,
+                    'article_body' => $request->article_body,
+                    'author'       => $request->author,
+                ]);
+                //this one is very important
+                if ($article)
+                     return  response()->json(["id"      => $article->id, "success" => true]);
+                else return  response()->json(["success" => false]);
+            } else {
 
-            $article = Article::create([
-                'title'        => $request->title,
-                'article_body' => $request->article_body,
-                'author'       => $request->author,
-            ]);
-            //this one is very important
-            if ($article)
-                 return  response()->json(["id"      => $article->id, "success" => true]);
-            else return  response()->json(["success" => false]);
-        } else {
+                $imageController = new ImageController;
+                $id              = $imageController->ModelIdFinder($request);
+                $eventModel      = Article::find($id);
 
-            $imageController = new ImageController;
-            $id              = $imageController->ModelIdFinder($request);
-            $eventModel      = Article::find($id);
-
-            return $imageController->store($request, $eventModel);
+                return $imageController->store($request, $eventModel);
+            }
+        }catch(Exception $e){
+            return  response()->json(["success" => false, "error"=> $e->getMessage()]);
         }
     }
 
@@ -62,7 +65,6 @@ class ArticleController extends Controller
         $request->validate([
             'title'        => 'required',
             'article_body' => 'required',
-            'author'       => 'required',
         ]);
 
         $event = Article::findOrFail($id);

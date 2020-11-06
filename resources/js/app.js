@@ -1,5 +1,6 @@
 
 import Vue from "vue"
+
 require('./bootstrap');
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 

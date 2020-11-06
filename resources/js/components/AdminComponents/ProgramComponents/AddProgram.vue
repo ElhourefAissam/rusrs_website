@@ -62,7 +62,7 @@
                         >هناك خطأ ، المرجو إدخال معلومات صحيحة !!!</span
                     >
                 </v-alert>
-             <v-form ref="AddProgFrom">
+             <v-form ref="form">
                 <v-row justify="space-between">
                 <v-col
                     cols="12"
@@ -102,52 +102,37 @@
 </template>
 
 <script>
-
-// we have the main root in EnvPath work using this in every file please
-import Path from "../../../EnvPath";
 import {Program} from "../../../Models/Models";
-
-const url = Path.baseUrl + "Program";
+import programService from '../../../Services/ProgramService'
 
 export default {
     data: function () {
         return {
-            Programs: {},
             Program,
             dialog:false,
              rules:[
                 v=> v.length > 0 || 'المرجو ملئ الأماكن الفارغة'
             ],
             error:false,
-
         }
-    },
-    mounted(){
-
     },
     methods: {
-        AddProgram() {
-            this.error= ! this.$refs.AddProgFrom.validate()
-
-            if(this.$refs.AddProgFrom.validate()){
-
-                if(Program.link.search('v=')>0){
-
-                    this.Program.programId = Program.link.split("?v=")[1];
-
-                    axios.post( url, this.Program)
-                        .then((response) => {
-                            // this.$emit('success', response)
-                            // this.$emit('ProgramAdded')
-                            this.dialog = false
-                        })
-                        .catch(error => console.log(error));
-                }else{
-                    const response={
-                        success:false
-                    }
+        async AddProgram() {
+            if (this.$refs.form.validate()) {
+                const proId = this.Program.link.split("?v=")
+                if(proId[1])
+                {
+                    this.Program.programId = proId[1]
+                    const isAdded = await programService.addProgram(this.Program)
+                    console.log(isAdded)
+                    this.$emit("programAdded", isAdded.success);
+                    //this.UploadImagesModel.formData.append("modelId",response.data.id)
+                    //this.addImages()
+                    this.dialog=false
                 }
-        }
+            }else{
+                this.error = !this.$refs.form.validate();
+            }
       }
     }
 }

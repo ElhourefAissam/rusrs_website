@@ -48,29 +48,21 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-const url=Path.baseUrl + "Program";
+import programService from '../../../Services/ProgramService'
 
 export default {
     props: ['Program'],
-    data: function () {
+     data: function () {
         return {
             dialog:false
         }
     },
     methods: {
-        DeleteProgram: function () {
-
-            const param = this.Program.id ? '/' + this.Program.id : '';
-
-            axios.delete(url + param)
-                .then((response) => {
-                    this.$emit('ProgramDeleted', response)
-                    this.dialog=false
-                })
-                .catch(error => console.log(error));
-        }
-    }
+        DeleteProgram: async function () {
+            const isDeleted = await programService.deleteProgram(this.Program.id)
+            this.$emit('programDeleted', isDeleted.success)
+            this.dialog = false
+        },
+    },
 }
 </script>

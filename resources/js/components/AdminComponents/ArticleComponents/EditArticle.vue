@@ -63,7 +63,7 @@
                         >هناك خطأ ، المرجو إدخال معلومات صحيحة !!!</span
                     >
                 </v-alert>
-               <v-form ref="form">
+         <v-form ref="form">
             <v-row justify="space-between">
               <v-col
                 cols="12"
@@ -110,7 +110,7 @@
                     ></v-file-input>
                 </v-col>
             </v-row>
-               </v-form>
+         </v-form>
           </v-container>
 
         </v-card-text>
@@ -121,37 +121,27 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-
-const url=Path.baseUrl+"Article/";
-
+import articleService from "../../../Services/ArticleService";
 
 export default {
     props: ['article'],
     data: function () {
         return {
             dialog: false,
-            notifications: false,
-            sound: true,
-            widgets: false,
             updatedArticle:{...this.article},
             rules:[
                 v=> v.length > 0 || 'المرجو ملئ الأماكن الفارغة'
             ],
-            error:false
+            error:false,
         }
     },
     methods: {
-        UpdateArticle: function () {
+        UpdateArticle:async function () {
             this.error= ! this.$refs.form.validate()
             if(this.$refs.form.validate()){
-                axios.put(url + this.updatedArticle.id, {...this.updatedArticle})
-                    .then((response) => {
-                        this.dialog = false
-                        this.$emit("articleUpdated")
-                    })
-                    .catch(error => console.log(error));
+               const isUpdated = await articleService.addArticle(this.updatedArticle)
+               this.dialog = false
+               this.$emit("articleUpdated", isUpdated.success)
             }
         }
     }

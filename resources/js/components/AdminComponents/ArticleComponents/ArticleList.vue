@@ -37,8 +37,8 @@
                     </v-col>
             </v-row>
           </v-card>
-        <div v-if="Articles.data.length >0" >
-            <v-card flat v-for="article in Articles.data" :key="article.id" class="pa-3">
+        <div v-if="articles.data.length >0" >
+            <v-card flat v-for="article in articles.data" :key="article.id" class="pa-3">
                 <v-row >
                     <v-col cols="12" md="2" sm="4">
                         <div>{{article.title}}</div>
@@ -56,7 +56,7 @@
                         <v-row cols="12"  no-gutters>
                             <showArticle    :article="article"/>
                             <editArticle   @articleUpdated="articleUpdated"   :article="article"/>
-                            <deleteArticle @articleDeleted="articleDeleted"  :article="article"/>
+                            <deleteArticle @articleDeleted="articleDeleted"   :article="article"/>
                         </v-row>
                     </v-col>
                 </v-row>
@@ -71,25 +71,20 @@
             </v-card>
         </div>
         <div class="container-small mb-3">
-            <pagination :data="Articles" @pagination-change-page="getResults" class="mt-5"></pagination>
+            <pagination :data="articles" @pagination-change-page="articles" class="mt-5"></pagination>
         </div>
      </v-container>
 </div>
 </template>
 
 <script>
-// we have the main root in EnvPath work using this in every file please
-import Path from "../../../EnvPath";
 import {notification, notify} from "../../../Models/Models";
+import articleService from "../../../Services/ArticleService";
 
 import addArticle from "./AddArticle";
 import editArticle from "./EditArticle";
 import showArticle from "./ShowArticle";
 import deleteArticle from "./DeleteArticle";
-
-const url = Path.baseUrl + "Article";
-
-let created=false
 
 export default {
 
@@ -99,71 +94,39 @@ export default {
         showArticle,
         deleteArticle
     },
+
     data: function () {
         return {
-            Articles: {
-                data:[]
-            },
             q: '',
-            rules:[],
             notification,
+            articles:{data:[]}
         };
     },
-    created(){
-        created = this.getResults()
+   async mounted(){
+        await this.getResults()
     },
     methods: {
 
-        getResults(page = 1) {
-          return axios.get(url + '?page=' + page)
-                .then(response => {
-                    this.Articles = {...response.data};
-                }).then(x => true);
-        },
+         async getResults(){ this.articles = await articleService.listOfArticles(this.q) }
 
-        findArticle() {
-            if (this.q.length > 0) {
-                axios.get(url + '/' + this.q)
-                    .then(response => {
-                        this.Articles = {...response.data};
-                    });
-            } else this.getResults();
-        },
+        ,findArticle(){this.getResults(this.q)}
 
-        articleAdded(isAdded){
-            if(isAdded)
-            {
+        ,articleAdded(isAdded=false){ isAdded ? this.sendNofitication() : this.sendErrorNotification()}
+
+        ,articleUpdated(isUpdated){ isUpdated ? this.sendNofitication() : this.sendErrorNotification()}
+
+        ,articleDeleted(isDeleted){ isDeleted? this.sendNofitication() : this.sendErrorNotification()}
+
+        ,sendNofitication(){
                 this.getResults()
                 this.notification={...notify("لقد تم بنجاح","orange")}
-            }else{
-                this.notification={...notify("لم يتم بنجاح !","orange")}
-            }
-        },
-        articleUpdated(isUpdated){
-            if(isUpdated){
-                this.getResults()
-                this.notification={...notify("لقد تم بنجاح","orange")}
-            }
-        },
-        articleDeleted(isDeleted){
-            if(isDeleted){
-                this.getResults()
-                this.notification={...notify("لقد تم بنجاح","orange")}
-            }
-        },
-
+        }
+        ,sendErrorNotification(){ this.notification={...notify("لم يتم بنجاح !","error")} }
 
     },
     filters: {
-        subStr: function (string) {
-            return string ? string.substring(0, 80) + '...' : '';
-        },
-        adjustDate(date){
-            return date? date.substring(0, 10):'لا يوجد تاريخ';
-        }
+         subStr     : (string) => string ? string.substring(0, 80) + '...' : ''
+        ,adjustDate : (date)   => date? date.substring(0, 10):'لا يوجد تاريخ'
     }
 };
 </script>
-
-<style>
-</style>

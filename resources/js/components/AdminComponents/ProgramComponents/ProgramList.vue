@@ -1,19 +1,20 @@
 <template>
 <div class="Programs" color="grey">
+    <notification :notification="notification"/>
      <v-container class="my-5 ">
-        <h1 class="display2 grey--text">البرنامج</h1>
+        <h1 class="display2 grey--text">البرامج</h1>
            <v-row justify="space-between">
                 <v-col cols="12" md="5" sm="6">
                     <v-text-field
                         color="primary darken-2"
                         label="ابحث عن برنامج"
-                        @change="FindProgram"
+                        @keyup="findProgram"
                         v-model="q"
                         hide-details="auto"
                     ></v-text-field>
                 </v-col>
                 <v-col cols="12" md="4" sm="6">
-                    <addProgram @ProgramAdded="getResults"></addProgram>
+                    <addProgram @programAdded="programAdded"></addProgram>
                 </v-col>
             </v-row>
 
@@ -30,41 +31,49 @@
                     </v-col>
             </v-row>
           </v-card>
-        <v-card v-for="Program in Programs.data" :key="Program.id" flat class="pa-3">
-            <v-row>
-                <v-col cols="12" md="4" sm="2">
-                    <div>{{Program.title}}</div>
-                </v-col>
-                <v-col cols="12" md="4" sm="2">
-                     <div>{{ Program.link}}</div>
-                </v-col>
-                 <v-col cols="12" md="4" sm="2">
-                     <v-row cols="12"  no-gutters>
-                        <showProgram    :Program="Program"/>
-                        <editProgram    :Program="Program"/>
-                        <deleteProgram  :Program="Program"/>
-                     </v-row>
-                 </v-col>
-            </v-row>
+         <div v-if="programs.data.length >0" >
+            <v-card v-for="program in programs.data" :key="program.id" flat class="pa-3">
+                <v-row>
+                    <v-col cols="12" md="4" sm="2">
+                        <div>{{program.title}}</div>
+                    </v-col>
+                    <v-col cols="12" md="4" sm="2">
+                        <div>{{ program.link}}</div>
+                    </v-col>
+                    <v-col cols="12" md="4" sm="2">
+                        <v-row cols="12"  no-gutters>
+                            <showProgram    :Program="program"/>
+                            <editProgram   @programUpdated="programUpdated"  :Program="program"/>
+                            <deleteProgram @programDeleted="programDeleted"  :Program="program"/>
+                        </v-row>
+                    </v-col>
+                </v-row>
+                <v-divider></v-divider>
+            </v-card>
+         </div>
+         <div v-else>
+                <v-card width="100%" class="pa-4 text-center">
+                    <v-row justify="center">
+                        لا يوجد برامج
+                    </v-row>
+                </v-card>
             <v-divider></v-divider>
-        </v-card>
+         </div>
         <div class="container-small mb-3">
-            <pagination :data="Programs" @pagination-change-page="getResults" class="mt-5"></pagination>
+            <pagination :data="programs" @pagination-change-page="programs" class="mt-5"></pagination>
         </div>
      </v-container>
 </div>
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-import {Program} from "../../../Models/Models"
+import {notification, notify} from "../../../Models/Models";
+import programService from '../../../Services/ProgramService'
+
 import showProgram from "./ShowProgram"
 import deleteProgram from "./DeleteProgram"
 import editProgram from "./EditProgram"
 import addProgram from "./AddProgram"
-
-const url = Path.baseUrl + "Program/";
-
 
 export default {
 
@@ -77,49 +86,38 @@ export default {
 
     data: function () {
         return {
-            Programs: {},
-            Program,
+            programs:{data:[]},
             q: '',
-
-        }
+            notification,
+        };
     },
-    mounted() {
-        this.getResults();
-
+    mounted(){
+        this.getResults()
     },
     methods: {
 
-        getResults() {
-            axios.get(url + this.q + '?page=1')
-                .then(response => {
-                    this.Programs = response.data;
-            });
-        },
-        onSuccess(data){
+         async getResults(){ this.programs = await programService.listOfPrograms(this.q) }
 
-            console.log(data)
+        ,findProgram(){ this.getResults()  }
 
-            if(data.success){
+        ,programAdded(isAdded=false){ isAdded ? this.sendNofitication() : this.sendErrorNotification()}
 
-            }else{
+        ,programUpdated(isUpdated){ isUpdated ? this.sendNofitication() : this.sendErrorNotification()}
 
-            }
-        },
+        ,programDeleted(isDeleted){ isDeleted? this.sendNofitication() : this.sendErrorNotification()}
 
-        getProgram(program) {
-            this.Program = {
-                ...program
-            };
-        },
+        ,sendNofitication(){
+                this.getResults()
+                this.notification={...notify("لقد تم بنجاح","orange")}
+        }
+        ,sendErrorNotification(){ this.notification={...notify("لم يتم بنجاح !","error")} }
 
-        FindProgram() {
-            if (this.q.length > 0) {
-                axios.get(url + this.q)
-                    .then(response => {
-                        this.Programs = response.data;
-                    });
-            } else this.getResults();
-        },
+    },
+    filters: {
+         subStr     : (string) => string ? string.substring(0, 80) + '...' : ''
+        ,adjustDate : (date)   => date? date.substring(0, 10):'لا يوجد تاريخ'
+    },
+    watch:{
 
     }
 }

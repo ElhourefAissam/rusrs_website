@@ -97,10 +97,9 @@ export default {
     methods:{
         AddGallery(){
             this.dialog=false
-            console.log(this.gallery)
+
         },
         changed(e){
-            console.log(e)
             this.loading=true
         }
     }

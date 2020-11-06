@@ -61,7 +61,7 @@
                         >هناك خطأ ، المرجو إدخال معلومات صحيحة !!!</span
                     >
                 </v-alert>
-              <form ref="form">
+             <v-form ref="form">
             <v-row justify="space-between">
 
               <v-col
@@ -74,8 +74,8 @@
                   required
                   :rules="rules"
                   hint="عنوان الفعالية"
-                  prepend-icon="article"
-                  v-model="UpdatedEvent.title"
+                  prepend-icon="event"
+                  v-model="updatedEvent.title"
                 ></v-text-field>
               </v-col>
 
@@ -89,7 +89,7 @@
                   hint="المكان "
                   :rules="rules"
                   prepend-icon="account_circle"
-                   v-model="UpdatedEvent.place"
+                   v-model="updatedEvent.place"
                 ></v-text-field>
               </v-col>
 
@@ -103,7 +103,7 @@
                   hint="العنوان"
 
                   prepend-icon="account_circle"
-                   v-model="UpdatedEvent.address"
+                   v-model="updatedEvent.address"
                 ></v-text-field>
               </v-col>
                 <v-col cols="12">
@@ -112,7 +112,7 @@
                     required
                     :rules="rules"
                     prepend-icon="description"
-                    v-model="UpdatedEvent.description"
+                    v-model="updatedEvent.description"
                  ></v-textarea>
                 </v-col>
 
@@ -133,7 +133,7 @@
                             >
                             <template v-slot:activator="{ on, attrs }">
                             <v-text-field
-                                v-model="UpdatedEvent.start_date"
+                                v-model="updatedEvent.start_date"
                                 label="من"
                                 :rules="rules"
                                 prepend-icon="calendar"
@@ -143,7 +143,7 @@
                             ></v-text-field>
                             </template>
                             <v-date-picker
-                            v-model="UpdatedEvent.start_date"
+                            v-model="updatedEvent.start_date"
                             @input="menu1 = false"
                             ></v-date-picker>
                         </v-menu>
@@ -159,7 +159,7 @@
                         >
                         <template v-slot:activator="{ on, attrs }">
                         <v-text-field
-                            v-model="UpdatedEvent.end_date"
+                            v-model="updatedEvent.end_date"
                             label="الى"
                             :rules="rules"
                             prepend-icon="calendar"
@@ -169,14 +169,13 @@
                         ></v-text-field>
                         </template>
                         <v-date-picker
-                        v-model="UpdatedEvent.end_date"
+                        v-model="updatedEvent.end_date"
                         @input="menu2 = false"
                         ></v-date-picker>
                     </v-menu>
                     </v-col>
                </v-row>
               </v-col>
-
             </v-row>
              <v-divider></v-divider>
              <v-row>
@@ -188,7 +187,7 @@
                     ></v-file-input>
                 </v-col>
             </v-row>
-            </form>
+            </v-form>
           </v-container>
           <small class="red--text">*يشير الى ضرورة ملئ الأماكن المطلوبة</small>
         </v-card-text>
@@ -199,10 +198,7 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-const url=Path.baseUrl+"Event/";
-
+import eventService from "../../../Services/EventService";
 
 export default {
     props: ['Event'],
@@ -211,7 +207,7 @@ export default {
             dialog:false,
             menu1:false,
             menu2:false,
-            UpdatedEvent:{...Event},
+            updatedEvent:{...this.Event},
             error:false,
             rules:[
                 v=> v.length > 0 || 'المرجو ملئ الأماكن الفارغة'
@@ -219,20 +215,17 @@ export default {
         }
     },
     methods: {
-        UpdateEvent: function () {
-            this.error= ! this.$refs.form.validate()
-            if(this.$refs.form.validate()){
-                axios.put(url + this.UpdatedEvent.id, {...this.UpdatedEvent})
-                    .then((response) => {
-                        this.$emit('EventUpdated', response)
-                        this.dialog=false
-                    })
-                    .catch(error => console.log(error));
+        UpdateEvent:async function () {
+            this.validat()
+            if(!this.error){
+               const isUpdated = await eventService.editEvent(this.updatedEvent)
+               this.dialog = false
+               this.$emit("eventUpdated", isUpdated.success)
             }
+        },
+        validat(){
+            this.error= ! this.$refs.form.validate()
         }
     }
 }
 </script>
-<style scoped>
-
-</style>

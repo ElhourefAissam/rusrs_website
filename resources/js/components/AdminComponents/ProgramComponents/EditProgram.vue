@@ -76,7 +76,7 @@
                   hint="إسم البرنامج"
                    :rules="rules"
                   prepend-icon="person"
-                  v-model="UpdatedProgram.title"
+                  v-model="updatedProgram.title"
                 ></v-text-field>
               </v-col>
               <v-col
@@ -89,7 +89,7 @@
                    :rules="rules"
                   hint="إضافة  رابط البرنامج في اليوتيوب"
                   prepend-icon="facebook"
-                   v-model="UpdatedProgram.link"
+                   v-model="updatedProgram.link"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -104,37 +104,29 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-const url = Path.baseUrl + "Program/";
-
+import programService from '../../../Services/ProgramService'
 
 export default {
     props: ['Program'],
     data: function () {
         return {
             dialog:false,
-            UpdatedProgram:{...this.Program},
+            updatedProgram:{...this.Program},
              rules:[
                 v=> v.length > 0 || 'المرجو ملئ الأماكن الفارغة'
             ],
             error:false,
         }
     },
-    methods: {
-        UpdateProgram: function () {
+   methods: {
+        UpdateProgram:async function () {
             this.error= ! this.$refs.form.validate()
             if(this.$refs.form.validate()){
-                 this.UpdateProgram.programId = UpdatedProgram.link.split("?v=")[1];
-
-                 axios.put(url + this.UpdatedProgram.id, {...this.UpdatedProgram})
-                    .then((response) => {
-                        this.$emit('ProgramUpdated', response)
-                        this.dialog=false
-                    })
-                    .catch(error => console.log(error));
+               const isUpdated = await programService.editProgram(this.updatedProgram)
+               this.dialog = false
+               this.$emit("programUpdated", isUpdated.success)
+            }
         }
-       }
-    }
+   }
 }
 </script>

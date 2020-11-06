@@ -47,9 +47,7 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-const url=Path.baseUrl+"Member/";
+import memberService from "../../../Services/MemberService";
 
 export default {
     props: ['Member'],
@@ -59,15 +57,11 @@ export default {
         }
     },
     methods: {
-        DeleteMember: function () {
-            axios.delete(url + this.Member.id)
-                .then((response) => {
-                    const isDeleted = response.data.success;
-                    this.$emit('memberDeleted', isDeleted)
-                    this.dialog=false
-                })
-                .catch(error => console.log(error));
-        }
-    }
+            DeleteMember: async function () {
+                const isDeleted = await memberService.deleteMember(this.Member.id)
+                this.$emit('memberDeleted', isDeleted.success)
+                this.dialog = false
+            },
+    },
 }
 </script>

@@ -9,8 +9,16 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../EnvPath */ "./resources/js/EnvPath.js");
-/* harmony import */ var _Models_Models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Models/Models */ "./resources/js/Models/Models.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../EnvPath */ "./resources/js/EnvPath.js");
+/* harmony import */ var _Models_Models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../Models/Models */ "./resources/js/Models/Models.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -134,13 +142,13 @@ __webpack_require__.r(__webpack_exports__);
 // we have the main root in EnvPath work using this in every file please
 
 
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member";
+var url = _EnvPath__WEBPACK_IMPORTED_MODULE_1__["default"].baseUrl + "Member";
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       Members: {},
-      Member: _Models_Models__WEBPACK_IMPORTED_MODULE_1__["Member"],
-      UploadImagesModel: _Models_Models__WEBPACK_IMPORTED_MODULE_1__["UploadImagesModel"],
+      Member: _Models_Models__WEBPACK_IMPORTED_MODULE_2__["Member"],
+      UploadImagesModel: _Models_Models__WEBPACK_IMPORTED_MODULE_2__["UploadImagesModel"],
       dialog: false,
       rules: [function (v) {
         return v.length > 0 || 'المرجو ملئ الأماكن الفارغة';
@@ -152,36 +160,60 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member";
     AddMember: function AddMember() {
       var _this = this;
 
-      this.error = !this.$refs.form.validate();
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var isAdded;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (!_this.$refs.form.validate()) {
+                  _context.next = 8;
+                  break;
+                }
 
-      if (this.$refs.form.validate()) {
-        axios.post(url, this.Member).then(function (response) {
-          var isAdded = response.data.success;
+                _context.next = 3;
+                return _this.$store.dispatch("addMember", _this.Member);
 
-          if (isAdded) {
-            _this.UploadImagesModel.formData.append("modelId", response.data.id);
+              case 3:
+                isAdded = _context.sent;
 
-            _this.$emit('memberAdded', response); //this.addImages()
+                _this.$emit("memberAdded", isAdded.success); //this.UploadImagesModel.formData.append("modelId",response.data.id)
+                //this.addImages()
 
 
-            _this.dialog = false;
-          } else {
-            _this.UploadImagesModel.formData.append("error", "ID does not exist");
+                _this.dialog = false;
+                _context.next = 9;
+                break;
+
+              case 8:
+                _this.error = !_this.$refs.form.validate();
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
           }
-        })["catch"](function (error) {
-          return console.log(error);
-        });
-      }
+        }, _callee);
+      }))();
     },
     getDateObject: function getDateObject(data) {
       this.UploadImagesModel.formData = data.formData;
       this.UploadImagesModel.config = data.config;
     },
     addImages: function addImages() {
-      axios.post(url, this.UploadImagesModel.formData, this.UploadImagesModel.config).then(function (response) {// notify
+      var _this2 = this;
+
+      axios.post(url, this.UploadImagesModel.formData, this.UploadImagesModel.config).then(function (response) {
+        _this2.dialog = false;
+
+        _this2.$emit("memberAdded");
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    resetValidation: function resetValidation() {
+      this.error = false;
+      this.dialog = false;
     }
   }
 });
@@ -197,57 +229,62 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../EnvPath */ "./resources/js/EnvPath.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['Member'],
   data: function data() {
@@ -256,19 +293,35 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
     };
   },
   methods: {
-    DeleteMember: function DeleteMember() {
-      var _this = this;
+    DeleteMember: function () {
+      var _DeleteMember = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var isDeleted;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.$store.dispatch("deleteMember", this.Member.id);
 
-      axios["delete"](url + this.Member.id).then(function (response) {
-        var isDeleted = response.data.success;
+              case 2:
+                isDeleted = _context.sent;
+                this.$emit('memberDeleted', isDeleted.success);
+                this.dialog = false;
 
-        _this.$emit('memberDeleted', isDeleted);
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
 
-        _this.dialog = false;
-      })["catch"](function (error) {
-        return console.log(error);
-      });
-    }
+      function DeleteMember() {
+        return _DeleteMember.apply(this, arguments);
+      }
+
+      return DeleteMember;
+    }()
   }
 });
 
@@ -283,7 +336,14 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../EnvPath */ "./resources/js/EnvPath.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -410,16 +470,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['Member'],
   data: function data() {
     return {
       dialog: false,
-      notifications: false,
-      sound: true,
-      widgets: false,
       updatedMember: _objectSpread({}, this.Member),
       rules: [function (v) {
         return v.length > 0 || 'المرجو ملئ الأماكن الفارغة';
@@ -428,23 +483,42 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
     };
   },
   methods: {
-    UpdateMember: function UpdateMember() {
-      var _this = this;
+    UpdateMember: function () {
+      var _UpdateMember = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var isUpdated;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.error = !this.$refs.form.validate();
 
-      this.error = !this.$refs.form.validate();
+                if (!this.$refs.form.validate()) {
+                  _context.next = 7;
+                  break;
+                }
 
-      if (this.$refs.form.validate()) {
-        axios.put(url + this.updatedMember.id, _objectSpread({}, this.updatedMember)).then(function (response) {
-          var isUpdated = response.data.success;
+                _context.next = 4;
+                return this.$store.dispatch("editMember", this.updatedMember);
 
-          _this.$emit('memberUpdated', isUpdated);
+              case 4:
+                isUpdated = _context.sent;
+                this.dialog = false;
+                this.$emit("memberUpdated", isUpdated.success);
 
-          _this.dialog = false;
-        })["catch"](function (error) {
-          return console.log(error);
-        });
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function UpdateMember() {
+        return _UpdateMember.apply(this, arguments);
       }
-    }
+
+      return UpdateMember;
+    }()
   }
 });
 
@@ -459,8 +533,8 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _EnvPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../EnvPath */ "./resources/js/EnvPath.js");
-/* harmony import */ var _Models_Models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Models/Models */ "./resources/js/Models/Models.js");
+/* harmony import */ var _Models_Models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Models/Models */ "./resources/js/Models/Models.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _AddMember__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddMember */ "./resources/js/components/AdminComponents/MemberComponents/AddMember.vue");
 /* harmony import */ var _DeleteMember__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DeleteMember */ "./resources/js/components/AdminComponents/MemberComponents/DeleteMember.vue");
 /* harmony import */ var _EditMember__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EditMember */ "./resources/js/components/AdminComponents/MemberComponents/EditMember.vue");
@@ -535,13 +609,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 
-
-var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     addMember: _AddMember__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -550,59 +635,46 @@ var url = _EnvPath__WEBPACK_IMPORTED_MODULE_0__["default"].baseUrl + "Member/";
   },
   data: function data() {
     return {
-      Members: {},
-      Member: _Models_Models__WEBPACK_IMPORTED_MODULE_1__["Member"],
       q: '',
-      show: false,
-      notification: _Models_Models__WEBPACK_IMPORTED_MODULE_1__["notification"]
+      notification: _Models_Models__WEBPACK_IMPORTED_MODULE_0__["notification"]
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     this.getResults();
+    console.log(this.getMembers);
   },
   methods: {
     getResults: function getResults() {
-      var _this = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(url + this.q + '?page=' + page).then(function (response) {
-        _this.Members = response.data;
-      });
+      this.$store.dispatch('getListOfMembers');
     },
-    getMember: function getMember(Member) {
-      this.Member = Member;
+    findMember: function findMember() {
+      this.q.length > 0 ? this.$store.dispatch('getMember', this.q) : this.getResults();
     },
-    refresh: function refresh(Members) {
-      this.Members = Members.data;
-    },
-    FindMember: function FindMember() {
-      var _this2 = this;
-
-      if (this.q.length > 0) {
-        axios.get(url + this.q).then(function (response) {
-          _this2.Members = response.data;
-        });
-      } else this.getResults();
-    },
-    memberAdded: function memberAdded(isAdded) {
-      if (isAdded) {
-        this.getResults();
-        this.notification = _objectSpread({}, Object(_Models_Models__WEBPACK_IMPORTED_MODULE_1__["notify"])("لقد تم بنجاح", "orange"));
-      } else {
-        this.notification = _objectSpread({}, Object(_Models_Models__WEBPACK_IMPORTED_MODULE_1__["notify"])("لم يتم بنجاح !", "orange"));
-      }
+    memberAdded: function memberAdded() {
+      var isAdded = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      isAdded ? this.sendNofitication() : this.sendErrorNotification();
     },
     memberUpdated: function memberUpdated(isUpdated) {
-      if (isUpdated) {
-        this.getResults();
-        this.notification = _objectSpread({}, Object(_Models_Models__WEBPACK_IMPORTED_MODULE_1__["notify"])("لقد تم بنجاح", "orange"));
-      }
+      isUpdated ? this.sendNofitication() : this.sendErrorNotification();
     },
     memberDeleted: function memberDeleted(isDeleted) {
-      if (isDeleted) {
-        this.getResults();
-        this.notification = _objectSpread({}, Object(_Models_Models__WEBPACK_IMPORTED_MODULE_1__["notify"])("لقد تم بنجاح", "orange"));
-      }
+      isDeleted ? this.sendNofitication() : this.sendErrorNotification();
+    },
+    sendNofitication: function sendNofitication() {
+      this.getResults();
+      this.notification = _objectSpread({}, Object(_Models_Models__WEBPACK_IMPORTED_MODULE_0__["notify"])("لقد تم بنجاح", "orange"));
+    },
+    sendErrorNotification: function sendErrorNotification() {
+      this.notification = _objectSpread({}, Object(_Models_Models__WEBPACK_IMPORTED_MODULE_0__["notify"])("لم يتم بنجاح !", "error"));
+    }
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["members"])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(["getMembers"])),
+  filters: {
+    subStr: function subStr(string) {
+      return string ? string.substring(0, 80) + '...' : '';
+    },
+    adjustDate: function adjustDate(date) {
+      return date ? date.substring(0, 10) : 'لا يوجد تاريخ';
     }
   }
 });
@@ -1321,7 +1393,7 @@ var render = function() {
                       label: "إبحث عن عضو في الجمعية",
                       "hide-details": "auto"
                     },
-                    on: { change: _vm.FindMember },
+                    on: { change: _vm.findMember },
                     model: {
                       value: _vm.q,
                       callback: function($$v) {
@@ -1344,103 +1416,138 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "v-row",
-            _vm._l(_vm.Members.data, function(Member) {
-              return _c(
-                "v-col",
-                { key: Member.id, attrs: { col: "12", md: "4" } },
+          _vm.getMembers.data.length > 0
+            ? _c(
+                "div",
                 [
                   _c(
-                    "v-card",
-                    { staticClass: "mx-auto", attrs: { "max-width": "344" } },
-                    [
-                      _c(
-                        "v-img",
-                        {
-                          staticStyle: { "z-index": "1" },
-                          attrs: {
-                            src: __webpack_require__(/*! ../../../src/assets/team2.jpeg */ "./resources/js/src/assets/team2.jpeg"),
-                            height: "200px"
-                          }
-                        },
+                    "v-row",
+                    _vm._l(_vm.getMembers.data, function(member) {
+                      return _c(
+                        "v-col",
+                        { key: member.id, attrs: { col: "12", md: "4" } },
                         [
                           _c(
-                            "v-avatar",
+                            "v-card",
                             {
-                              staticClass: "mt-4 mr-3",
-                              attrs: { size: "120" }
+                              staticClass: "mx-auto",
+                              attrs: { "max-width": "344" }
                             },
                             [
-                              _c("img", {
-                                staticStyle: { "z-index": "3" },
-                                attrs: {
-                                  alt: "user",
-                                  src:
-                                    "https://cdn.pixabay.com/photo/2020/06/24/19/12/cabbage-5337431_1280.jpg"
-                                }
-                              })
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("v-card-title", [
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(Member.full_name) +
-                            "\n                    "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("v-card-subtitle", [
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(Member.position) +
-                            "\n                    "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("v-card-subtitle", [
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s(Member.facebook) +
-                            "\n                    "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "v-card-actions",
-                        [
-                          _c(
-                            "v-row",
-                            { attrs: { cols: "12", "no-gutters": "" } },
-                            [
-                              _c("editMember", {
-                                attrs: { Member: Member },
-                                on: { memberUpdated: _vm.memberUpdated }
-                              }),
+                              _c(
+                                "v-img",
+                                {
+                                  staticStyle: { "z-index": "1" },
+                                  attrs: {
+                                    src: __webpack_require__(/*! ../../../src/assets/team2.jpeg */ "./resources/js/src/assets/team2.jpeg"),
+                                    height: "200px"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "v-avatar",
+                                    {
+                                      staticClass: "mt-4 mr-3",
+                                      attrs: { size: "120" }
+                                    },
+                                    [
+                                      _c("img", {
+                                        staticStyle: { "z-index": "3" },
+                                        attrs: {
+                                          alt: "user",
+                                          src:
+                                            "https://cdn.pixabay.com/photo/2020/06/24/19/12/cabbage-5337431_1280.jpg"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
                               _vm._v(" "),
-                              _c("deleteMember", {
-                                attrs: { Member: Member },
-                                on: { memberDeleted: _vm.memberDeleted }
-                              })
+                              _c("v-card-title", [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(member.full_name) +
+                                    "\n                    "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("v-card-subtitle", [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(member.position) +
+                                    "\n                    "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("v-card-subtitle", [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(member.facebook) +
+                                    "\n                    "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-actions",
+                                [
+                                  _c(
+                                    "v-row",
+                                    { attrs: { cols: "12", "no-gutters": "" } },
+                                    [
+                                      _c("editMember", {
+                                        attrs: { Member: member },
+                                        on: { memberUpdated: _vm.memberUpdated }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("deleteMember", {
+                                        attrs: { Member: member },
+                                        on: { memberDeleted: _vm.memberDeleted }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                ],
+                                1
+                              )
                             ],
                             1
                           )
                         ],
                         1
                       )
-                    ],
+                    }),
                     1
                   )
                 ],
                 1
               )
-            }),
-            1
-          ),
+            : _c(
+                "div",
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-card",
+                        {
+                          staticClass: "mx-auto text-center pa-4",
+                          attrs: { width: "100%" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    لا يوجد أعضاء\n                "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
           _vm._v(" "),
           _c(
             "div",
@@ -1448,8 +1555,8 @@ var render = function() {
             [
               _c("pagination", {
                 staticClass: "mt-5",
-                attrs: { data: _vm.Members },
-                on: { "pagination-change-page": _vm.getResults }
+                attrs: { data: _vm.getMembers },
+                on: { "pagination-change-page": _vm.getMembers }
               })
             ],
             1

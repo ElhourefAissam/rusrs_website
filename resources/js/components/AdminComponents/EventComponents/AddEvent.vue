@@ -75,7 +75,7 @@
                   required
                   :rules="rules"
                   hint="عنوان الفعالية"
-                  prepend-icon="article"
+                  prepend-icon="event"
                   v-model="Event.title"
                 ></v-text-field>
               </v-col>
@@ -103,6 +103,7 @@
                   label="العنوان"
                   hint="العنوان"
                   prepend-icon="home"
+                  :rules="rules"
                    v-model="Event.address"
                 ></v-text-field>
               </v-col>
@@ -198,18 +199,12 @@
 </template>
 
 <script>
-
-// we have the main root in EnvPath work using this in every file please
-import Path from "../../../EnvPath";
 import {Event , UploadImagesModel} from "../../../Models/Models";
-
-const url=Path.baseUrl + "Event";
-const imageUrl = Path.baseUrl + "imageUpload"
+import eventService from "../../../Services/EventService";
 
 export default {
     data: function () {
         return {
-            Events: {},
             Event,
             UploadImagesModel,
             dialog:false,
@@ -218,47 +213,47 @@ export default {
              rules:[
                 v=> v.length > 0 || 'المرجو ملئ الأماكن الفارغة'
             ],
-            error:false
+            error:false,
         }
-    },
-    created(){
-
     },
     methods: {
         async AddEvent() {
-            this.error= ! this.$refs.form.validate()
-            if(this.$refs.form.validate()){
-                axios.post( url , this.Event)
-                .then(response=>{
-                    if(response.data.id){
-                        //this.UploadImagesModel.formData.append("modelId",response.data.id)
-                        //this.addImages()
-                            this.$emit('EventAdded', response)
-                            this.dialog=false
-                    }
-
-                }).catch(err=>{
-                        console.log(err)
-                    })
+            if (this.$refs.form.validate()) {
+                const isAdded = await eventService.addEvent(this.Event)
+                this.$emit("eventAdded", isAdded.success);
+                //this.UploadImagesModel.formData.append("modelId",response.data.id)
+                //this.addImages()
+                this.dialog=false
+            }else{
+                this.error = !this.$refs.form.validate();
             }
         },
 
-        getDateObject(data){
-            this.UploadImagesModel.formData = data.formData
-            this.UploadImagesModel.config = data.config
+        getDateObject(data) {
+            // this.UploadImagesModel.formData = data.formData;
+            // this.UploadImagesModel.config = data.config;
         },
 
-        addImages(){
-            axios.post(url , this.UploadImagesModel.formData , this.UploadImagesModel.config )
-            .then(response=>{
-                //this.$emit('EventAdded', response)
-                alert('Event was added successfully')
-            })
-            .catch(err=>{
-                console.log(err)
-            })
+        addImages() {
+            // axios
+            //     .post(
+            //         url,
+            //         this.UploadImagesModel.formData,
+            //         this.UploadImagesModel.config
+            //     )
+            //     .then(response => {
+            //         this.dialog = false;
+            //         this.$emit("EventAdded");
+            //         alert("Event was added successfully");
+            //     })
+            //     .catch(err => {
+            //         console.log(err);
+            //     });
+        },
+        resetValidation(){
+            this.error=false
+            this.dialog=false
         }
-
     }
 }
 </script>

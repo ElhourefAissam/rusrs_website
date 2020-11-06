@@ -48,9 +48,7 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-const url=Path.baseUrl + "Event";
+import eventService from "../../../Services/EventService";
 
 export default {
     props: ['Event'],
@@ -60,17 +58,11 @@ export default {
         }
     },
     methods: {
-        DeleteEvent: function () {
-
-            const param = this.Event.id ? '/' + this.Event.id : '';
-
-            axios.delete(url + param)
-                .then((response) => {
-                    this.$emit('EventDeleted', response)
-                    this.dialog=false
-                })
-                .catch(error => console.log(error));
-        }
-    }
+            DeleteEvent: async function () {
+                const isDeleted = await eventService.deleteEvent(this.Event.id)
+                this.$emit('eventDeleted', isDeleted.success)
+                this.dialog = false
+            },
+        },
 }
 </script>

@@ -8,7 +8,7 @@
                     <v-text-field
                         color="primary darken-2"
                         label="إبحث عن عضو في الجمعية"
-                        @change="FindMember"
+                        @keyup="findMember"
                         v-model="q"
                         hide-details="auto"
                     ></v-text-field>
@@ -18,9 +18,10 @@
                 </v-col>
             </v-row>
 
+           <div v-if="members.data.length >0" >
             <v-row>
-             <v-col v-for="Member in Members.data" :key="Member.id" col="12" md="4">
-                    <v-card
+             <v-col v-for="member in members.data" :key="member.id" col="12" md="4">
+                <v-card
                     class="mx-auto"
                     max-width="344"
                 >
@@ -37,106 +38,92 @@
                     </v-img>
 
                     <v-card-title>
-                    {{Member.full_name}}
+                    {{member.full_name}}
                     </v-card-title>
 
                     <v-card-subtitle>
-                    {{Member.position}}
+                    {{member.position}}
                     </v-card-subtitle>
                     <v-card-subtitle>
-                    {{Member.facebook}}
+                    {{member.facebook}}
                     </v-card-subtitle>
 
                     <v-card-actions>
                      <v-row cols="12"  no-gutters>
-                        <editMember   @memberUpdated="memberUpdated" :Member="Member"/>
-                        <deleteMember @memberDeleted="memberDeleted" :Member="Member"/>
+                        <editMember   @memberUpdated="memberUpdated" :Member="member"/>
+                        <deleteMember @memberDeleted="memberDeleted" :Member="member"/>
                      </v-row>
                     </v-card-actions>
                 </v-card>
              </v-col>
             </v-row>
+           </div>
+            <div v-else>
+                <v-row justify="center">
+                 <v-card
+                    class="mx-auto text-center pa-4"
+                    width="100%"
+
+                >
+                    لا يوجد أعضاء
+                </v-card>
+                </v-row>
+            </div>
         <div class="container-small mb-3">
-            <pagination :data="Members" @pagination-change-page="getResults" class="mt-5"></pagination>
+            <pagination :data="members" @pagination-change-page="members" class="mt-5"></pagination>
         </div>
      </v-container>
 </div>
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-import {Member} from "../../../Models/Models";
 import {notification, notify} from "../../../Models/Models";
+import memberService from "../../../Services/MemberService";
 
 import addMember    from "./AddMember"
 import deleteMember from "./DeleteMember"
 import editMember   from "./EditMember"
-
-const url = Path.baseUrl + "Member/";
-
 
 export default {
     components:{
         addMember,
         deleteMember,
         editMember,
-        
+
     },
     data: function () {
         return {
-            Members: {},
-            Member,
+            members:{data:[]},
             q: '',
-            show:false,
-            notification
-        }
+            notification,
+        };
     },
-    created() {
-        this.getResults();
+    mounted(){
+        this.getResults()
     },
     methods: {
-        getResults(page = 1) {
-           axios.get( url + this.q + '?page=' + page)
-                .then(response => {
-                     this.Members = response.data
-                })
-        },
-        getMember(Member) {
-            this.Member = Member;
-        },
-        refresh(Members) {
-            this.Members = Members.data;
-        },
-        FindMember() {
-            if (this.q.length > 0) {
-                axios.get(url + this.q)
-                    .then(response => {
-                        this.Members = response.data;
-                    });
-            } else
-                this.getResults();
-        },
-         memberAdded(isAdded){
-            if(isAdded)
-            {
+
+         async getResults(){ this.members = await memberService.listOfMembers(this.q)  }
+
+        ,findMember(){ this.getResults()}
+
+        ,memberAdded(isAdded=false){ isAdded ? this.sendNofitication() : this.sendErrorNotification()}
+
+        ,memberUpdated(isUpdated){ isUpdated ? this.sendNofitication() : this.sendErrorNotification()}
+
+        ,memberDeleted(isDeleted){ isDeleted? this.sendNofitication() : this.sendErrorNotification()}
+
+        ,sendNofitication(){
                 this.getResults()
                 this.notification={...notify("لقد تم بنجاح","orange")}
-            }else{
-                this.notification={...notify("لم يتم بنجاح !","orange")}
-            }
-        },
-        memberUpdated(isUpdated){
-            if(isUpdated){
-                this.getResults()
-                this.notification={...notify("لقد تم بنجاح","orange")}
-            }
-        },
-        memberDeleted(isDeleted){
-            if(isDeleted){
-                this.getResults()
-                this.notification={...notify("لقد تم بنجاح","orange")}
-            }
-        },
+        }
+
+        ,sendErrorNotification(){ this.notification={...notify("لم يتم بنجاح !","error")} }
+
+    },
+    filters: {
+         subStr     : (string) => string ? string.substring(0, 80) + '...' : ''
+        ,adjustDate : (date)   => date? date.substring(0, 10):'لا يوجد تاريخ'
     }
 }
 </script>

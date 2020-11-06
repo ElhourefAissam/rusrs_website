@@ -32,13 +32,13 @@ class ProgramController extends Controller
                 'programId' => $request->programId,
             ]);
 
-            if($created)
-                return request()->json(["success"=>true]);
-            else
-                return request()->json(["success"=>false]);
+            if ($created)
+                 return  response()->json(["id"      => $created->id, "success" => true]);
+            else return  response()->json(["success" => false]);
 
         }catch(Exception $e){
-            return ["success"=>false, "error"=> $e];
+            dd($e);
+            return request()->json(["success"=>false, "error"=> $e->getMessage()]);
         }
     }
 
@@ -49,29 +49,37 @@ class ProgramController extends Controller
 
     public function update(Request $request,$id)
     {
+        try{
         $request->validate([
             "title" => "required",
             "link"  => "required",
-            'programId' => $request->programId,
         ]);
 
 
         $program = Program::findOrFail($id);
         $program->title = $request->title;
         $program->link = $request->link;
+        $program->programId = $request->programId;
 
         $result=$program->save();
         if($result){
-            request()->json(["success"=>true]);
+            return response()->json(["success" => true]);
         }else{
-            request()->json(["success"=>false]);
+            return response()->json(["success" => false]);
+        }
+        }catch(Exception $e){
+            return response()->json(["success" => false, "error"=> $e->getMessage()]);
         }
     }
 
     public function destroy($id)
     {
-        $removed = Program::destroy($id);
-        if($removed) request()->json(["success"=>true]);
-        else request()->json(["success"=>false]);
+        try{
+            $removed = Program::destroy($id);
+            if ($removed) return response()->json(["success" => true]);
+            else          return response()->json(["success" => false]);
+        }catch(Exception $e){
+            return response()->json(["success" => false, "error"=> $e->getMessage()]);
+        }
     }
 }

@@ -48,9 +48,7 @@
 </template>
 
 <script>
-import Path from "../../../EnvPath";
-
-const url=Path.baseUrl+"Article";
+import articleService from "../../../Services/ArticleService";
 
 export default {
     props: ['article'],
@@ -60,22 +58,11 @@ export default {
         }
     },
     methods: {
-        DeleteArticle: function () {
-
-            const param = this.article.id ? '/' + this.article.id : '';
-
-            axios.delete(url + param)
-                .then((response) => {
-                    this.dialog = false
-                    // if(response.data.deleted===true)
-                    // {
-                    // }
-
-                     this.$emit('articleDeleted', response)
-                })
-                .catch(error => console.log(error));
+        DeleteArticle: async function () {
+            const isDeleted = await articleService.deleteArticle(this.article.id)
+            this.$emit('articleDeleted', isDeleted.success)
+            this.dialog = false
         },
-
-    }
+    },
 }
 </script>
