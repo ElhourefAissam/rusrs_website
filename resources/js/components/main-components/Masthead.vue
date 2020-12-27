@@ -4,7 +4,7 @@
             <v-carousel
                 hide-delimiters
                 cycle
-                progress="true"
+                :progress="true"
                 dark
                 height="88vh"
                 class="mb-5"

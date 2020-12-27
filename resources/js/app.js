@@ -17,6 +17,7 @@ Vue.component('admin-login', require('./components/AdminComponents/login.vue').d
 
 // Admin Components
 Vue.component('admin-app', require('./components/AdminComponents/App.vue').default);
+Vue.component('main-app', require('./components/AdminComponents/main.vue').default);
 //pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
 // Front App

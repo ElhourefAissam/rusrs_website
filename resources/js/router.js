@@ -36,10 +36,16 @@ const routes = [
         component: () =>
             import ("./components/AdminComponents/GalleryComponent/GalleryList.vue")
     },
+    {
+        path: '/applogin',
+        name: 'applogin',
+        component: () =>
+            import ("./components/AdminComponents/login.vue")
+    },
 
     {
-        path: '/',
-        redirect:'/Article'
+        path: '/admin',
+        redirect: '/admin/article'
     },
 
     {

@@ -24,8 +24,8 @@
     </head>
     <body id="page-top">
         <div id="app">
-            {{-- <front-page /> --}}
-            <admin-app/>
+            @dd(\Auth::check())
+            <main-app />
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

@@ -17,18 +17,27 @@
                 <v-btn class="grey--text title" text href="#programs"> البرامج</v-btn>
                 <v-btn class="grey--text title" text href="#members">الاعضاء</v-btn>
             </v-toolbar-items>
+              <!-- <v-btn class="title block primary whith--text" text href="/applogin">تسجيل</v-btn> -->
 
         </v-toolbar>
+        <v-spacer></v-spacer>
+            <login class="float-left"></login>
     </v-app-bar>
 </v-container>
 </template>
 
 <script>
+import login from "./../AdminComponents/login.vue";
+
 export default {
+    components: {
+        login
+    },
     props: [],
     data() {
         return {
             image: require('../../src/assets/navbar-logo.jpg'),
+            login: '/login',
         }
     },
     mounted() {
